@@ -2,1002 +2,623 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coaching-Navigator · Systemisches Business Coaching</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Coaching-Navigator · Wings SBC</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#1a1a18;--bg:#f5f2ec;--white:#ffffff;--rule:#ddd8ce;
-  --p1:#2d5a6b;--p1l:#e6f0f3;
-  --p2:#4a3f6b;--p2l:#edeaf5;
-  --p3:#4a6b3a;--p3l:#eaf0e6;
-  --p4:#8b5e2a;--p4l:#f5ede3;
-  --p5:#3a4a5a;--p5l:#e6eaee;
-  --mx:#3a3a3a;--mxl:#ebebeb;
-  --amber:#c8853a;
-  --shadow:0 2px 16px rgba(0,0,0,.08);
+  --ink:#1a1a18;--bg:#f5f2ec;--white:#fff;--rule:#ddd8ce;
+  --p1:#2d5a6b;--p1l:#e6f0f3;--p2:#4a3f6b;--p2l:#edeaf5;
+  --p3:#4a6b3a;--p3l:#eaf0e6;--p4:#8b5e2a;--p4l:#f5ede3;
+  --p5:#3a4a5a;--p5l:#e6eaee;--amber:#c8853a;
+  --sh:0 2px 16px rgba(0,0,0,.08);
 }
 body{font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.55;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
-
-/* HEADER */
-header{background:var(--ink);color:#fff;padding:16px 24px;display:flex;align-items:baseline;gap:16px;flex-shrink:0}
-header h1{font-family:'DM Serif Display',serif;font-size:1.3rem;letter-spacing:-.01em}
-header span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#aaa}
-
-/* TABS */
+header{background:var(--ink);color:#fff;padding:12px 22px;display:flex;align-items:baseline;gap:14px;flex-shrink:0}
+header h1{font-family:'DM Serif Display',serif;font-size:1.2rem}
+header span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#aaa}
 nav{background:#fff;border-bottom:1px solid var(--rule);display:flex;overflow-x:auto;flex-shrink:0;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
-.tab{padding:12px 20px;cursor:pointer;border:none;background:none;font-family:inherit;font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#999;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:color .15s,border-color .15s;flex-shrink:0}
-.tab.act-p1{color:var(--p1);border-color:var(--p1)}
-.tab.act-p2{color:var(--p2);border-color:var(--p2)}
-.tab.act-p3{color:var(--p3);border-color:var(--p3)}
-.tab.act-p4{color:var(--p4);border-color:var(--p4)}
-.tab.act-p5{color:var(--p5);border-color:var(--p5)}
-.tab.act-mx{color:var(--mx);border-color:var(--mx)}
-
-/* LAYOUT */
+.tab{padding:10px 16px;cursor:pointer;border:none;background:none;font-family:inherit;font-size:.73rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#999;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:color .15s,border-color .15s;flex-shrink:0}
+.tab.a1{color:var(--p1);border-color:var(--p1)}.tab.a2{color:var(--p2);border-color:var(--p2)}
+.tab.a3{color:var(--p3);border-color:var(--p3)}.tab.a4{color:var(--p4);border-color:var(--p4)}
+.tab.a5{color:var(--p5);border-color:var(--p5)}.tab.a6{color:#444;border-color:#444}
 main{flex:1;display:flex;overflow:hidden}
-.panel{display:none;flex:1;overflow-y:auto;padding:24px}
+.panel{display:none;flex:1;overflow-y:auto;padding:18px 22px}
 .panel.vis{display:block}
-
-/* RECIPE CARD */
-.card{background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:var(--shadow);max-width:820px;margin:0 auto}
-.card-head{padding:24px 28px 18px;border-bottom:1px solid var(--rule)}
-.ph-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
-.card-head h2{font-family:'DM Serif Display',serif;font-size:1.5rem;letter-spacing:-.01em;line-height:1.15}
-.card-meta{margin-top:8px;font-size:.78rem;color:#777;display:flex;gap:16px;flex-wrap:wrap}
-.goal-box{margin:18px 28px 0;padding:11px 14px;border-left:3px solid;border-radius:0 4px 4px 0;font-style:italic;font-size:.83rem}
-
-/* STEPS */
-.steps{padding:4px 28px 28px}
-.step{padding:16px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:38px 1fr;gap:0 12px}
+.card{background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:var(--sh);max-width:820px;margin:0 auto}
+.ch{padding:20px 24px 14px;border-bottom:1px solid var(--rule)}
+.phl{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.ch h2{font-family:'DM Serif Display',serif;font-size:1.4rem;letter-spacing:-.01em;line-height:1.15}
+.meta{margin-top:6px;font-size:.76rem;color:#777;display:flex;gap:12px;flex-wrap:wrap}
+.gb{margin:13px 24px 0;padding:9px 12px;border-left:3px solid;border-radius:0 4px 4px 0;font-style:italic;font-size:.81rem}
+.steps{padding:4px 24px 22px}
+.step{padding:13px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:36px 1fr;gap:0 10px}
 .step:last-child{border-bottom:none}
-.sn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:2px}
-.st{font-weight:600;font-size:.9rem;margin-bottom:3px;line-height:1.3}
-.sd{font-size:.82rem;color:#555;line-height:1.55}
-.sd ul{margin-top:4px;padding-left:15px}
-.sd li{margin-bottom:2px}
-
-/* CHECKBOXES */
-.ck{display:flex;align-items:flex-start;gap:7px;margin-bottom:3px}
+.sn{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.st{font-weight:600;font-size:.87rem;margin-bottom:3px;line-height:1.3}
+.sd{font-size:.8rem;color:#555;line-height:1.55}
+.sd ul{margin-top:4px;padding-left:13px}.sd li{margin-bottom:2px}
+.ck{display:flex;align-items:flex-start;gap:6px;margin-bottom:3px}
 .ck input{margin-top:3px;width:13px;height:13px;flex-shrink:0;cursor:pointer;accent-color:var(--amber)}
-.ck label{font-size:.82rem;color:#555;cursor:pointer;line-height:1.4}
+.ck label{font-size:.8rem;color:#555;cursor:pointer;line-height:1.4}
 .ck input:checked+label{text-decoration:line-through;color:#bbb}
-
-/* METHOD BUTTONS */
-.mbtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.mbtn{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border:1px solid currentColor;border-radius:20px;font-size:.72rem;font-weight:600;letter-spacing:.04em;background:none;cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
-.mbtn::before{content:'↗';font-size:.75rem}
-.mbtn:hover{color:#fff!important;border-color:currentColor}
-
-/* TIPS */
-.tips{background:var(--bg);border-top:1px solid var(--rule);padding:18px 28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:560px){.tips{grid-template-columns:1fr}}
-.tip h4{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;color:#666}
-.tip ul,.tip p{font-size:.8rem;color:#555;line-height:1.5}
-.tip ul{padding-left:14px}
-.tip li{margin-bottom:2px}
-
-/* PHASE COLOURS */
-.pc-p1 .ph-label,.pc-p1 .sn,.pc-p1 .mbtn{color:var(--p1)}
-.pc-p1 .sn{background:var(--p1l)}.pc-p1 .goal-box{border-color:var(--p1);background:var(--p1l)}
-.pc-p1 .mbtn:hover{background:var(--p1)}
-.pc-p2 .ph-label,.pc-p2 .sn,.pc-p2 .mbtn{color:var(--p2)}
-.pc-p2 .sn{background:var(--p2l)}.pc-p2 .goal-box{border-color:var(--p2);background:var(--p2l)}
-.pc-p2 .mbtn:hover{background:var(--p2)}
-.pc-p3 .ph-label,.pc-p3 .sn,.pc-p3 .mbtn{color:var(--p3)}
-.pc-p3 .sn{background:var(--p3l)}.pc-p3 .goal-box{border-color:var(--p3);background:var(--p3l)}
-.pc-p3 .mbtn:hover{background:var(--p3)}
-.pc-p4 .ph-label,.pc-p4 .sn,.pc-p4 .mbtn{color:var(--p4)}
-.pc-p4 .sn{background:var(--p4l)}.pc-p4 .goal-box{border-color:var(--p4);background:var(--p4l)}
-.pc-p4 .mbtn:hover{background:var(--p4)}
-.pc-p5 .ph-label,.pc-p5 .sn,.pc-p5 .mbtn{color:var(--p5)}
-.pc-p5 .sn{background:var(--p5l)}.pc-p5 .goal-box{border-color:var(--p5);background:var(--p5l)}
-.pc-p5 .mbtn:hover{background:var(--p5)}
-
-/* METHOD INDEX */
-.mx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;max-width:900px;margin:0 auto}
-.mx-card{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:16px;cursor:pointer;transition:box-shadow .15s,transform .1s;box-shadow:var(--shadow)}
-.mx-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.12);transform:translateY(-1px)}
-.mx-badge{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;padding:2px 7px;border-radius:10px;display:inline-block}
-.mx-card h3{font-size:.88rem;font-weight:600;line-height:1.3;margin-bottom:4px}
-.mx-card p{font-size:.76rem;color:#777;line-height:1.4}
-
-/* OVERLAY */
+.mbtns{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.mbtn{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border:1px solid currentColor;border-radius:16px;font-size:.69rem;font-weight:600;letter-spacing:.03em;background:none;cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
+.mbtn::before{content:'\2197';font-size:.68rem}
+.mbtn:hover{color:#fff!important;background:currentColor}
+.tips{background:var(--bg);border-top:1px solid var(--rule);padding:14px 24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:540px){.tips{grid-template-columns:1fr}}
+.tip h4{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;color:#666}
+.tip ul,.tip p{font-size:.77rem;color:#555;line-height:1.5}.tip ul{padding-left:12px}.tip li{margin-bottom:2px}
+.pc1 .phl,.pc1 .sn,.pc1 .mbtn{color:var(--p1)}.pc1 .sn{background:var(--p1l)}.pc1 .gb{border-color:var(--p1);background:var(--p1l)}
+.pc2 .phl,.pc2 .sn,.pc2 .mbtn{color:var(--p2)}.pc2 .sn{background:var(--p2l)}.pc2 .gb{border-color:var(--p2);background:var(--p2l)}
+.pc3 .phl,.pc3 .sn,.pc3 .mbtn{color:var(--p3)}.pc3 .sn{background:var(--p3l)}.pc3 .gb{border-color:var(--p3);background:var(--p3l)}
+.pc4 .phl,.pc4 .sn,.pc4 .mbtn{color:var(--p4)}.pc4 .sn{background:var(--p4l)}.pc4 .gb{border-color:var(--p4);background:var(--p4l)}
+.pc5 .phl,.pc5 .sn,.pc5 .mbtn{color:var(--p5)}.pc5 .sn{background:var(--p5l)}.pc5 .gb{border-color:var(--p5);background:var(--p5l)}
+/* Index */
+.mx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:9px;max-width:880px;margin:0 auto}
+.mxc{background:#fff;border:1px solid var(--rule);border-radius:5px;padding:13px;cursor:pointer;transition:box-shadow .15s,transform .1s;box-shadow:var(--sh)}
+.mxc:hover{box-shadow:0 4px 18px rgba(0,0,0,.12);transform:translateY(-1px)}
+.mxbadge{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px;padding:2px 5px;border-radius:8px;display:inline-block}
+.mxc h3{font-size:.84rem;font-weight:600;line-height:1.3;margin-bottom:2px}
+.mxc p{font-size:.73rem;color:#777;line-height:1.4}
+.mx-cat{font-family:'DM Serif Display',serif;font-size:1.05rem;margin:18px 0 8px;max-width:880px;margin-left:auto;margin-right:auto;color:#555;border-bottom:1px solid var(--rule);padding-bottom:4px}
+/* Drawer */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:none;align-items:flex-start;justify-content:flex-end}
 .overlay.open{display:flex}
-.drawer{width:min(500px,100vw);height:100vh;background:#fff;overflow-y:auto;box-shadow:-4px 0 24px rgba(0,0,0,.15);display:flex;flex-direction:column}
-.drawer-head{padding:22px 24px 16px;border-bottom:1px solid var(--rule);position:sticky;top:0;background:#fff;z-index:1}
-.drawer-close{float:right;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#999;padding:0;line-height:1;margin-top:-2px}
-.drawer-head .d-badge{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
-.drawer-head h2{font-family:'DM Serif Display',serif;font-size:1.25rem;letter-spacing:-.01em;line-height:1.2}
-.drawer-body{padding:20px 24px 32px;flex:1}
-.d-section{margin-bottom:20px}
-.d-section h3{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--rule)}
-.d-section p,.d-section li{font-size:.84rem;color:#444;line-height:1.55}
-.d-section ul{padding-left:16px}
-.d-section li{margin-bottom:3px}
-.d-steps .ds{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
-.d-steps .dsn{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0;margin-top:1px}
-.d-steps .dst{font-size:.83rem;line-height:1.5;color:#333}
-.d-steps .dst strong{display:block;font-weight:600;margin-bottom:1px;font-size:.84rem}
-
-.amber-rule{height:2px;background:linear-gradient(90deg,var(--amber),transparent);margin-top:32px}
+.drawer{width:min(560px,100vw);height:100vh;background:#fff;overflow-y:auto;box-shadow:-4px 0 24px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.dh{padding:18px 20px 12px;border-bottom:1px solid var(--rule);position:sticky;top:0;background:#fff;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.dh-info{flex:1}
+.dcls{background:none;border:none;font-size:1.3rem;cursor:pointer;color:#aaa;padding:0;line-height:1;flex-shrink:0;margin-top:1px}
+.dcls:hover{color:var(--ink)}
+.dbadge{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.dh h2{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.2}
+.dbody{padding:16px 20px 28px;flex:1}
+.dsec{margin-bottom:16px}
+.dsec h3{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:6px;padding-bottom:3px;border-bottom:1px solid var(--rule)}
+.dsec p,.dsec li{font-size:.82rem;color:#444;line-height:1.55}
+.dsec ul{padding-left:13px}.dsec li{margin-bottom:3px}
+.dsteps .ds{display:flex;gap:8px;margin-bottom:10px;align-items:flex-start}
+.dsteps .dsn{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.dsteps .dst strong{display:block;font-weight:600;margin-bottom:1px;font-size:.82rem}
+.dsteps .dst{font-size:.8rem;line-height:1.5;color:#333}
+.eq{background:var(--bg);border-radius:4px;padding:9px 12px;margin-top:5px}
+.eq p{font-size:.78rem;color:#555;line-height:1.55;font-style:italic;margin-bottom:3px}
+.eq p:last-child{margin-bottom:0}
+.eq p::before{content:'\201E ';color:var(--amber)}
+.eq p::after{content:' \201C';color:var(--amber)}
+.diagram{margin:10px 0;text-align:center;background:var(--bg);border-radius:5px;padding:8px}
+.diagram svg{max-width:100%;height:auto}
+.ar{height:2px;background:linear-gradient(90deg,var(--amber),transparent);margin-top:26px}
+.sp{height:8px}
 </style>
 </head>
 <body>
 <header>
   <h1>Coaching-Navigator</h1>
-  <span>Systemisches Business Coaching · Wings</span>
+  <span>Wings &middot; Systemisches Business Coaching</span>
 </header>
 <nav id="nav">
-  <button class="tab act-p1" onclick="showPhase(1)">P1 · Kontakt &amp; Kontrakt</button>
-  <button class="tab" onclick="showPhase(2)">P2 · Thema &amp; Ziel</button>
-  <button class="tab" onclick="showPhase(3)">P3 · Ressourcen</button>
-  <button class="tab" onclick="showPhase(4)">P4 · Handlungsoptionen</button>
-  <button class="tab" onclick="showPhase(5)">P5 · Controlling</button>
-  <button class="tab" onclick="showPhase(6)">⊞ Methoden</button>
+  <button class="tab a1" onclick="showPhase(1)">P1 &middot; Kontakt &amp; Kontrakt</button>
+  <button class="tab" onclick="showPhase(2)">P2 &middot; Thema &amp; Ziel</button>
+  <button class="tab" onclick="showPhase(3)">P3 &middot; Ressourcen</button>
+  <button class="tab" onclick="showPhase(4)">P4 &middot; Handlungsoptionen</button>
+  <button class="tab" onclick="showPhase(5)">P5 &middot; Controlling</button>
+  <button class="tab" onclick="showPhase(6)">&#8862; Alle Methoden</button>
 </nav>
 <main>
-
-<!-- ═══ PHASE 1 ═══ -->
 <div id="ph1" class="panel vis">
-<div class="card pc-p1">
-<div class="card-head">
-  <div class="ph-label">Phase 1 · Kontakt &amp; Kontrakt</div>
-  <h2>Der erste Kontakt und die Arbeitsvereinbarung</h2>
-  <div class="card-meta"><span>⏱ 60–90 Min</span><span>📋 Ergebnis: gegenseitiges Ja + Thema auf Flip</span></div>
-  <div class="goal-box">Klient ist angekommen, versteht den Prozess, kennt die Spielregeln – und ihr beide wisst, worum es geht.</div>
+<div class="card pc1">
+<div class="ch">
+  <div class="phl">Phase 1</div>
+  <h2>Kontakt &amp; Kontrakt</h2>
+  <div class="meta"><span>&#9201; 60&ndash;90 Min</span><span>Sitzung 1 &middot; Einstieg</span><span>Ergebnis: Gegenseitiges Ja + Thema auf Flip</span></div>
+  <div class="gb">Klient ist angekommen, versteht den Prozess, kennt die Spielregeln &ndash; ihr beide wisst, worum es geht, und habt ein echtes Arbeit&uuml;ndnis.</div>
 </div>
 <div class="steps">
-
-<div class="step">
-  <div class="sn">1</div><div>
+<div class="step"><div class="sn">1</div><div>
   <div class="st">Warming-up &amp; Ankommen</div>
-  <div class="sd">Vertrauensatmosphäre herstellen. 1–2 Einstiegsfragen situationsgerecht auswählen – nicht alle 20 abarbeiten.
-    <div class="ck"><input type="checkbox" id="c1a"><label for="c1a">»Was wäre das Schlimmste, was Ihnen hier passieren könnte?« → klärt Vorerfahrungen und rote Linien</label></div>
-    <div class="ck"><input type="checkbox" id="c1b"><label for="c1b">»Wie wichtig ist Ihnen das Thema auf einer Skala 1–10?« → Intensität einschätzen</label></div>
-    <div class="ck"><input type="checkbox" id="c1c"><label for="c1c">Eigene Einstiegsfrage situationsgerecht wählen</label></div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">2</div><div>
-  <div class="st">Coaching-Prozess &amp; Rollen erklären</div>
-  <div class="sd">Den 5-Phasen-Ablauf kurz skizzieren (Flip oder Handskizze). Explizit klarmachen:
-    <ul><li>Prozessverantwortung → Coach</li><li>Inhalts- &amp; Ergebnisverantwortung → Klient</li><li>Kein Berater, kein Therapeut, kein Trainer</li><li>Coach spricht zu ~20 %, Klient zu ~80 %</li></ul>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">3</div><div>
-  <div class="st">Spielregeln vereinbaren</div>
-  <div class="sd">Alle 6 Grundsätze explizit ansprechen und bestätigen lassen:
-    <div class="ck"><input type="checkbox" id="c3a"><label for="c3a">Freiwilligkeit beider Seiten</label></div>
-    <div class="ck"><input type="checkbox" id="c3b"><label for="c3b">Vertraulichkeit – alles bleibt im Raum</label></div>
-    <div class="ck"><input type="checkbox" id="c3c"><label for="c3c">Neutralität &amp; Bewertungsfreiheit des Coaches</label></div>
-    <div class="ck"><input type="checkbox" id="c3d"><label for="c3d">Selbststeuerungsfähigkeit des Klienten (Voraussetzung für Coaching)</label></div>
-    <div class="ck"><input type="checkbox" id="c3e"><label for="c3e">Ergebnisverantwortung beim Klienten</label></div>
-    <div class="ck"><input type="checkbox" id="c3f"><label for="c3f">Prozessverantwortung beim Coach (inkl. Erlaubnis zu unterbrechen)</label></div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">4</div><div>
-  <div class="st">Rahmen &amp; Kontrakt klären</div>
-  <div class="sd">
-    <div class="ck"><input type="checkbox" id="c4a"><label for="c4a">Zeit, Ort, Sitzungsdauer, Anzahl Termine klären</label></div>
-    <div class="ck"><input type="checkbox" id="c4b"><label for="c4b">Dokumentation: wer bekommt was? Fotoprotokoll?</label></div>
-    <div class="ck"><input type="checkbox" id="c4c"><label for="c4c">Datenschutz &amp; Stornierung (ggf. schriftlich)</label></div>
-    <div class="ck"><input type="checkbox" id="c4d"><label for="c4d">Aufnahme / KI-Protokoll: eigene Haltung offenlegen</label></div>
-    <div class="ck"><input type="checkbox" id="c4e"><label for="c4e">Mindestpause zwischen Sitzungen ansprechen (1–4 Wochen)</label></div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">5</div><div>
+  <div class="sd">Vertrauensatmosph&auml;re schaffen bevor Inhalt kommt. 1&ndash;2 Einstiegsfragen situationsgerecht w&auml;hlen &ndash; nie alle abarbeiten.
+<div class="ck"><input type="checkbox" id="a1"><label for="a1">"Was f&uuml;hrt Sie genau heute zu mir?" &rarr; Einstieg ohne Wertung</label></div><div class="ck"><input type="checkbox" id="a2"><label for="a2">"Was w&uuml;rde passieren, wenn sich nichts ver&auml;nderte?" &rarr; kl&auml;rt Ver&auml;nderungsdruck</label></div><div class="ck"><input type="checkbox" id="a3"><label for="a3">"Auf einer Skala 1&ndash;10: Wie wichtig ist Ihnen das Thema?"</label></div><div class="ck"><input type="checkbox" id="a4"><label for="a4">"Was k&ouml;nnte schlimmstenfalls beim Coaching passieren?" &rarr; kl&auml;rt Vorerfahrungen</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('einstiegsfragen')">Einstiegsfragen-Sammlung</button></div></div>
+</div></div><div class="step"><div class="sn">2</div><div>
+  <div class="st">Coaching-Prozess &amp; Rollen erkl&auml;ren</div>
+  <div class="sd">Den 5-Phasen-Ablauf kurz skizzieren (Flip, Trichtermodell). Rollen explizit kl&auml;ren.
+<ul>
+<li>Prozessverantwortung &rarr; Coach (ich f&uuml;hre durch, w&auml;hle Methoden, unterbreche wenn n&ouml;tig)</li>
+<li>Inhalts- &amp; Ergebnisverantwortung &rarr; Klient (Sie entscheiden was, wie, wohin)</li>
+<li>Abgrenzung: kein Berater, kein Therapeut, kein Trainer, kein Mentor</li>
+<li>Redeanteil: Coach ~20&nbsp;%, Klient ~80&nbsp;%</li>
+</ul><div class="mbtns"><button class="mbtn" onclick="openMethod('trichter')">Trichtermodell</button></div></div>
+</div></div><div class="step"><div class="sn">3</div><div>
+  <div class="st">10 Grunds&auml;tze &amp; Spielregeln vereinbaren</div>
+  <div class="sd">Alle Grunds&auml;tze explizit ansprechen und Zustimmung einholen:<div class="ck"><input type="checkbox" id="b1"><label for="b1">Freiwilligkeit beider Seiten</label></div><div class="ck"><input type="checkbox" id="b2"><label for="b2">Vertraulichkeit &ndash; alles bleibt im Raum</label></div><div class="ck"><input type="checkbox" id="b3"><label for="b3">Neutralit&auml;t &amp; Bewertungsfreiheit des Coaches</label></div><div class="ck"><input type="checkbox" id="b4"><label for="b4">Selbststeuerungsf&auml;higkeit des Klienten (Voraussetzung!)</label></div><div class="ck"><input type="checkbox" id="b5"><label for="b5">Ergebnisverantwortung beim Klienten</label></div><div class="ck"><input type="checkbox" id="b6"><label for="b6">Prozessverantwortung beim Coach (inkl. Erlaubnis zu unterbrechen)</label></div><div class="ck"><input type="checkbox" id="b7"><label for="b7">Volle Pr&auml;senz &amp; Aufmerksamkeit &ndash; &bdquo;Don't touch&ldquo;</label></div><div class="ck"><input type="checkbox" id="b8"><label for="b8">Aktives Zuh&ouml;ren, paraphrasieren, Verst&auml;ndnis absichern</label></div><div class="ck"><input type="checkbox" id="b9"><label for="b9">L&ouml;sungs- &amp; ressourcenorientiert</label></div><div class="ck"><input type="checkbox" id="b10"><label for="b10">Offenheit f&uuml;r Impulse &amp; Methoden &ndash; Klient darf jederzeit nein sagen</label></div></div>
+</div></div><div class="step"><div class="sn">4</div><div>
+  <div class="st">Rahmen &amp; formaler Kontrakt</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="c1"><label for="c1">Zeit, Ort, Sitzungsdauer, Anzahl Termine (2&ndash;5 Sitzungen)</label></div><div class="ck"><input type="checkbox" id="c2"><label for="c2">Dokumentation: wer bekommt was? Fotoprotokoll?</label></div><div class="ck"><input type="checkbox" id="c3"><label for="c3">Datenschutz, Stornierungsregelungen</label></div><div class="ck"><input type="checkbox" id="c4"><label for="c4">Aufnahme / KI-Protokoll: eigene Entscheidung transparent machen</label></div><div class="ck"><input type="checkbox" id="c5"><label for="c5">Inkubationszeiten: mind. 1&ndash;4 Wochen zwischen Sitzungen</label></div><div class="ck"><input type="checkbox" id="c6"><label for="c6">Auftragscoaching: Dritter im Bunde kl&auml;ren (HR, Vorgesetzter?)</label></div></div>
+</div></div><div class="step"><div class="sn">5</div><div>
   <div class="st">Erwartungen &amp; Thema herausarbeiten</div>
-  <div class="sd">Aktiv zuhören. Klienten erzählen lassen. Thema in dessen eigenen Worten auf Flip festhalten.
-    <ul><li>»Was ist Ihr zentrales Anliegen?«</li><li>»Was erwarten Sie vom Coaching?«</li><li>Verständnis paraphrasieren + bestätigen lassen</li><li>In Phase 1 reicht grobes Verständnis – Details kommen in Phase 2</li></ul>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">6</div><div>
-  <div class="st">Gegenseitiges Ja abholen</div>
-  <div class="sd">
-    <div class="ck"><input type="checkbox" id="c6a"><label for="c6a">Klient: »Können wir so zusammenarbeiten?«</label></div>
-    <div class="ck"><input type="checkbox" id="c6b"><label for="c6b">Coach: eigene Zustimmung innerlich prüfen – Neutralität möglich?</label></div>
-    <div class="ck"><input type="checkbox" id="c6c"><label for="c6c">Bei fehlender Passung: Coaching ablehnen oder beenden – das ist okay</label></div>
-  </div></div>
-</div>
-
-</div>
+  <div class="sd">Klient erz&auml;hlen lassen. Aktiv zuh&ouml;ren. Thema in Worten des Klienten auf Flip.
+<ul>
+<li>&bdquo;Was m&ouml;chten Sie hier gerne f&uuml;r sich tun?&ldquo;</li>
+<li>&bdquo;Was erwarten Sie von diesem Prozess?&ldquo;</li>
+<li>&bdquo;Geben Sie Ihrer momentanen Situation eine &Uuml;berschrift.&ldquo;</li>
+<li>&bdquo;Welche Themen d&uuml;rfen nicht angesprochen werden?&ldquo; (rote Linien)</li>
+<li>Thema paraphrasieren + best&auml;tigen lassen &rarr; auf Flip schreiben</li>
+</ul><div class="ck"><input type="checkbox" id="d1"><label for="d1">Thema auf Flip visualisiert und vom Klienten best&auml;tigt</label></div></div>
+</div></div><div class="step"><div class="sn">6</div><div>
+  <div class="st">Eignung pr&uuml;fen &amp; Ja abholen</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="d2"><label for="d2">Thema coaching-geeignet? (kein Therapie-/Beratungsthema)</label></div><div class="ck"><input type="checkbox" id="d3"><label for="d3">Klient: &bdquo;K&ouml;nnen wir so zusammenarbeiten?&ldquo; &ndash; echte Zustimmung</label></div><div class="ck"><input type="checkbox" id="d4"><label for="d4">Coach: innere Zustimmung selbst pr&uuml;fen &ndash; Neutralit&auml;t wirklich m&ouml;glich?</label></div><div class="ck"><input type="checkbox" id="d5"><label for="d5">Klient aus engem pers&ouml;nlichem Umfeld? &rarr; Neutralit&auml;t gef&auml;hrdet &rarr; ablehnen</label></div><div class="ck"><input type="checkbox" id="d6"><label for="d6">Thema auf Flip &rarr; &Uuml;berleitung zu Phase 2</label></div></div>
+</div></div></div>
 <div class="tips">
-  <div class="tip"><h4>☑ Don'ts</h4><ul>
-    <li>Keine Bewertungen – auch keine positiven (»Super!«)</li>
-    <li>Nicht schon in Lösungen denken während zugehört wird</li>
-    <li>Keine Verkleinerungen: »kleines Vorgespräch« etc.</li>
-    <li>Prozessunterlagen nicht dem Klienten zeigen</li>
-  </ul></div>
-  <div class="tip"><h4>💡 Timing</h4><ul>
-    <li>Phase 0 (Vorkontakt): 10–15 Min. zur Erstklärung</li>
-    <li>Sitzung 1 umfasst meist Phase 1 + Phase 2 bis ca. 2.3 → 3–4 Std.</li>
-    <li>Inkubationszeit zwischen Sitzungen einplanen</li>
-    <li>Klienten aus dem engen Umfeld vermeiden (Neutralität!)</li>
-  </ul></div>
-</div>
-</div>
-<div class="amber-rule"></div>
-</div>
+  <div class="tip"><h4>&#9744; Don'ts</h4><ul><li>Keine Bewertungen &ndash; auch keine positiven (&bdquo;Super!&ldquo;, &bdquo;Genau!&ldquo;)</li><li>Nicht schon in L&ouml;sungen denken w&auml;hrend man zuh&ouml;rt</li><li>Keine Verkleinerung: &bdquo;kleines Vorgespr&auml;ch&ldquo; etc.</li><li>Prozessunterlagen (Laminate) dem Klienten nicht zeigen</li><li>Keine Ratschl&auml;ge &ndash; auch wenn man welche h&auml;tte</li></ul></div>
+  <div class="tip"><h4>&#128161; Praxis-Tipps</h4><ul><li>Phase 0 (Vorkontakt): 10&ndash;15 Min. formlose Kl&auml;rung</li><li>Sitzung 1 umfasst Phase 1 + Phase 2 bis ca. 2.3 &rarr; 3&ndash;4 Std.</li><li>Arbeitsmaterialien vorbereiten: Flip, Karten, Stifte, Klebepunkte</li><li>Auswahl Form &amp; Farben durch Klient selbst treffen lassen</li><li>Stille aushalten &ndash; Klient braucht Ankommen-Zeit</li></ul></div>
+</div></div><div class="ar"></div><div class="sp"></div></div>
 
-<!-- ═══ PHASE 2 ═══ -->
 <div id="ph2" class="panel">
-<div class="card pc-p2">
-<div class="card-head">
-  <div class="ph-label">Phase 2 · Thema- &amp; Zielklärung</div>
-  <h2>Systemaufstellung und Zielfindung</h2>
-  <div class="card-meta"><span>⏱ 90–120 Min (meist Ende Sitzung 1)</span><span>📋 Ergebnis: vollständiges System + 1 klares SMARTE Ziel + 3–5 ZEM</span></div>
-  <div class="goal-box">Das gesamte System des Klienten ist sichtbar – und daraus entsteht ein realistisches, motivierendes Ziel, das wirklich seines ist.</div>
+<div class="card pc2">
+<div class="ch">
+  <div class="phl">Phase 2</div>
+  <h2>Thema- &amp; Zielkl&auml;rung</h2>
+  <div class="meta"><span>&#9201; 90&ndash;150 Min</span><span>Ende Sitzung 1</span><span>Ergebnis: System + SMARTE Ziel + 3&ndash;5 ZEM</span></div>
+  <div class="gb">Das gesamte System ist sichtbar. Daraus entsteht ein realistisches, motivierendes Ziel &ndash; und die Zielerreichungsmerkmale als Kompass f&uuml;r den Rest des Prozesses.</div>
 </div>
 <div class="steps">
-
-<div class="step">
-  <div class="sn">2.1</div><div>
-  <div class="st">Ist-Zustand systemisch aufstellen</div>
-  <div class="sd">Klienten das System frei aufstellen lassen. »Hubschrauberbrille« einnehmen. Nur relevante Elemente aufnehmen.
-    <ul><li>»Wer oder was hat mit Ihrem Thema zu tun?«</li><li>Innen: Prozesse, Strukturen, Kultur, Strategie</li><li>Außen: Kunden, MA, Vorgesetzte, Lieferanten, Natur, Gesellschaft, Technologie, Wirtschaft</li><li>Ressourcen: Zeit, Finanzen, Wissen, Erfahrung, Netzwerk</li></ul>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('stgallen')">St. Galler Modell</button>
-      <button class="mbtn" onclick="openMethod('tzi')">TZI nach Ruth Cohn</button>
-      <button class="mbtn" onclick="openMethod('zwiebelmodell')">Zwiebelmodell</button>
-      <button class="mbtn" onclick="openMethod('planetensystem')">Planetensystem</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">2.2</div><div>
-  <div class="st">System vertiefen &amp; komplettieren</div>
-  <div class="sd">Tiefgehende systemische Fragen stellen. Im Ist-Zustand bleiben – noch keine Lösungen.
-    <div class="ck"><input type="checkbox" id="d22a"><label for="d22a">Wertkarten (optional): 3-stufige intuitive Auswahl – schnell, nicht analytisch</label></div>
-    <div class="ck"><input type="checkbox" id="d22b"><label for="d22b">Gefühlskarten (optional): aktuelle Emotionen zum Thema identifizieren</label></div>
-    <div class="ck"><input type="checkbox" id="d22c"><label for="d22c">System vollständig? → »Fehlt noch etwas Wichtiges?«</label></div>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('wertkarten')">Wertkarten</button>
-      <button class="mbtn" onclick="openMethod('gefuehlskarten')">Gefühlskarten</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">2.3</div><div>
+<div class="step"><div class="sn">2.1</div><div>
+  <div class="st">Systemische IST-Aufstellung: freie Visualisierung</div>
+  <div class="sd">Klienten das System frei aufstellen lassen. Coach beobachtet &amp; fragt nach &ndash; kein eigenes Strukturieren.
+<ul>
+<li>&bdquo;Wer oder was hat mit Ihrer momentanen Situation zu tun?&ldquo;</li>
+<li>&bdquo;&Uuml;ber wen oder was denken Sie nach, wenn Sie an Ihr Thema denken?&ldquo;</li>
+<li>Klient w&auml;hlt selbst Form, Farbe, Anordnung, Position der Elemente</li>
+<li>Innen: Strategie, Struktur, Kultur, Prozesse &ndash; Au&szlig;en: Kunden, MA, Lieferanten, Gesellschaft, Technologie</li>
+</ul><div class="mbtns"><button class="mbtn" onclick="openMethod('stgallen')">St. Galler Modell</button><button class="mbtn" onclick="openMethod('tzi')">TZI (Ruth Cohn)</button><button class="mbtn" onclick="openMethod('zwiebelmodell')">Zwiebelmodell</button><button class="mbtn" onclick="openMethod('planetensystem')">Planetensystem</button></div></div>
+</div></div><div class="step"><div class="sn">2.2</div><div>
+  <div class="st">System vertiefen &amp; vervollst&auml;ndigen</div>
+  <div class="sd">Tiefgehende systemische Fragen. Im Ist-Zustand bleiben &ndash; noch keine L&ouml;sungen!
+<ul>
+<li>&bdquo;Wie ist die Beziehung zu diesem Element aktuell? 1&ndash;10?&ldquo;</li>
+<li>Zirkul&auml;re Fragen: &bdquo;Was w&uuml;rde Ihre Mitarbeiterin sagen, wenn ich sie fragen w&uuml;rde?&ldquo;</li>
+<li>&bdquo;Was w&uuml;rde passieren, wenn sich X pl&ouml;tzlich ver&auml;nderte?&ldquo;</li>
+<li>&bdquo;Fehlt noch etwas? Ist alles Relevante sichtbar?&ldquo;</li>
+</ul><div class="ck"><input type="checkbox" id="e1"><label for="e1">Wertkarten (3-stufig): Welche Werte haben Bezug zu Ihrem Thema?</label></div><div class="ck"><input type="checkbox" id="e2"><label for="e2">Gef&uuml;hlskarten: Welche Emotionen beschreiben Ihre aktuelle Situation?</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('wertkarten')">Wertkarten</button><button class="mbtn" onclick="openMethod('gefuehlskarten')">Gef&uuml;hlskarten</button></div></div>
+</div></div><div class="step"><div class="sn">2.3</div><div>
   <div class="st">Ziel ableiten lassen</div>
-  <div class="sd">Ziel entsteht aus dem System – nicht aus dem ursprünglichen Thema. Klient entscheidet.
-    <ul><li>»Was möchten Sie an Ihrer Situation verändern?«</li><li>Mehrere Ziele → priorisieren lassen</li><li>Ziel oder Maßnahme? → »Um was zu erreichen?« fragen</li><li>»Ich werde …« statt »Ich will …«</li><li>Keine Negationen – »Was stattdessen?«</li><li>Weiche Ziele skalierbar machen (1–10)</li></ul>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('vmzsm')">VMZSM-Pyramide</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">2.4</div><div>
-  <div class="st">SMARTE-Zielreflexion</div>
-  <div class="sd">
-    <div class="ck"><input type="checkbox" id="d24a"><label for="d24a"><b>S</b>pezifisch – konkret und eindeutig?</label></div>
-    <div class="ck"><input type="checkbox" id="d24b"><label for="d24b"><b>M</b>essbar – woran erkennt man die Zielerreichung?</label></div>
-    <div class="ck"><input type="checkbox" id="d24c"><label for="d24c"><b>A</b>kzeptiert &amp; anspruchsvoll – eigene Energie dahinter?</label></div>
-    <div class="ck"><input type="checkbox" id="d24d"><label for="d24d"><b>R</b>ealistisch – Einflusspotenzial ausreichend? Eigener Handlungsspielraum?</label></div>
-    <div class="ck"><input type="checkbox" id="d24e"><label for="d24e"><b>T</b>erminiert – klarer Zeitrahmen gesetzt?</label></div>
-    <div class="ck"><input type="checkbox" id="d24f"><label for="d24f"><b>E</b>igenverantwortlich – liegt es in der Hand des Klienten?</label></div>
-    <div class="ck"><input type="checkbox" id="d24g"><label for="d24g">Motivationsniveau: 1–10. Unter 8 → klären, was fehlt. Dann neu skalieren.</label></div>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('smarte')">SMARTE-Kriterien</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">2.5</div><div>
-  <div class="st">Zielerreichungsmerkmale (ZEM) visualisieren &amp; priorisieren</div>
-  <div class="sd">Klient in Zielposition versetzen: »Stellen Sie sich vor, Sie haben das Ziel erreicht – was ist anders?«
-    <ul><li>Für jedes relevante Systemelement: Was hat sich verändert? Wie erlebt man das konkret?</li><li>Ist-Zufriedenheit (1–10) + Soll-Zufriedenheit (1–10) erfassen</li></ul>
-    <div class="ck"><input type="checkbox" id="d25a"><label for="d25a">3–5 wichtigste ZEM identifizieren und priorisieren (Klient wählt)</label></div>
-    <div class="ck"><input type="checkbox" id="d25b"><label for="d25b">ZEM als Referenzrahmen für Phase 4 festhalten</label></div>
-    <div class="ck"><input type="checkbox" id="d25c"><label for="d25c">Abschluss Sitzung 1: kurze Zusammenfassung, Ausblick auf Sitzung 2</label></div>
-  </div></div>
-</div>
-
-</div>
+  <div class="sd">Ziel entsteht AUS dem System &ndash; nicht aus dem urspr&uuml;nglichen Anlass.
+<ul>
+<li>&bdquo;Welches konkrete Ziel m&ouml;chten Sie durch dieses Coaching erreichen?&ldquo;</li>
+<li>&bdquo;Was m&ouml;chten Sie an Ihrer Situation ver&auml;ndern?&ldquo;</li>
+<li>Pr&uuml;fen: Ziel oder Ma&szlig;nahme? &rarr; &bdquo;Um was zu erreichen?&ldquo; aufw&auml;rts fragen</li>
+<li>&bdquo;Ich werde&nbsp;&hellip;&ldquo; statt &bdquo;Ich will&nbsp;&hellip;&ldquo; (st&auml;rkt Verbindlichkeit)</li>
+<li>Keine Negationen: &bdquo;Was stattdessen?&ldquo;</li>
+<li>Weiche Ziele messbar machen: Skala 1&ndash;10 einsetzen</li>
+<li>&#9889; Entscheidungscoaching: Ziel = &bdquo;Bis [Datum] werde ich eine Entscheidung &uuml;ber &hellip; getroffen haben.&ldquo;</li>
+</ul><div class="mbtns"><button class="mbtn" onclick="openMethod('vmzsm')">VMZSM-Pyramide</button><button class="mbtn" onclick="openMethod('entscheidung')">Entscheidungscoaching</button></div></div>
+</div></div><div class="step"><div class="sn">2.4</div><div>
+  <div class="st">SMARTE Zielreflexion</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="f1"><label for="f1"><b>S</b>pezifisch &ndash; konkret und eindeutig genug?</label></div><div class="ck"><input type="checkbox" id="f2"><label for="f2"><b>M</b>essbar &ndash; woran erkennt man die Zielerreichung?</label></div><div class="ck"><input type="checkbox" id="f3"><label for="f3"><b>A</b>kzeptiert &amp; anspruchsvoll &ndash; echte eigene Energie dahinter?</label></div><div class="ck"><input type="checkbox" id="f4"><label for="f4"><b>R</b>ealistisch &ndash; ausreichend Einflusspotenzial beim Klienten?</label></div><div class="ck"><input type="checkbox" id="f5"><label for="f5"><b>T</b>erminiert &ndash; bis wann genau?</label></div><div class="ck"><input type="checkbox" id="f6"><label for="f6"><b>E</b>igenverantwortlich &ndash; liegt die Erreichung wirklich beim Klienten?</label></div><div class="ck"><input type="checkbox" id="f7"><label for="f7">Motivationsniveau 1&ndash;10: unter 8 &rarr; &bdquo;Was br&auml;uchten Sie, um auf 8 zu kommen?&ldquo;</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('smarte')">SMARTE-Kriterien</button></div></div>
+</div></div><div class="step"><div class="sn">2.5</div><div>
+  <div class="st">Zielerreichungsmerkmale (ZEM) &amp; Priorisierung</div>
+  <div class="sd">Klient gedanklich in Zielzustand versetzen &ndash; mit etwas Zeitverzug.
+<ul>
+<li>&bdquo;Woran merken Sie und andere, dass Sie Ihr Ziel erreicht haben &ndash; was ist dann anders?&ldquo;</li>
+<li>F&uuml;r jedes relevante Systemelement: &bdquo;Was hat sich ver&auml;ndert?&ldquo;</li>
+<li>IST-Zufriedenheit (1&ndash;10) + SOLL-Zufriedenheit (1&ndash;10) pro Element</li>
+<li>&bdquo;Zielzustand mit etwas Zeitverzug gedanklich simulieren&ldquo;</li>
+</ul><div class="ck"><input type="checkbox" id="g1"><label for="g1">3&ndash;5 bedeutsamste ZEM identifizieren &rarr; &bdquo;Starter-ZEM&ldquo; benennen lassen</label></div><div class="ck"><input type="checkbox" id="g2"><label for="g2">ZEM als Referenz festhalten &rarr; werden in P4 und P5 gespiegelt</label></div><div class="ck"><input type="checkbox" id="g3"><label for="g3">Abschluss Sitzung 1: Zusammenfassung, Ausblick (Inkubationszeit!)</label></div></div>
+</div></div></div>
 <div class="tips">
-  <div class="tip"><h4>☑ Don'ts</h4><ul>
-    <li>Nicht zu früh zur Zielfindung wechseln – System muss vollständig sein</li>
-    <li>Nicht selbst interpretieren, was das Ziel ist</li>
-    <li>Kein »Entweder-oder«-Ziel (zwei Richtungen = kein klares Ziel)</li>
-    <li>Externe Faktoren nicht ins Ziel einbauen (nicht kontrollierbar)</li>
-  </ul></div>
-  <div class="tip"><h4>💡 Praxis</h4><ul>
-    <li>Ab Schritt 2.5 wird es individuell – hier beginnt die Methodenkreativität</li>
-    <li>Wertkarten nur nutzen, wenn Hypothese vorhanden</li>
-    <li>Klient schreibt immer selbst – »Don't touch«</li>
-    <li>Pause nach Sitzung 1: Klient »inkubiert« systemische Fragen</li>
-  </ul></div>
-</div>
-</div>
-<div class="amber-rule"></div>
-</div>
+  <div class="tip"><h4>&#9744; Don'ts</h4><ul><li>Nicht zu fr&uuml;h zur Zielfindung &ndash; System muss vollst&auml;ndig sein</li><li>Nicht selbst interpretieren was das Ziel ist</li><li>Kein &bdquo;Entweder-oder&ldquo;-Ziel &rarr; zwei Richtungen = kein klares Ziel</li><li>Keine Fremdkontrolle im Ziel: &bdquo;Ich will, dass mein Chef&hellip;&ldquo;</li><li>Noch keine L&ouml;sungsoptionen in Phase 2 einstreuen</li></ul></div>
+  <div class="tip"><h4>&#128161; Praxis-Tipps</h4><ul><li>Klient w&auml;hlt Arbeitsmaterialien selbst (Form, Farbe)</li><li>Helikopterm&auml;nnchen vom Laminat als Denkh&uuml;te nutzen</li><li>Zirkul&auml;re Fragen sind kraftvolle Impulse f&uuml;r neue Perspektiven</li><li>Bei Entscheidungscoaching: ZEM f&uuml;r jede Option separat bilden</li><li>Skalierung bei weichen Zielen nicht vergessen</li></ul></div>
+</div></div><div class="ar"></div><div class="sp"></div></div>
 
-<!-- ═══ PHASE 3 ═══ -->
 <div id="ph3" class="panel">
-<div class="card pc-p3">
-<div class="card-head">
-  <div class="ph-label">Phase 3 · Ressourcenidentifikation</div>
-  <h2>Ressourcen erkennen und mobilisieren</h2>
-  <div class="card-meta"><span>⏱ 60–90 Min (Beginn Sitzung 2)</span><span>📋 Ergebnis: Ressourcenliste als Basis für Phase 4</span></div>
-  <div class="goal-box">Klient erkennt, welche Ressourcen – in sich und im System – bereits vorhanden sind, um das Ziel zu erreichen.</div>
+<div class="card pc3">
+<div class="ch">
+  <div class="phl">Phase 3</div>
+  <h2>Ressourcenidentifikation</h2>
+  <div class="meta"><span>&#9201; 60&ndash;90 Min</span><span>Beginn Sitzung 2</span><span>Ergebnis: Ressourcenliste + erste L&ouml;sungsideen</span></div>
+  <div class="gb">Klient erkennt, welche Ressourcen &ndash; in sich, in seinem System und aus seiner Geschichte &ndash; vorhanden sind, um das Ziel zu erreichen.</div>
 </div>
 <div class="steps">
-
-<div class="step">
-  <div class="sn">3.0</div><div>
-  <div class="st">Rückkoppelung zu Beginn Sitzung 2</div>
-  <div class="sd">
-    <div class="ck"><input type="checkbox" id="e30a"><label for="e30a">»Was hat sich seit unserem letzten Gespräch getan / verändert?«</label></div>
-    <div class="ck"><input type="checkbox" id="e30b"><label for="e30b">Ziel und ZEM aus Phase 2 kurz rekapitulieren und bestätigen lassen</label></div>
-    <div class="ck"><input type="checkbox" id="e30c"><label for="e30c">Motivationsniveau erneut skalieren – noch auf 8+?</label></div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">3.1</div><div>
-  <div class="st">Hypothesen bilden (intern – nicht aussprechen!)</div>
-  <div class="sd">Eigene Hypothesen zur Ressourcensuche nutzen. Dienen nur der Fragestrategie – nie als Interpretation kommunizieren.
-    <ul><li><b>Maslow/Herzberg:</b> Welches Bedürfnis wird nicht erfüllt? Hygienefaktor oder Motivator?</li><li><b>Innere Antreiber:</b> Welcher Antreiber ist aktiviert? (»Sei perfekt«, »Sei stark«, »Mach schnell«, »Mach es recht«, »Streng dich an«)</li><li><b>Transaktionsanalyse:</b> Aus welchem Ich-Zustand heraus handelt der Klient?</li></ul>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('maslow')">Maslow &amp; Herzberg</button>
-      <button class="mbtn" onclick="openMethod('antreiber')">Innere Antreiber</button>
-      <button class="mbtn" onclick="openMethod('ta')">Transaktionsanalyse</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">3.2</div><div>
+<div class="step"><div class="sn">3.0</div><div>
+  <div class="st">R&uuml;ckkoppelung &amp; Einstieg Sitzung 2</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="h1"><label for="h1">"Was hat sich seit unserem letzten Gespr&auml;ch getan / ver&auml;ndert?"</label></div><div class="ck"><input type="checkbox" id="h2"><label for="h2">Ziel und ZEM aus Phase 2 rekapitulieren und best&auml;tigen lassen</label></div><div class="ck"><input type="checkbox" id="h3"><label for="h3">Motivationsniveau erneut skalieren (1&ndash;10): noch auf 8+? Falls nicht &rarr; kl&auml;ren</label></div><div class="ck"><input type="checkbox" id="h4"><label for="h4">"Was brauchen Sie, um den Zielzustand zu erreichen?" &rarr; erste Gedanken</label></div></div>
+</div></div><div class="step"><div class="sn">3.1</div><div>
+  <div class="st">Hypothesen bilden (Coach-intern &ndash; nicht aussprechen!)</div>
+  <div class="sd">Leiten nur die Fragestrategie und Methodenwahl. Nie als Diagnose kommunizieren!
+<ul>
+<li><b>Maslow/Herzberg:</b> Welches Bed&uuml;rfnis unbefriedigt? Hygienefaktor oder Motivator?</li>
+<li><b>Innere Antreiber:</b> &bdquo;Sei perfekt&ldquo; / &bdquo;Sei stark&ldquo; / &bdquo;Mach schnell&ldquo; / &bdquo;Mach es recht&ldquo; / &bdquo;Streng dich an&ldquo;?</li>
+<li><b>Transaktionsanalyse:</b> Aus welchem Ich-Zustand handelt der Klient unter Druck?</li>
+<li><b>Eisberg:</b> Liegt das eigentliche Thema tiefer als das Pr&auml;sentierte?</li>
+<li>Jeder Antreiber hat auch eine Ressourcen-Seite!</li>
+</ul><div class="mbtns"><button class="mbtn" onclick="openMethod('maslow')">Maslow &amp; Herzberg</button><button class="mbtn" onclick="openMethod('antreiber')">Innere Antreiber</button><button class="mbtn" onclick="openMethod('ta')">Transaktionsanalyse</button><button class="mbtn" onclick="openMethod('eisberg')">Eisbergmodell</button></div></div>
+</div></div><div class="step"><div class="sn">3.2</div><div>
   <div class="st">Innere Ressourcen identifizieren</div>
-  <div class="sd">Klienten auf eigene Stärken, Erfahrungen und Potenziale lenken.
-    <ul><li>»Wann haben Sie eine ähnliche Situation schon gemeistert?«</li><li>»Was können Sie besonders gut, das hier helfen könnte?«</li><li>»Was gibt Ihnen Energie?«</li><li>Kompetenzen erkunden (fachlich, methodisch, sozial, personal)</li></ul>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('kompetenzrad')">Kompetenzrad</button>
-      <button class="mbtn" onclick="openMethod('fuenfsaeulen')">5 Säulen (Petzold)</button>
-      <button class="mbtn" onclick="openMethod('raddeslebens')">Rad des Lebens</button>
-      <button class="mbtn" onclick="openMethod('eisberg')">Eisbergmodell</button>
-      <button class="mbtn" onclick="openMethod('inneresteam')">Inneres Team</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">3.3</div><div>
+  <div class="sd">Klienten auf eigene St&auml;rken, Erfahrungen, Kompetenzen und Werte lenken.
+<ul>
+<li>&bdquo;Wann haben Sie eine &auml;hnliche Situation schon einmal gemeistert? Was hat geholfen?&ldquo;</li>
+<li>&bdquo;Was k&ouml;nnen Sie besonders gut?&ldquo;</li>
+<li>&bdquo;Was gibt Ihnen Energie &ndash; auch au&szlig;erhalb dieser Situation?&ldquo;</li>
+<li>&bdquo;Was w&uuml;rde ein guter Freund &uuml;ber Ihre St&auml;rken sagen?&ldquo;</li>
+</ul><div class="mbtns"><button class="mbtn" onclick="openMethod('biografie')">Biografiearbeit</button><button class="mbtn" onclick="openMethod('kompetenzrad')">Kompetenzrad</button><button class="mbtn" onclick="openMethod('fuenfsaeulen')">5 S&auml;ulen</button><button class="mbtn" onclick="openMethod('raddeslebens')">Rad des Lebens</button><button class="mbtn" onclick="openMethod('inneresteam')">Inneres Team</button><button class="mbtn" onclick="openMethod('resilienzrad')">Resilienzrad</button><button class="mbtn" onclick="openMethod('kleinerelefant')">Kleiner Elefant</button><button class="mbtn" onclick="openMethod('stuhltausch')">Stuhltausch</button></div></div>
+</div></div><div class="step"><div class="sn">3.3</div><div>
   <div class="st">Systemische Ressourcen identifizieren</div>
-  <div class="sd">Das aufgestellte System aus Phase 2 als Ressourcenquelle nutzen.
-    <ul><li>»Wer in Ihrem System könnte Sie unterstützen?«</li><li>»Welche strukturellen / organisatorischen Möglichkeiten gibt es?«</li><li>»Was steht zur Verfügung: Zeit, Budget, Wissen, Netzwerk?«</li><li>Systemelemente durchgehen → für jedes: »Was bietet das für Ihr Ziel?«</li></ul>
-    <div class="ck"><input type="checkbox" id="e33a"><label for="e33a">Ressourcen vollständig sammeln – noch keine Priorisierung</label></div>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('swot')">SWOT-Analyse</button>
-      <button class="mbtn" onclick="openMethod('johari')">Johari-Fenster</button>
-      <button class="mbtn" onclick="openMethod('glasl')">Eskalationsstufen (Glasl)</button>
-      <button class="mbtn" onclick="openMethod('konflikt')">Konflikt-Stile</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">3.4</div><div>
-  <div class="st">Ressourcen konsolidieren &amp; zu Phase 4 überleiten</div>
-  <div class="sd">
-    <div class="ck"><input type="checkbox" id="e34a"><label for="e34a">Ressourcenliste zusammenfassen – Klient nennt Highlights</label></div>
-    <div class="ck"><input type="checkbox" id="e34b"><label for="e34b">Somatische Marker prüfen: »Wie fühlt sich das an, wenn Sie auf diese Ressourcen schauen?«</label></div>
-    <div class="ck"><input type="checkbox" id="e34c"><label for="e34c">Brücke zu Phase 4: »Mit diesen Ressourcen – welche Handlungsmöglichkeiten sehen Sie?«</label></div>
-  </div></div>
-</div>
-
-</div>
+  <div class="sd">System aus Phase 2 als Ressourcenquelle nutzen.
+<ul>
+<li>&bdquo;Wer in Ihrem System k&ouml;nnte Sie dabei unterst&uuml;tzen?&ldquo;</li>
+<li>&bdquo;Welche strukturellen oder organisatorischen M&ouml;glichkeiten gibt es?&ldquo;</li>
+<li>&bdquo;Was steht zur Verf&uuml;gung: Zeit, Budget, Wissen, Netzwerk?&ldquo;</li>
+<li>Systemelemente durchgehen &rarr; f&uuml;r jedes: &bdquo;Was bietet das f&uuml;r Ihr Ziel?&ldquo;</li>
+</ul><div class="ck"><input type="checkbox" id="i1"><label for="i1">Ressourcen sammeln &ndash; noch keine Priorisierung, noch keine Ma&szlig;nahmen</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('swot')">SWOT-Analyse</button><button class="mbtn" onclick="openMethod('johari')">Johari-Fenster</button><button class="mbtn" onclick="openMethod('glasl')">Glasl Eskalation</button><button class="mbtn" onclick="openMethod('konflikt')">Konflikt-Stile</button><button class="mbtn" onclick="openMethod('gfk')">GFK (Rosenberg)</button><button class="mbtn" onclick="openMethod('vierseitenmodell')">4-Seiten-Modell</button></div></div>
+</div></div><div class="step"><div class="sn">3.4</div><div>
+  <div class="st">Pendelbewegung: erste L&ouml;sungsideen</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="j1"><label for="j1">Ressourcen zusammenfassen &ndash; Klient nennt Highlights selbst</label></div><div class="ck"><input type="checkbox" id="j2"><label for="j2">"Mit diesen Ressourcen &ndash; welche ersten Ideen kommen Ihnen?"</label></div><div class="ck"><input type="checkbox" id="j3"><label for="j3">Somatische Marker: &bdquo;Wie f&uuml;hlt sich das an, wenn Sie auf diese Ressourcen schauen?&ldquo;</label></div><div class="ck"><input type="checkbox" id="j4"><label for="j4">&Uuml;berleitung P4: &bdquo;Lassen Sie uns daraus konkrete Schritte entwickeln.&ldquo;</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('somatisch')">Somatische Marker</button></div></div>
+</div></div></div>
 <div class="tips">
-  <div class="tip"><h4>🧰 ~30–40 Methoden im Koffer</h4><ul>
-    <li>Methodenwahl folgt der Hypothese – nicht der Verfügbarkeit</li>
-    <li>Ressourcenorientiert bleiben – keine erneute Problemvertiefung</li>
-    <li>Klient legt, schreibt, ordnet selbst (»Don't touch«)</li>
-    <li>Stille nach systemischen Fragen aushalten</li>
-  </ul></div>
-  <div class="tip"><h4>💡 Haltung</h4><ul>
-    <li>Hypothesen leiten nur die Fragestrategie</li>
-    <li>Nicht zu früh auf eine Ursache festlegen</li>
-    <li>Ressourcen können überraschend sein – offen bleiben</li>
-    <li>Ergebnisoffenheit konsequent halten</li>
-  </ul></div>
-</div>
-</div>
-<div class="amber-rule"></div>
-</div>
+  <div class="tip"><h4>&#9744; Don'ts</h4><ul><li>Methodenwahl folgt der Hypothese &ndash; nicht der Verf&uuml;gbarkeit</li><li>Ressourcenorientiert bleiben &ndash; keine Problemvertiefung mehr</li><li>&bdquo;Don't touch&ldquo; &ndash; Klient legt, schreibt, ordnet selbst</li><li>Stille nach systemischen Fragen aushalten &ndash; 5&ndash;10 Sek.</li><li>Offene W-Fragen bevorzugen (was, wie, womit, wer)</li></ul></div>
+  <div class="tip"><h4>&#128161; Praxis-Tipps</h4><ul><li>VAKOG: Welche Sinneskan&auml;le sind bei diesem Klienten dominant?</li><li>Biografiearbeit kombinierbar mit Rad des Lebens und Visionsarbeit</li><li>Tetralemma bei komplexen Entscheidungsdilemmas</li><li>Visionsarbeit wenn Ressource = Klarheit &uuml;ber Zukunft fehlt</li><li>Zeit: 30&ndash;60 Min pro Methode einplanen</li></ul></div>
+</div></div><div class="ar"></div><div class="sp"></div></div>
 
-<!-- ═══ PHASE 4 ═══ -->
 <div id="ph4" class="panel">
-<div class="card pc-p4">
-<div class="card-head">
-  <div class="ph-label">Phase 4 · Handlungsoptionen</div>
-  <h2>Maßnahmen entwickeln, entscheiden, absichern</h2>
-  <div class="card-meta"><span>⏱ 60–90 Min (Mitte Sitzung 2)</span><span>📋 Ergebnis: 2–4 konkrete, SMARTE Maßnahmen mit Risikocheck</span></div>
-  <div class="goal-box">Aus den Ressourcen werden Handlungsoptionen entwickelt – bewertet, abgesichert und an den ZEM gespiegelt.</div>
+<div class="card pc4">
+<div class="ch">
+  <div class="phl">Phase 4</div>
+  <h2>Handlungsoptionen &amp; Ma&szlig;nahmenplan</h2>
+  <div class="meta"><span>&#9201; 60&ndash;90 Min</span><span>Mitte Sitzung 2</span><span>Ergebnis: 2&ndash;4 SMARTE Ma&szlig;nahmen mit Risikocheck</span></div>
+  <div class="gb">Aus Ressourcen werden konkrete Handlungsoptionen entwickelt &ndash; bewertet, abgesichert und an den ZEM gespiegelt.</div>
 </div>
 <div class="steps">
-
-<div class="step">
-  <div class="sn">4.1</div><div>
-  <div class="st">Handlungsoptionen entwickeln &amp; entscheiden</div>
-  <div class="sd">Brainstorming ohne Bewertung. Klient generiert, Coach moderiert.
-    <ul><li>Alle Ideen zuerst sammeln – Quantität vor Qualität</li><li>»Was könnte noch eine Möglichkeit sein?«</li><li>Klient priorisiert: »Welche Optionen ziehen Sie in Betracht?«</li><li>Entscheidung: Klient wählt 2–4 Maßnahmen</li></ul>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('disney')">Walt Disney Methode</button>
-      <button class="mbtn" onclick="openMethod('stern')">Sternanalyse</button>
-      <button class="mbtn" onclick="openMethod('kopfstand')">Kopfstandmethode</button>
-      <button class="mbtn" onclick="openMethod('swot')">SWOT-Analyse</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">4.2</div><div>
-  <div class="st">SMARTE-Abgleich der gewählten Maßnahmen</div>
-  <div class="sd">Jede gewählte Maßnahme auf SMARTE-Tauglichkeit prüfen:
-    <div class="ck"><input type="checkbox" id="f42a"><label for="f42a">Konkret genug formuliert? (S)</label></div>
-    <div class="ck"><input type="checkbox" id="f42b"><label for="f42b">Messbar – wann ist sie erledigt? (M)</label></div>
-    <div class="ck"><input type="checkbox" id="f42c"><label for="f42c">Energie dahinter? (A)</label></div>
-    <div class="ck"><input type="checkbox" id="f42d"><label for="f42d">Realistisch im Umfang? (R)</label></div>
-    <div class="ck"><input type="checkbox" id="f42e"><label for="f42e">Datum / Deadline gesetzt? (T)</label></div>
-    <div class="ck"><input type="checkbox" id="f42f"><label for="f42f">Liegt es in der Hand des Klienten? (E)</label></div>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('smarte')">SMARTE-Kriterien</button>
-      <button class="mbtn" onclick="openMethod('eisenhower')">Eisenhower-Prinzip</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">4.3</div><div>
-  <div class="st">Risikoanalyse der Einzelmaßnahmen</div>
-  <div class="sd">Was könnte die Umsetzung gefährden? Präventiv denken.
-    <ul><li>»Was könnte schief gehen?«</li><li>»Was bräuchten Sie, damit das nicht passiert?«</li><li>»Welche Hindernisse sehen Sie?«</li><li>Für jede Maßnahme: Risiko benennen → Gegenstrategie entwickeln</li></ul>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('stern')">Sternanalyse</button>
-      <button class="mbtn" onclick="openMethod('kopfstand')">Kopfstandmethode (invers)</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">4.4</div><div>
-  <div class="st">Abgleich aller Maßnahmen mit den ZEM</div>
-  <div class="sd">Jede Maßnahme gegen die 3–5 priorisierten ZEM aus Phase 2 spiegeln:
-    <div class="ck"><input type="checkbox" id="f44a"><label for="f44a">Trägt diese Maßnahme zur Erreichung von ZEM 1 bei?</label></div>
-    <div class="ck"><input type="checkbox" id="f44b"><label for="f44b">Gibt es ZEM, die durch keine Maßnahme adressiert werden?</label></div>
-    <div class="ck"><input type="checkbox" id="f44c"><label for="f44c">Sind alle Maßnahmen stimmig? Somatischen Marker prüfen.</label></div>
-    <div class="ck"><input type="checkbox" id="f44d"><label for="f44d">Gesamtpaket: »Wenn Sie das alles sehen – wie fühlt sich das an?«</label></div>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('somatisch')">Somatische Marker</button>
-    </div>
-  </div></div>
-</div>
-
-</div>
+<div class="step"><div class="sn">4.1</div><div>
+  <div class="st">Handlungsoptionen entwickeln (Brainstorming)</div>
+  <div class="sd">Quantit&auml;t vor Qualit&auml;t. Klient generiert, Coach moderiert.
+<ul>
+<li>&bdquo;Welche Ideen machen f&uuml;r Sie Sinn?&ldquo;</li>
+<li>&bdquo;Was w&auml;re der n&auml;chste wichtige Schritt?&ldquo;</li>
+<li>&bdquo;Was k&ouml;nnte noch eine M&ouml;glichkeit sein?&ldquo; &ndash; immer wieder nachfragen</li>
+<li>&bdquo;Was w&uuml;rde jemand, den Sie sehr sch&auml;tzen, in dieser Situation tun?&ldquo;</li>
+</ul><div class="mbtns"><button class="mbtn" onclick="openMethod('disney')">Walt Disney</button><button class="mbtn" onclick="openMethod('stern')">Sternanalyse</button><button class="mbtn" onclick="openMethod('kopfstand')">Kopfstandmethode</button><button class="mbtn" onclick="openMethod('tetralemma')">Tetralemma</button><button class="mbtn" onclick="openMethod('swot')">SWOT</button></div></div>
+</div></div><div class="step"><div class="sn">4.2</div><div>
+  <div class="st">Optionen ausw&auml;hlen &amp; SMARTE-Abgleich</div>
+  <div class="sd">Klient priorisiert: 2&ndash;4 Ma&szlig;nahmen w&auml;hlen. Dann jede auf SMARTE pr&uuml;fen:<div class="ck"><input type="checkbox" id="k1"><label for="k1">Konkret genug formuliert? (S)</label></div><div class="ck"><input type="checkbox" id="k2"><label for="k2">Messbar &ndash; wann ist sie erledigt? (M)</label></div><div class="ck"><input type="checkbox" id="k3"><label for="k3">Eigene Energie dahinter? (A)</label></div><div class="ck"><input type="checkbox" id="k4"><label for="k4">Realistisch im Umfang und Zeitrahmen? (R)</label></div><div class="ck"><input type="checkbox" id="k5"><label for="k5">Datum / erste konkrete Handlung gesetzt? (T)</label></div><div class="ck"><input type="checkbox" id="k6"><label for="k6">Liegt die Umsetzung beim Klienten? (E)</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('smarte')">SMARTE-Kriterien</button><button class="mbtn" onclick="openMethod('eisenhower')">Eisenhower</button></div></div>
+</div></div><div class="step"><div class="sn">4.3</div><div>
+  <div class="st">Risikoanalyse der Einzelma&szlig;nahmen</div>
+  <div class="sd">Pr&auml;ventiv denken &ndash; was k&ouml;nnte die Umsetzung gef&auml;hrden?
+<ul>
+<li>&bdquo;Was k&ouml;nnte schief gehen?&ldquo;</li>
+<li>&bdquo;Welche Hindernisse sehen Sie?&ldquo;</li>
+<li>&bdquo;Was br&auml;uchten Sie, damit das nicht passiert?&ldquo; &rarr; Gegenstrategie</li>
+<li>&bdquo;Wie realistisch ist dieses Hindernis? 1&ndash;10?&ldquo;</li>
+</ul><div class="mbtns"><button class="mbtn" onclick="openMethod('stern')">Sternanalyse</button><button class="mbtn" onclick="openMethod('kopfstand')">Kopfstand (invers)</button></div></div>
+</div></div><div class="step"><div class="sn">4.4</div><div>
+  <div class="st">Abgleich der Ma&szlig;nahmen mit den ZEM</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="l1"><label for="l1">"Tr&auml;gt diese Ma&szlig;nahme zur Erreichung Ihres Starter-ZEM bei?"</label></div><div class="ck"><input type="checkbox" id="l2"><label for="l2">Gibt es ZEM ohne Ma&szlig;nahme? &rarr; L&uuml;cke f&uuml;llen</label></div><div class="ck"><input type="checkbox" id="l3"><label for="l3">Stimmigkeitscheck: "Wenn Sie das Gesamtpaket sehen &ndash; wie f&uuml;hlt sich das an?"</label></div><div class="ck"><input type="checkbox" id="l4"><label for="l4">Somatische Marker pr&uuml;fen</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('somatisch')">Somatische Marker</button></div></div>
+</div></div></div>
 <div class="tips">
-  <div class="tip"><h4>☑ Don'ts</h4><ul>
-    <li>Keine eigenen Maßnahmenvorschläge einstreuen</li>
-    <li>Nicht zu viele Maßnahmen – lieber 2–3 realistische als 10 vage</li>
-    <li>Risikocheck nicht überspringen (erhöht Umsetzungswahrscheinlichkeit)</li>
-    <li>Maßnahmen ≠ Ziele – Verwechslung noch möglich</li>
-  </ul></div>
-  <div class="tip"><h4>💡 Praxis</h4><ul>
-    <li>Methoden kreativ kombinieren (Disney → dann Sternanalyse für Hindernisse)</li>
-    <li>Klient schreibt Maßnahmen selbst auf Karten oder Flip</li>
-    <li>Somatische Marker sind ein verlässlicher Stimmigkeitscheck</li>
-    <li>Überleitung Phase 5: »Was brauchen Sie noch, bevor wir abschließen?«</li>
-  </ul></div>
-</div>
-</div>
-<div class="amber-rule"></div>
-</div>
+  <div class="tip"><h4>&#9744; Don'ts</h4><ul><li>Keine eigenen Ma&szlig;nahmenvorschl&auml;ge</li><li>Nicht zu viele Ma&szlig;nahmen: 2&ndash;3 realistische besser als 8 vage</li><li>Risikocheck nicht &uuml;berspringen &ndash; erh&ouml;ht Umsetzungsquote</li><li>Ma&szlig;nahmen &ne; Ziele &ndash; Verwechslung kann noch auftreten</li><li>Kein: &bdquo;Das werden Sie sicher schaffen&ldquo;</li></ul></div>
+  <div class="tip"><h4>&#128161; Praxis-Tipps</h4><ul><li>Methoden kombinieren: Disney &rarr; Sternanalyse f&uuml;r Hindernisse</li><li>Klient schreibt Ma&szlig;nahmen selbst auf Karten</li><li>Negativer somatischer Marker = Einladung zu P4.1 zur&uuml;ck</li><li>&Uuml;berleitung P5: &bdquo;Was brauchen Sie noch, bevor wir abschlie&szlig;en?&ldquo;</li><li>Visionsbox als Ankerobjekt vorbereiten lassen</li></ul></div>
+</div></div><div class="ar"></div><div class="sp"></div></div>
 
-<!-- ═══ PHASE 5 ═══ -->
 <div id="ph5" class="panel">
-<div class="card pc-p5">
-<div class="card-head">
-  <div class="ph-label">Phase 5 · Controlling</div>
-  <h2>Verankern, sichern und abschließen</h2>
-  <div class="card-meta"><span>⏱ 30–45 Min (Ende Sitzung 2 oder Sitzung 3)</span><span>📋 Ergebnis: verankerter Maßnahmenplan + hohe Umsetzungswahrscheinlichkeit</span></div>
-  <div class="goal-box">Der Klient verlässt das Coaching mit einem klaren, stimmigen Plan – und dem Gefühl: »Ich weiß, was ich tun werde.«</div>
+<div class="card pc5">
+<div class="ch">
+  <div class="phl">Phase 5</div>
+  <h2>Controlling &amp; Verankerung</h2>
+  <div class="meta"><span>&#9201; 30&ndash;45 Min</span><span>Ende Sitzung 2</span><span>Ergebnis: Verankerter Plan + hohe Umsetzungswahrscheinlichkeit</span></div>
+  <div class="gb">Klient verl&auml;sst das Coaching mit einem klaren, k&ouml;rperlich stimmigen Plan: &bdquo;Ich wei&szlig;, was ich tun werde &ndash; und ich will es tun.&ldquo;</div>
 </div>
 <div class="steps">
-
-<div class="step">
-  <div class="sn">5.1</div><div>
+<div class="step"><div class="sn">5.1</div><div>
   <div class="st">Gesamtprozess zusammenfassen lassen</div>
-  <div class="sd">Klient erzählt die eigene »Reise« – nicht der Coach. Das festigt die Erkenntnisse.
-    <ul><li>»Erzählen Sie mir: Wo haben Sie angefangen, wo stehen Sie jetzt?«</li><li>»Was war Ihre größte Erkenntnis?«</li><li>»Was hat sich für Sie in diesem Prozess verändert?«</li></ul>
-    <div class="ck"><input type="checkbox" id="g51a"><label for="g51a">Klient fasst selbst zusammen – Coach hört zu und ergänzt nur wenn nötig</label></div>
-    <div class="ck"><input type="checkbox" id="g51b"><label for="g51b">Ausgangslage (Phase 1) → Ziel (Phase 2) → Ressourcen (Phase 3) → Maßnahmen (Phase 4) kurz spiegeln</label></div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">5.2</div><div>
-  <div class="st">Maßnahmen verankern &amp; Transfer sichern</div>
-  <div class="sd">Die vereinbarten Maßnahmen konkret verankern:
-    <ul><li>»Wann genau starten Sie mit Maßnahme 1?«</li><li>»Wer weiß davon? Gibt es jemanden, dem Sie Rechenschaft ablegen?«</li><li>»Was brauchen Sie noch, um zu starten?«</li><li>»Was könnten Sie aufhalten – und wie begegnen Sie dem?« (Rückgriff auf Phase 4.3)</li></ul>
-    <div class="ck"><input type="checkbox" id="g52a"><label for="g52a">Alle Maßnahmen haben konkretes Datum / erste Handlung</label></div>
-    <div class="ck"><input type="checkbox" id="g52b"><label for="g52b">Fotoprotokoll: Klient fotografiert eigene Aufstellungen / Flip</label></div>
-    <div class="ck"><input type="checkbox" id="g52c"><label for="g52c">Follow-up-Termin vereinbaren (ggf. optionales Kontroll-Coaching)</label></div>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('dialog')">Konstruktiver Dialog</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">5.3</div><div>
-  <div class="st">Controlling der somatischen Marker</div>
-  <div class="sd">Abschließender Stimmigkeitscheck über Körpergefühl – ehrlicher als kognitives Bewerten.
-    <div class="ck"><input type="checkbox" id="g53a"><label for="g53a">Klient schaut auf Maßnahmen und ZEM: »Wie fühlt sich das in Ihrem Körper an?«</label></div>
-    <div class="ck"><input type="checkbox" id="g53b"><label for="g53b">Positiver Marker (Weitung, Energie) → stimmig, weiter</label></div>
-    <div class="ck"><input type="checkbox" id="g53c"><label for="g53c">Negativer Marker (Enge, Widerstand) → nochmals zu Phase 4 zurück</label></div>
-    <div class="mbtns">
-      <button class="mbtn" onclick="openMethod('somatisch')">Somatische Marker</button>
-    </div>
-  </div></div>
-</div>
-
-<div class="step">
-  <div class="sn">5.4</div><div>
-  <div class="st">Abschluss &amp; Würdigung</div>
+  <div class="sd">Klient erz&auml;hlt die eigene &bdquo;Reise&ldquo; &ndash; nicht der Coach. Das festigt Erkenntnisse.
+<ul>
+<li>&bdquo;Erz&auml;hlen Sie mir: Wo haben Sie angefangen, wo stehen Sie jetzt?&ldquo;</li>
+<li>&bdquo;Was war Ihre gr&ouml;&szlig;te Erkenntnis in diesem Prozess?&ldquo;</li>
+<li>&bdquo;Was hat sich f&uuml;r Sie ver&auml;ndert &ndash; in der Betrachtung der Situation?&ldquo;</li>
+</ul><div class="ck"><input type="checkbox" id="m1"><label for="m1">Klient fasst selbst zusammen &ndash; Coach erg&auml;nzt nur wenn etwas Wesentliches fehlt</label></div><div class="ck"><input type="checkbox" id="m2"><label for="m2">Bogen P1&rarr;P5 kurz spiegeln</label></div></div>
+</div></div><div class="step"><div class="sn">5.2</div><div>
+  <div class="st">Ma&szlig;nahmen verankern &amp; Transfer sichern</div>
   <div class="sd">
-    <div class="ck"><input type="checkbox" id="g54a"><label for="g54a">»Was nehmen Sie aus diesem Coaching mit?«</label></div>
-    <div class="ck"><input type="checkbox" id="g54b"><label for="g54b">»Was war besonders wertvoll?«</label></div>
-    <div class="ck"><input type="checkbox" id="g54c"><label for="g54c">Klienten für seinen Einsatz und seine Offenheit würdigen (ohne »Super!«)</label></div>
-    <div class="ck"><input type="checkbox" id="g54d"><label for="g54d">Coaching offiziell beenden – klarer Abschluss, kein offenes Ende</label></div>
-    <div class="ck"><input type="checkbox" id="g54e"><label for="g54e">Dokumentation abschließen (Coach-intern: Reflexion &amp; Lessons Learned)</label></div>
-  </div></div>
-</div>
-
-</div>
+<ul>
+<li>&bdquo;Wann genau starten Sie mit Ma&szlig;nahme 1?&ldquo; &rarr; konkretes Datum</li>
+<li>&bdquo;Wer wei&szlig; davon? Gibt es jemanden, dem Sie Rechenschaft ablegen?&ldquo; (Social Commitment)</li>
+<li>&bdquo;Was k&ouml;nnte Sie aufhalten &ndash; und wie begegnen Sie dem?&ldquo;</li>
+</ul><div class="ck"><input type="checkbox" id="n1"><label for="n1">Alle Ma&szlig;nahmen haben Datum / erste konkrete Handlung</label></div><div class="ck"><input type="checkbox" id="n2"><label for="n2">Fotoprotokoll: Klient fotografiert alle Aufstellungen / Flip-Seiten</label></div><div class="ck"><input type="checkbox" id="n3"><label for="n3">Verankerungsinstrument: Postkarte / Vertrag / Schatzkiste / Visionsbox</label></div><div class="ck"><input type="checkbox" id="n4"><label for="n4">Follow-up-Termin (optional &ndash; Klient entscheidet)</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('dialog')">Konstruktiver Dialog</button><button class="mbtn" onclick="openMethod('vision')">Visionsarbeit</button></div></div>
+</div></div><div class="step"><div class="sn">5.3</div><div>
+  <div class="st">Somatische Marker &ndash; abschlie&szlig;ender Stimmigkeitscheck</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="o1"><label for="o1">Klient schaut auf Ma&szlig;nahmen: &bdquo;Wie f&uuml;hlt sich das in Ihrem K&ouml;rper an?&ldquo;</label></div><div class="ck"><input type="checkbox" id="o2"><label for="o2">Positiver Marker (Leichtigkeit, Energie) &rarr; stimmig &rarr; weiter</label></div><div class="ck"><input type="checkbox" id="o3"><label for="o3">Negativer Marker (Enge, Druck) &rarr; zur&uuml;ck zu Phase 4 oder ZEM nachsch&auml;rfen</label></div><div class="mbtns"><button class="mbtn" onclick="openMethod('somatisch')">Somatische Marker</button></div></div>
+</div></div><div class="step"><div class="sn">5.4</div><div>
+  <div class="st">Abschluss &amp; W&uuml;rdigung</div>
+  <div class="sd"><div class="ck"><input type="checkbox" id="p1"><label for="p1">"Was nehmen Sie aus diesem Coaching mit?"</label></div><div class="ck"><input type="checkbox" id="p2"><label for="p2">"Was war besonders wertvoll?"</label></div><div class="ck"><input type="checkbox" id="p3"><label for="p3">Klienten f&uuml;r Einsatz und Offenheit w&uuml;rdigen &ndash; authentisch, ohne &bdquo;Super!&ldquo;</label></div><div class="ck"><input type="checkbox" id="p4"><label for="p4">Coaching offiziell schlie&szlig;en &ndash; klarer Abschluss, kein offenes Ende</label></div><div class="ck"><input type="checkbox" id="p5"><label for="p5">Wie bleiben wir in Kontakt? (optional, auf Wunsch des Klienten)</label></div><div class="ck"><input type="checkbox" id="p6"><label for="p6">Coach-intern: Reflexion dokumentieren, ggf. Supervision suchen</label></div></div>
+</div></div></div>
 <div class="tips">
-  <div class="tip"><h4>🎯 Das Ziel dieser Phase</h4><ul>
-    <li>Umsetzungswahrscheinlichkeit aktiv erhöhen</li>
-    <li>Klient verlässt mit Energie, nicht mit Erschöpfung</li>
-    <li>Coaching hat einen klaren Anfang und ein klares Ende</li>
-    <li>Coach-interne Nachbereitung: Reflexion, Supervision ggf. suchen</li>
-  </ul></div>
-  <div class="tip"><h4>💡 Praxis</h4><ul>
-    <li>Phase 5 nicht im Stress abkürzen – sie sichert die gesamte Arbeit</li>
-    <li>Negativer somatischer Marker = wertvolles Signal, nicht Versagen</li>
-    <li>Kein Follow-up-Termin erzwingen – Klient entscheidet</li>
-    <li>Vertraulichkeit gilt auch nach dem Coaching</li>
-  </ul></div>
-</div>
-</div>
-<div class="amber-rule"></div>
-</div>
+  <div class="tip"><h4>&#9744; Don'ts</h4><ul><li>Phase 5 nicht im Stress abk&uuml;rzen &ndash; sie sichert die gesamte Arbeit</li><li>Negativer somatischer Marker = wertvolles Signal, nicht Versagen</li><li>Kein Follow-up-Termin erzwingen</li><li>Vertraulichkeit gilt auch nach dem Coaching</li></ul></div>
+  <div class="tip"><h4>&#128161; Praxis-Tipps</h4><ul><li>Postkarte an sich selbst schreiben (Klient formuliert)</li><li>Visionsbox: Collagen, Bilder, Symbole, Schl&uuml;sselw&ouml;rter</li><li>Schatzkiste: wichtigste Erkenntnis aufschreiben und einschlie&szlig;en</li><li>Accountability-Partner im eigenen Netzwerk benennen</li><li>Coach-Nachbereitung nicht vergessen (Reflexion, Lessons Learned)</li></ul></div>
+</div></div><div class="ar"></div><div class="sp"></div></div>
 
-<!-- ═══ METHODEN INDEX ═══ -->
 <div id="ph6" class="panel">
-  <div style="max-width:860px;margin:0 auto">
-  <div style="margin-bottom:20px">
-    <h2 style="font-family:'DM Serif Display',serif;font-size:1.4rem;margin-bottom:6px">Methoden-Bibliothek</h2>
-    <p style="font-size:.83rem;color:#666">Klicke auf eine Methode für Beschreibung und Rezept</p>
+  <div style="max-width:880px;margin:0 auto">
+  <div style="margin-bottom:14px">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:3px">Methoden-Bibliothek</h2>
+    <p style="font-size:.8rem;color:#666">Klick auf eine Methode f&uuml;r die vollst&auml;ndige Karte mit Diagramm, Beispielfragen und Rezept.</p>
   </div>
-  <div id="mxgrid" class="mx-grid"></div>
+  <div id="mxgrid"></div>
   </div>
 </div>
 
-</main>
-
-<!-- OVERLAY -->
-<div id="overlay" class="overlay" onclick="closeOverlay(event)">
-  <div class="drawer" id="drawer">
-    <div class="drawer-head">
-      <button class="drawer-close" onclick="closeDrawer()">✕</button>
-      <div class="d-badge" id="dbadge"></div>
-      <h2 id="dtitle"></h2>
+<div id="overlay" class="overlay" onclick="closeOv(event)">
+  <div class="drawer">
+    <div class="dh">
+      <div class="dh-info">
+        <div class="dbadge" id="dbadge"></div>
+        <h2 id="dtitle"></h2>
+      </div>
+      <button class="dcls" onclick="closeDrawer()">&#10005;</button>
     </div>
-    <div class="drawer-body" id="dbody"></div>
+    <div class="dbody" id="dbody"></div>
   </div>
 </div>
-
 <script>
-// ─── DATA ───────────────────────────────────────────────────
-const METHODS = {
-  stgallen:{
-    name:'St. Galler Management-Modell',phase:'P2 · Systemaufstellung',color:'p2',
-    desc:'Rahmenmodell zur systemischen Visualisierung des professionellen Umfelds. Erfasst Umwelt, Anspruchsgruppen, Innenorganisation und Ressourcen vollständig.',
-    when:'Phase 2 (IST-Aufstellung) bei professionellen / organisationalen Themen. Ideal als »Checkliste«, um keine relevanten Systemelemente zu vergessen.',
-    steps:[
-      {t:'Skizze aufschlagen',d:'Auf Flip oder Blatt: innen = Organisation (Prozesse, Strukturen, Kultur, Strategie), außen = Anspruchsgruppen und Umwelt.'},
-      {t:'Klienten einladen',d:'»Was aus diesem Rahmen ist für Ihr Thema relevant? Fangen Sie einfach an.« Klient beschriftet, positioniert, ordnet.'},
-      {t:'Systemelemente ergänzen',d:'Aus »Hubschrauberperspektive«: Fehlen Kapitalgeber? Mitarbeiter? Natur/Technologie? Nur aufnehmen, was mit dem Thema zu tun hat.'},
-      {t:'Qualität der Verbindungen klären',d:'Für wichtige Elemente: »Wie ist die Beziehung zu diesem Faktor aktuell?« (Skala, Wort, Symbol).'},
-      {t:'System bestätigen',d:'»Fehlt noch etwas? Ist alles Relevante sichtbar?« → dann Überleitung zu Zielklärung.'}
-    ]
-  },
-  tzi:{
-    name:'TZI – Themenzentrierte Interaktion',phase:'P2 · Systemaufstellung',color:'p2',
-    desc:'Modell nach Ruth Cohn. Fokus auf die Wechselwirkungen zwischen Ich, Wir, Thema und Globe (Umwelt). Ergänzt St. Gallen durch interpersonale Dynamiken.',
-    when:'Phase 2 (IST-Aufstellung) bei Konflikt-, Beziehungs- oder Teamthemen, bei denen Gruppeninteraktionen zentral sind.',
-    steps:[
-      {t:'Drei Kreise visualisieren',d:'Auf Flip: »Ich« (der Klient), »Wir« (relevante Gruppe/Team), »Thema« (das Anliegen). Darum: Globe (Umwelt/Kontext).'},
-      {t:'Ich-Perspektive erkunden',d:'»Was bedeutet dieses Thema für Sie persönlich? Was können Sie einbringen? Was sind Ihre Grenzen?«'},
-      {t:'Wir-Perspektive erkunden',d:'»Was prägt die Gruppe / das Team? Welche Dynamiken wirken? Welche Möglichkeiten und Grenzen hat die Gruppe?«'},
-      {t:'Thema klären',d:'»Worum geht es inhaltlich wirklich? Wie wirkt das Thema auf Sie und auf das Wir?«'},
-      {t:'Globe ergänzen',d:'»Welche äußeren Faktoren (Markt, Hierarchie, Kultur, Zeit) beeinflussen das System?« → Verbindungslinien ziehen.'}
-    ]
-  },
-  zwiebelmodell:{
-    name:'Zwiebelmodell (IST-Aufstellung)',phase:'P2 · Systemaufstellung',color:'p2',
-    desc:'Konzentrische Kreise: Klient + Thema im Zentrum, direktes Umfeld (privat/beruflich), erweitertes Umfeld (Gesellschaft, Natur, Wirtschaft, Technologie). Visualisiert Nähe und Einfluss.',
-    when:'Phase 2 (IST-Aufstellung) wenn die Nähe/Distanz von Systemelementen zum Thema wichtig ist.',
-    steps:[
-      {t:'Kreise zeichnen (Klient)',d:'Klient zeichnet 3 konzentrische Kreise. Mitte: sich selbst + Thema. Kreis 1: direkte Bezugspersonen und -systeme. Kreis 2: erweitertes Umfeld.'},
-      {t:'Elemente eintragen',d:'»Wer oder was gehört in welchen Ring?« Klient platziert selbst. Abstand zur Mitte = emotionale oder faktische Nähe zum Thema.'},
-      {t:'Qualität beleuchten',d:'Für jedes Element: »Wie ist die Verbindung? Unterstützend? Belastend? Neutral?«'},
-      {t:'Muster erkennen',d:'»Wie viele Elemente sind belastend / unterstützend? Was fällt Ihnen auf?«'},
-      {t:'Zielableitung vorbereiten',d:'»Was möchten Sie verändern – bezogen auf dieses Bild?«'}
-    ]
-  },
-  planetensystem:{
-    name:'Systemische Aufstellung als Planetensystem',phase:'P2 · Systemaufstellung',color:'p2',
-    desc:'Analogie zum Sonnensystem: Das Thema/Anliegen als Sonne im Zentrum, Systemelemente als Planeten mit unterschiedlichen Orbits. Macht Anziehung und Distanz intuitiv sichtbar.',
-    when:'Phase 2 (IST-Aufstellung) als anschauliche Alternative zum Zwiebelmodell – besonders gut bei komplexen Systemen mit vielen Akteuren.',
-    steps:[
-      {t:'Metapher einführen',d:'»Stellen Sie sich Ihr Thema als Sonne vor. Alles, was damit zu tun hat, kreist darum – in unterschiedlicher Entfernung.«'},
-      {t:'Planeten platzieren',d:'Klient zeichnet oder legt Karten: Wer ist nah (innerer Orbit), wer ist fern? Was verbindet? Was trennt?'},
-      {t:'Orbits erkunden',d:'»In welchem Orbit befinden sich Ihre wichtigsten Stakeholder? Warum genau dort?«'},
-      {t:'Kräfte benennen',d:'»Welche Einflüsse wirken? Was zieht an, was hält auf Distanz? Wo gibt es Reibung?«'},
-      {t:'Gesamtbild besprechen',d:'»Wie kommentieren Sie dieses Bild? Was überrascht Sie?« → dann Zielformulierung.'}
-    ]
-  },
-  wertkarten:{
-    name:'Wertkarten (3-stufige Auswahl)',phase:'P2/P3 · Systemvertiefung',color:'p2',
-    desc:'Kartensatz mit 50–70 Werten. Intuitive, schnelle Auswahl in 3 Runden. Macht unbewusste Wertepräferenzen sichtbar – ohne intellektuelle Rationalisierung.',
-    when:'Phase 2 (Systemvertiefung) oder Phase 3 (innere Ressourcen), wenn Wertekonflikte oder -lücken als Hypothese im Raum stehen. Nicht als Reflex einsetzen.',
-    steps:[
-      {t:'Runde 1 – alle relevanten',d:'»Legen Sie alle Werte beiseite, die für Ihr Thema irgendwie relevant sind.« Schnell, intuitiv – nicht analysieren.'},
-      {t:'Runde 2 – themenspezifisch',d:'»Jetzt filtern: Welche dieser Werte sind für genau dieses Thema wichtig?«'},
-      {t:'Runde 3 – Top 10–15',d:'»Reduzieren Sie auf maximal 15 Werte, die Ihnen am wichtigsten erscheinen.«'},
-      {t:'Im System verankern',d:'Klient ordnet die Werte dem System zu: »Wo leben Sie diese Werte? Wo nicht?«'},
-      {t:'Diskrepanzen benennen',d:'»Welche Werte werden gerade verletzt oder nicht gelebt?« → Direkte Verbindung zu Ziel und Ressourcen.'}
-    ]
-  },
-  gefuehlskarten:{
-    name:'Gefühlskarten',phase:'P2/P3 · Systemvertiefung',color:'p2',
-    desc:'Kartensatz mit Gefühlsbegriffen. Hilft Klienten, emotionale Zustände präzise zu benennen – auch wenn Gefühle im professionellen Kontext selten artikuliert werden.',
-    when:'Phase 2 (Systemvertiefung) zum Erfassen emotionaler Ist-Zustände. Phase 3 zur Ressourcenarbeit und Hypothesenbildung.',
-    steps:[
-      {t:'Karten auslegen',d:'Alle Karten offen auf dem Tisch. »Welche Gefühle beschreiben, wie Sie sich in Bezug auf Ihr Thema gerade fühlen?«'},
-      {t:'Auswahl treffen lassen',d:'Klient wählt – ohne Rechtfertigung. Mehrere Gefühle möglich, auch widersprüchliche.'},
-      {t:'Intensität skalieren',d:'»Wie stark ist dieses Gefühl auf einer Skala 1–10?«'},
-      {t:'Kontext erkunden',d:'»Welche Situation löst dieses Gefühl am stärksten aus?«'},
-      {t:'Brücke zu Ressourcen',d:'»Welches Gefühl hätten Sie gerne stattdessen?« → Hinweis auf Zielrichtung und Ressourcenbedarf.'}
-    ]
-  },
-  vmzsm:{
-    name:'VMZSM-Pyramide',phase:'P2 · Zielebene',color:'p2',
-    desc:'Fünfstufige Pyramide: Vision – Mission – Ziel(e) – Strategie(n) – Maßnahme(n). Hilft, die Ebene des Coaching-Ziels zu verorten: zu abstrakt (Vision) oder zu konkret (Maßnahme)?',
-    when:'Phase 2 (Zielklärung) wenn unklar ist, ob der Klient ein Ziel oder eine Maßnahme formuliert hat.',
-    steps:[
-      {t:'Pyramide skizzieren',d:'Auf Flip: Von oben nach unten – Vision, Mission, Ziel, Strategie, Maßnahme. Kurze Definition jeder Ebene erklären.'},
-      {t:'Einordnen lassen',d:'»Wo auf dieser Pyramide würden Sie das einordnen, was Sie gerade formuliert haben?«'},
-      {t:'Ziel-Ebene ansteuern',d:'»Um was zu erreichen?« – nach oben fragen bis die Ziel-Ebene erreicht ist. »Was genau?« – nach unten fragen wenn zu abstrakt.'},
-      {t:'Ziel-Formulierung bestätigen',d:'»Wenn das Ihr Ziel ist – welche Strategien / Maßnahmen fallen Ihnen dazu ein?« (als Probe für die richtige Ebene)'},
-      {t:'Verankern',d:'Ziel auf Flip festhalten, Pyramide als Referenz im Raum lassen.'}
-    ]
-  },
-  smarte:{
-    name:'SMARTE Zielkomponenten',phase:'P2/P4 · Zielklärung & Maßnahmen',color:'p2',
-    desc:'Qualitätskriteriensatz für Ziele und Maßnahmen: Spezifisch, Messbar, Akzeptiert/Anspruchsvoll, Realistisch, Terminiert, Eigenverantwortlich.',
-    when:'Phase 2 (Zielformulierung) und Phase 4 (Maßnahmenabgleich). Immer wenn eine Formulierung zu vage, zu abstrakt oder zu fremdbestimmt wirkt.',
-    steps:[
-      {t:'Formulierung vorliegen haben',d:'Klient hat sein Ziel / seine Maßnahme formuliert (Flip oder Karte).'},
-      {t:'SMARTE-Kriterien einzeln prüfen',d:'Für jedes Kriterium eine kurze Frage stellen – Klient beantwortet. Nicht alle müssen gleich stark sein.'},
-      {t:'Schwachstellen identifizieren',d:'»Bei welchem Kriterium fühlt sich das noch nicht gut an?« Klient reformuliert.'},
-      {t:'Motivationsniveau prüfen',d:'»Wie hoch ist Ihre Motivation, das umzusetzen? 1–10.« Unter 8 → was bräuchten Sie noch?'},
-      {t:'Finale Formulierung bestätigen',d:'»Lesen Sie Ihr Ziel nochmal laut vor. Klingt das nach Ihnen?«'}
-    ]
-  },
-  kompetenzrad:{
-    name:'Kompetenzrad',phase:'P3 · Innere Ressourcen',color:'p3',
-    desc:'Radförmige Darstellung von 6–8 Kompetenzdimensionen (fachlich, methodisch, sozial, kommunikativ, personal, Steuerungs-, Handlungskompetenz). Macht Stärken und Lücken sichtbar.',
-    when:'Phase 3 (innere Ressourcen) zur Standortbestimmung der eigenen Fähigkeiten – besonders bei Themen rund um Führung, Karriere, Rollenklärung.',
-    steps:[
-      {t:'Rad aufzeichnen',d:'8 gleiche Segmente (wie Tortenstücke), Achsen 1–10 einteilen. Dimensionen beschriften (oder Klient wählt eigene Dimensionen).'},
-      {t:'Ist-Einschätzung eintragen',d:'Klient markiert auf jeder Achse die aktuelle Ausprägung. Dann Punkte verbinden → entsteht unregelmäßiges Polygon.'},
-      {t:'Muster beschreiben lassen',d:'»Was sehen Sie? Was überrascht Sie? Wo fühlen Sie sich stark – wo weniger?«'},
-      {t:'Ressourcen verknüpfen',d:'»Welche dieser Stärken können Sie für Ihr Coaching-Ziel nutzen?«'},
-      {t:'Optional: Soll-Einschätzung',d:'Klient zeichnet gewünschten Zustand ein. »Welche Dimension möchten Sie weiterentwickeln – und welche ist für das Ziel am wichtigsten?«'}
-    ]
-  },
-  fuenfsaeulen:{
-    name:'5 Säulen der Identität (Petzold)',phase:'P3 · Innere Ressourcen',color:'p3',
-    desc:'Identitätsmodell nach Hilarion Petzold mit 5 Säulen: Leiblichkeit, soziales Netzwerk, Arbeit & Leistung, materielle Sicherheit, Werte. Stabilität entsteht aus dem Zusammenspiel aller Säulen.',
-    when:'Phase 3 (innere Ressourcen) bei Themen rund um Sinn, Burnout, Lebensbilanz, Work-Life-Balance oder Identitätskrisen.',
-    steps:[
-      {t:'Säulen zeichnen',d:'5 gleich hohe Säulen auf Flip. Klient beschriftet jede mit dem Oberbegriff, ergänzt konkrete Inhalte.'},
-      {t:'Zustand einschätzen',d:'»Wie stabil fühlt sich jede Säule aktuell an? 1–10?« Klient »füllt« die Säulen entsprechend.'},
-      {t:'Tragfähigkeit prüfen',d:'»Wenn eine Säule schwächelt – welche anderen tragen dann mehr? Wo fehlt Gewicht?«'},
-      {t:'Ressourcen ableiten',d:'»Welche Säule gibt Ihnen gerade besonders viel Halt?« → konkrete Ressourcen benennen.'},
-      {t:'Verbindung zum Ziel',d:'»Wie verändert sich dieses Bild, wenn Sie Ihr Ziel erreicht haben?«'}
-    ]
-  },
-  raddeslebens:{
-    name:'Rad des Lebens',phase:'P3 · Innere Ressourcen',color:'p3',
-    desc:'8 Lebensbereiche (Karriere, Finanzen, Gesundheit, Familie/Freunde, Persönliche Entwicklung, Freizeit, körperliche Verfassung + freie Kategorie) im Kreisformat. Zeigt Balance und Schieflage.',
-    when:'Phase 3 (innere Ressourcen) bei Themen zu Work-Life-Balance, Prioritäten, Selbstmanagement, Neuorientierung.',
-    steps:[
-      {t:'Rad aufzeichnen',d:'8 gleiche Segmente. Klient beschriftet Bereiche (kann eigene Kategorien wählen). Achse 1–10 von Mitte nach außen.'},
-      {t:'Ist-Zufriedenheit markieren',d:'Klient markiert auf jeder Achse: »Wie zufrieden sind Sie aktuell in diesem Bereich?« – Punkte verbinden.'},
-      {t:'Bild betrachten',d:'»Wenn dieses Rad Ihr Lebensreifen wäre – wie gleichmäßig würden Sie damit fahren?«'},
-      {t:'Prioritäten klären',d:'»Welcher Bereich soll sich als erstes verändern? Welcher hat direkten Einfluss auf Ihr Coaching-Ziel?«'},
-      {t:'Ressourcen verknüpfen',d:'»In welchem Bereich sind Sie am stabilsten? Was können Sie von dort »ausleihen«?«'}
-    ]
-  },
-  eisberg:{
-    name:'Eisbergmodell (Freud)',phase:'P3 · Innere Ressourcen',color:'p3',
-    desc:'7/8 des Eisbergs sind unsichtbar. Sichtbar: formulierte Sachthemen und beobachtbares Verhalten. Unsichtbar: Ängste, Wünsche, Gefühle, Bedürfnisse, Werte, Normen, alte Geschichten.',
-    when:'Phase 3 (innere Ressourcen und Hypothesen) wenn das eigentliche Thema tiefer liegt als der präsentierte Anlass.',
-    steps:[
-      {t:'Eisberg skizzieren',d:'Auf Flip: sichtbarer Teil (klein, oben) = »was man sieht und sagt«. Unsichtbarer Teil (groß, unten) = »was darunter liegt«.'},
-      {t:'Sachebene klären',d:'»Was ist das formulierte Thema? Was sind die Fakten?« → in den sichtbaren Teil schreiben.'},
-      {t:'Tieferes erkunden',d:'»Was glauben Sie – was liegt unter der Oberfläche?« Klient identifiziert Gefühle, Ängste, Wünsche, Werte selbst.'},
-      {t:'Verbindung herstellen',d:'»Welche Verbindung sehen Sie zwischen dem, was oben sichtbar ist, und dem, was darunter liegt?«'},
-      {t:'Ressourcen benennen',d:'»Was auf der Unterwasser-Ebene ist eine Ressource für Ihr Ziel?« (z.B. tiefe Werte, klare Bedürfnisse als Motor)'}
-    ]
-  },
-  maslow:{
-    name:'Maslow & Herzberg (Vergleich)',phase:'P3 · Hypothesen',color:'p3',
-    desc:'Maslow: 5-stufige Bedürfnispyramide (physiologisch → Sicherheit → sozial → Anerkennung → Selbstverwirklichung). Herzberg: Hygienefaktoren (Abwesenheit = Unzufriedenheit) vs. Motivatoren (Anwesenheit = Zufriedenheit).',
-    when:'Phase 3 (Hypothesenbildung intern) bei Motivations-, Führungs- oder Zufriedenheitsthemen. Gibt dem Coach Orientierung, welche Bedarfsebene adressiert werden soll.',
-    steps:[
-      {t:'Intern: Hypothese bilden',d:'Wo auf der Maslow-Pyramide ist der Klient? Welches Bedürfnis wird nicht erfüllt? (Sicherheit? Zugehörigkeit? Anerkennung? Selbstverwirklichung?)'},
-      {t:'Herzberg-Check',d:'Ist es ein Hygienefaktor-Problem (z.B. schlechte Arbeitsbedingungen, Gehalt, Unsicherheit)? Oder ein Motivator-Problem (z.B. fehlende Anerkennung, keine Verantwortung, kein Wachstum)?'},
-      {t:'Fragestrategie entwickeln',d:'Auf Basis der Hypothese: Welche Ressourcenquellen sind am vielversprechendsten? (Intern: Stärken, Werte. Extern: Führung, Struktur, Kollegenkreis?)'},
-      {t:'Optional: mit Klient besprechen',d:'Modelle können im Coaching gezeigt werden – aber nur als Angebot, nicht als Diagnose: »Wo würden Sie sich hier einordnen?«'},
-      {t:'Ressourcen verknüpfen',d:'Welche Maßnahmen adressieren die identifizierte Bedürfnisebene direkt?'}
-    ]
-  },
-  antreiber:{
-    name:'Innere Antreiber (Transaktionsanalyse)',phase:'P3 · Hypothesen',color:'p3',
-    desc:'5 innere Antreiber nach Eric Berne / Taibi Kahler: Sei perfekt, Sei stark, Mach schnell, Mach es allen recht, Streng dich an. Antreiber sind Verhaltensmuster, die unter Druck aktiviert werden.',
-    when:'Phase 3 (Hypothesenbildung intern) wenn der Klient unter Druck gesetzt zu verhalten scheint – als Coach-Hypothese, nicht als Diagnose.',
-    steps:[
-      {t:'Intern: Antreiber identifizieren',d:'»Sei perfekt«: Perfektionismus, Fehlerangst. »Sei stark«: Gefühle zeigen ist Schwäche. »Mach schnell«: Ungeduld, Multitasking. »Mach es allen recht«: Konfliktvermeidung. »Streng dich an«: Leistung durch Anstrengung (nicht Ergebnis).'},
-      {t:'Fragestrategie ausrichten',d:'Welcher Antreiber könnte aktiv sein? Welche Fragen helfen, ihn sichtbar zu machen, ohne ihn zu benennen?'},
-      {t:'Optional: Antreiber-Reflektion',d:'»Gibt es innere Stimmen oder Überzeugungen, die Ihr Verhalten in solchen Situationen lenken?«'},
-      {t:'Ressource erkennen',d:'Antreiber haben auch Ressourcen-Seiten! »Sei perfekt« → Qualitätsbewusstsein. »Sei stark« → Resilienz. Diese benennen lassen.'},
-      {t:'Erlaubnissätze',d:'»Was dürfen Sie sich als Erlaubnis geben?« (Gegenteil des Antreibers) – als Türöffner zu neuen Handlungsoptionen.'}
-    ]
-  },
-  ta:{
-    name:'Transaktionsanalyse (TA)',phase:'P3 · Hypothesen',color:'p3',
-    desc:'Modell nach Eric Berne. Drei Ich-Zustände: Eltern-Ich (EL: normativ/fürsorglich), Erwachsenen-Ich (ER: rational/situativ), Kind-Ich (KI: frei/angepasst). Kommunikation läuft als »Transaktion« zwischen diesen Zuständen.',
-    when:'Phase 3 (Hypothesen) bei Kommunikations- und Beziehungskonflikten. Hilfreich wenn Klient sich in Konflikten »klein« fühlt oder autoritär reagiert.',
-    steps:[
-      {t:'Drei Ich-Zustände erklären',d:'Kurz und klar: EL (»so muss es sein«), ER (»was sagen die Fakten?«), KI (»ich will / ich darf nicht«). Beispieldialog: »Weißt du, wie spät es ist?« als EL vs. ER vs. KI.'},
-      {t:'Situationsanalyse',d:'»Aus welchem Ich-Zustand heraus handeln Sie in dieser Situation?« – »Aus welchem Zustand kommt die andere Person?«'},
-      {t:'Kreuzende Transaktionen',d:'»Was passiert, wenn Sie aus dem ER antworten, aber die Reaktion kommt aus dem EL?« → Quelle von Missverständnissen sichtbar machen.'},
-      {t:'Ressource: ER stärken',d:'»Was würde Ihr Erwachsenen-Ich in dieser Situation tun oder sagen?« → Handlungsoption aus neutraler, sachlicher Ebene.'},
-      {t:'Verhaltensalternative entwickeln',d:'Welche Transaktion möchte der Klient künftig bewusst wählen? → Übergang zu Phase 4.'}
-    ]
-  },
-  inneresteam:{
-    name:'Das Innere Team (Schulz von Thun)',phase:'P3 · Innere Ressourcen',color:'p3',
-    desc:'Metapher für innere Pluralität: Verschiedene »Teammitglieder« (innere Stimmen, Anteile, Widersprüche) sprechen zu einem Thema. Ziel: alle Stimmen hören, dann als innerer Teamchef entscheiden.',
-    when:'Phase 3 (innere Ressourcen) bei inneren Konflikten, ambivalenten Gefühlen, Entscheidungsblockaden oder Prokrastination.',
-    steps:[
-      {t:'Einstieg',d:'»Wer meldet sich in Ihnen, wenn Sie an Ihr Thema denken? Welche inneren Stimmen hören Sie?«'},
-      {t:'Stimmen sammeln',d:'Klient benennt alle Anteile (Zweifel, Ehrgeiz, Vorsicht, Freiheitswille, Pflichtbewusstsein etc.) – auf Karten oder Flip, ohne Bewertung.'},
-      {t:'Stimmen befragen',d:'Für jeden Anteil: »Was will dieser Teil? Was hat er Angst zu verlieren? Was ist sein gutes Recht, gehört zu werden?«'},
-      {t:'Dominanzen erkennen',d:'»Welche Stimme dominiert? Welche kommt zu kurz?« – Teamdynamik sichtbar machen.'},
-      {t:'Innere Teamführung',d:'»Als innerer Teamchef: Was ist Ihre Entscheidung, nachdem alle gehört wurden?« → Übergang zu Ziel oder Maßnahmen.'}
-    ]
-  },
-  swot:{
-    name:'SWOT-Analyse',phase:'P3/P4 · Ressourcen & Optionen',color:'p3',
-    desc:'Vier Felder: Strengths (Stärken), Weaknesses (Schwächen), Opportunities (Chancen), Threats (Risiken). Kombiniert interne und externe Perspektive.',
-    when:'Phase 3 (systemische Ressourcen) oder Phase 4 (Handlungsoptionen). Besonders bei strategischen Entscheidungs- und Karrierethemen.',
-    steps:[
-      {t:'Matrix aufzeichnen',d:'4 Felder auf Flip. Klient beschriftet selbst.'},
-      {t:'Stärken sammeln',d:'»Was läuft gut? Was sind Ihre Stärken? Worauf sind Sie stolz? Was gibt Ihnen Energie?«'},
-      {t:'Schwächen benennen',d:'»Was ist schwierig? Wo liegen Barrieren? Was fehlt?« – Keine Bewertung, nur Bestandsaufnahme.'},
-      {t:'Chancen identifizieren',d:'»Welche Möglichkeiten sehen Sie? Was könnten Sie ausbauen oder im Umfeld nutzen?«'},
-      {t:'Risiken benennen',d:'»Welche Gefahren oder Schwierigkeiten könnten kommen?« → In Phase 4 direkt für Risikoanalyse nutzbar.'}
-    ]
-  },
-  johari:{
-    name:'Johari-Fenster',phase:'P3 · Systemische Ressourcen',color:'p3',
-    desc:'4-Felder-Matrix: Arena (mir und anderen bekannt), Blinder Fleck (anderen bekannt, mir nicht), Fassade (mir bekannt, anderen nicht), Unbewusstes. Modell für Selbst- und Fremdwahrnehmung.',
-    when:'Phase 3 (systemische Ressourcen / Hypothesen) bei Themen rund um Feedback, Selbstbild vs. Fremdbild, blinde Flecken, Vertrauen.',
-    steps:[
-      {t:'Fenster skizzieren',d:'4 Felder mit kurzer Erklärung je Quadrant. Klient versteht das Prinzip.'},
-      {t:'Arena erkunden',d:'»Was wissen Sie über sich selbst, das auch andere kennen? Was zeigen Sie bewusst?«'},
-      {t:'Blinder Fleck adressieren',d:'»Was könnten andere an Ihnen wahrnehmen, das Ihnen selbst nicht bewusst ist?« → Einladung zu Feedback.'},
-      {t:'Fassade reflektieren',d:'»Was wissen Sie über sich, das Sie nicht zeigen? Wäre mehr Offenheit an manchen Stellen hilfreich?«'},
-      {t:'Ressource ableiten',d:'»Was würde sich verändern, wenn Ihre Arena größer wäre?« → Verbindung zu Kommunikations- und Beziehungsthemen.'}
-    ]
-  },
-  glasl:{
-    name:'Eskalationsstufen nach Glasl',phase:'P3 · Konfliktanalyse',color:'p3',
-    desc:'9 Stufen der Konflikteskalation in 3 Ebenen: Win-Win (1–3), Win-Lose (4–6), Lose-Lose (7–9). Gibt Orientierung über den Schweregrad eines Konflikts und die mögliche Coaching-Eignung.',
-    when:'Phase 3 (Hypothesen / Ressourcen) bei Konfliktsituationen. Hilft einzuschätzen, ob Coaching ausreicht oder Mediation / externe Unterstützung nötig ist.',
-    steps:[
-      {t:'Stufen erklären',d:'Ebene 1 (1–3): Verhärtung, Debatte, Taten statt Worte – Win-Win noch möglich. Ebene 2 (4–6): Koalitionen, Gesichtsverlust, Drohstrategien. Ebene 3 (7–9): Vernichtung – Lose-Lose.'},
-      {t:'Einstufung vornehmen lassen',d:'»Wo auf dieser Skala würden Sie den Konflikt einordnen?«'},
-      {t:'Coaching-Eignung prüfen',d:'Stufen 1–4: Coaching gut geeignet. Stufen 5–6: Coaching ergänzend, ggf. Mediation. Stufen 7–9: Coaching allein nicht ausreichend.'},
-      {t:'Ressource: Deeskalationswissen',d:'»Was würde es brauchen, um eine Stufe tiefer zu kommen?«'},
-      {t:'Handlungsoptionen vorbereiten',d:'→ Überleitung zu Phase 4 (Handlungsoptionen im Konflikt).'}
-    ]
-  },
-  konflikt:{
-    name:'Konflikt-Handhabungsstile',phase:'P3 · Ressourcen & Optionen',color:'p3',
-    desc:'5 Stile im Spannungsfeld zwischen Durchsetzung (eigene Interessen) und Kooperation (fremde Interessen): Vermeidung, Anpassung, Machteinsatz, Kompromiss, Zusammenarbeit.',
-    when:'Phase 3 oder 4 bei Konfliktsituationen – zur Reflexion des eigenen Stils und zur Entwicklung neuer Verhaltensoptionen.',
-    steps:[
-      {t:'Matrix zeigen',d:'Achsen: Kooperationsbereitschaft (y) vs. Durchsetzungswille (x). 5 Stile einzeichnen und kurz erklären.'},
-      {t:'Eigenen Stil einordnen',d:'»Wo befinden Sie sich typischerweise? Was ist Ihr bevorzugter Stil in diesem Konflikt?«'},
-      {t:'Situationscheck',d:'»Passt Ihr bevorzugter Stil zu dieser Situation und zu Ihrem Ziel?«'},
-      {t:'Alternativen erkunden',d:'»Welcher andere Stil könnte in dieser Situation hilfreicher sein? Was würde das konkret bedeuten?«'},
-      {t:'Maßnahmen entwickeln',d:'→ Direkt in Phase 4: konkrete Verhaltensalternative formulieren und als Maßnahme verankern.'}
-    ]
-  },
-  disney:{
-    name:'Walt Disney Methode',phase:'P4 · Handlungsoptionen',color:'p4',
-    desc:'3 Perspektiven sequenziell einnehmen: 1) Träumer (alles ist möglich), 2) Realist (was ist machbar?), 3) Kritiker (was könnte scheitern?). Trennung der Perspektiven verhindert frühzeitige Selbstzensur.',
-    when:'Phase 4 (Handlungsoptionen entwickeln) zur Ideengenerierung – besonders wenn Klient zu früh Ideen abbremst oder zu vorsichtig denkt.',
-    steps:[
-      {t:'3 Stühle / Positionen',d:'Idealerweise 3 physische Positionen oder Karten. Klient wechselt bewusst die Position, wenn er die Perspektive wechselt.'},
-      {t:'Träumer-Runde',d:'»Was wäre, wenn alles möglich wäre? Was wäre Ihre kühnste Idee?« Keine Einschränkungen, keine Bewertung. Alle Ideen willkommen.'},
-      {t:'Realist-Runde',d:'»Was davon ist wirklich machbar? Was braucht es konkret? Wie würde das aussehen?« Träumer-Ideen durch Realist-Linse filtern.'},
-      {t:'Kritiker-Runde',d:'»Was könnte schief gehen? Was fehlt noch? Welche Risiken sehen Sie?« Der Kritiker verbessert, bremst nicht aus.'},
-      {t:'Synthese',d:'»Was nehmen Sie aus allen drei Perspektiven mit?« → Verfeinerte Handlungsoptionen als Input für Schritt 4.2.'}
-    ]
-  },
-  stern:{
-    name:'Sternanalyse',phase:'P4 · Handlungsoptionen & Risikocheck',color:'p4',
-    desc:'Option oder Ziel im Zentrum. Strahlen nach außen: Chancen, Bedenken/Hindernisse, Gegenstrategie zu jedem Hindernis. Macht Risiken sichtbar und direkt bearbeitbar.',
-    when:'Phase 4 (Risikoanalyse 4.3) für ausgewählte Handlungsoptionen. Auch als Entscheidungshilfe zwischen Optionen.',
-    steps:[
-      {t:'Option ins Zentrum',d:'Klient schreibt die Handlungsoption in die Mitte des Blatts.'},
-      {t:'Chancen/Vorteile strahlen',d:'»Was spricht dafür? Welche Chancen bietet das?« – als Strahlen nach außen.'},
-      {t:'Bedenken/Hindernisse strahlen',d:'»Was könnte schief gehen? Welche Hindernisse sehen Sie?« – als weitere Strahlen.'},
-      {t:'Gegenstrategien entwickeln',d:'»Für jedes Hindernis: Wie kann das dennoch funktionieren? Was würde dagegen helfen?«'},
-      {t:'Gesamtbewertung',d:'»Wenn Sie alle Strahlen sehen – wie stark ist Ihre Zuversicht, das umzusetzen?« → somatischen Marker prüfen.'}
-    ]
-  },
-  kopfstand:{
-    name:'Kopfstandmethode',phase:'P4 · Handlungsoptionen',color:'p4',
-    desc:'Frageumkehr: »Was müssten Sie tun, damit das Problem garantiert schlimmer wird?« Durch Umkehrung entstehen kreative Lösungsideen, die klassisches Brainstorming oft nicht erreicht.',
-    when:'Phase 4 (Handlungsoptionen) wenn klassisches Brainstorming zu wenig Kreativität bringt oder wenn der Klient in gewohnten Denkmustern feststeckt.',
-    steps:[
-      {t:'Ursprungsfrage umkehren',d:'»Was könnten Sie tun, damit Ihre Situation garantiert schlechter wird? Was würde das Problem maximal verschlimmern?«'},
-      {t:'Verschlechterungen sammeln',d:'Klient generiert mutig – alles ist erlaubt. Coach hält fest (kein Klient-Touch).'},
-      {t:'Liste umkehren',d:'»Wenn das die Wege in die falsche Richtung sind – was ist dann jeweils das Gegenteil?«'},
-      {t:'Ideen filtern',d:'Welche umgekehrten Ideen sind wirklich brauchbar? Klient markiert die vielversprechendsten.'},
-      {t:'In Maßnahmen überführen',d:'→ Brauchbare Ideen als Input für Schritt 4.1/4.2.'}
-    ]
-  },
-  eisenhower:{
-    name:'Eisenhower-Prinzip',phase:'P4 · Maßnahmenpriorisierung',color:'p4',
-    desc:'4-Felder-Matrix: wichtig/dringend (sofort selbst), wichtig/nicht dringend (terminieren), dringend/nicht wichtig (delegieren), nicht wichtig/nicht dringend (weglassen). Priorisierungstool für Maßnahmen.',
-    when:'Phase 4 (Maßnahmenplanung) wenn Klient viele Maßnahmen hat und nicht weiß, womit anfangen. Oder bei Selbstmanagement-Themen.',
-    steps:[
-      {t:'Matrix aufzeichnen',d:'4-Felder: x-Achse = Dringlichkeit, y-Achse = Wichtigkeit. Klient beschriftet Felder selbst.'},
-      {t:'Maßnahmen einordnen lassen',d:'Jede Maßnahme aus 4.1 auf einen Zettel → Klient platziert sie in der Matrix.'},
-      {t:'Muster besprechen',d:'»Was überrascht Sie? Wo haben Sie zu viel im »dringend, nicht wichtig«-Feld?«'},
-      {t:'Priorität 1 festlegen',d:'Maßnahmen aus »wichtig, nicht dringend« (Quadrant B) sind oft die strategisch wertvollsten – und werden oft aufgeschoben.'},
-      {t:'Konkreten nächsten Schritt ableiten',d:'»Was ist die eine Maßnahme, die Sie als erstes angehen?« → Datum setzen.'}
-    ]
-  },
-  somatisch:{
-    name:'Somatische Marker',phase:'P4/P5 · Stimmigkeitscheck',color:'p5',
-    desc:'Körpersignale als Entscheidungs- und Stimmigkeitshilfe. Positive Marker (Weitung, Energie, Wärme) signalisieren Resonanz; negative Marker (Enge, Druck, Schwere) signalisieren inneren Widerstand.',
-    when:'Phase 4 (Maßnahmencheck) und Phase 5 (Controlling). Immer wenn eine kognitive Analyse allein nicht ausreicht oder wenn Klient zögert.',
-    steps:[
-      {t:'Fokus schaffen',d:'Klient schaut auf die fertige Maßnahme / den fertigen Plan. Kurze Pause, Atemraum lassen.'},
-      {t:'Körpergefühl abfragen',d:'»Wenn Sie das so sehen: Was spüren Sie in Ihrem Körper?«'},
-      {t:'Marker interpretieren',d:'Positiv (Leichtigkeit, Öffnung, Energie): stimmig → weiter. Negativ (Enge, Druck, Widerstand): etwas stimmt noch nicht.'},
-      {t:'Bei negativem Marker',d:'»Was genau fühlt sich nicht stimmig an?« Nicht sofort lösen – erstmal benennen lassen. Dann ggf. zurück zu 4.1 oder 4.3.'},
-      {t:'Abschluss',d:'»Wenn der Körper zustimmt – wie zeigt sich das?« → bewusste Verankerung des positiven Markers als Referenzgefühl.'}
-    ]
-  },
-  dialog:{
-    name:'Konstruktiver Dialog',phase:'P5 · Transfer & Verankerung',color:'p5',
-    desc:'5-schrittiger Ablauf für schwierige Gespräche: 1) Situationsbeschreibung, 2) Auswirkung, 3) Empfindung, 4) Öffnende Frage (W-Frage) + aktiv zuhören, 5) Zurück zum Thema und lösen.',
-    when:'Phase 5 (Transfer) wenn eine der definierten Maßnahmen ein schwieriges Gespräch erfordert. Hilft, dieses Gespräch vorzubereiten.',
-    steps:[
-      {t:'Situationsbeschreibung',d:'»Ich beobachte / habe wahrgenommen, dass …« – faktisch, ohne Bewertung. Kein »Du immer«.'},
-      {t:'Auswirkung benennen',d:'»Das hat für mich / für das Projekt folgende Konsequenz: …« – konkret und sachlich.'},
-      {t:'Eigene Empfindung',d:'»Dabei fühle ich …« – Ich-Botschaft, nicht Vorwurf. Gibt dem Gegenüber die Möglichkeit zu reagieren.'},
-      {t:'Öffnende Frage',d:'»Wie siehst du das?« / »Was war deine Intention?« – echtes Interesse, aktiv zuhören, Widerstände auflösen.'},
-      {t:'Lösung ansteuern',d:'»Was können wir gemeinsam tun?« – zurück zum sachlichen Thema, gemeinsam lösen.'}
-    ]
-  }
+const CATS=[
+  {label:'Orientierung &amp; Struktur',ids:['einstiegsfragen','trichter','stgallen','tzi','zwiebelmodell','planetensystem','vmzsm','smarte']},
+  {label:'Ziel &amp; Entscheidung',ids:['wertkarten','gefuehlskarten','entscheidung','tetralemma','disney']},
+  {label:'Innere Ressourcen',ids:['biografie','kompetenzrad','fuenfsaeulen','raddeslebens','eisberg','maslow','antreiber','ta','inneresteam','resilienzrad','vision','kleinerelefant','stuhltausch']},
+  {label:'Systemische Ressourcen',ids:['swot','johari','glasl','konflikt','gfk','vierseitenmodell']},
+  {label:'Handlungsoptionen &amp; Planung',ids:['stern','kopfstand','eisenhower','reframing']},
+  {label:'Transfer &amp; Abschluss',ids:['somatisch','dialog']},
+];
+
+const METHODS={
+  einstiegsfragen:{name:'Einstiegsfragen im Business Coaching',phase:'P1 &middot; Warming-up',color:'p1',
+    desc:'Gezielte Fragen zu Beginn, die Vertrauen schaffen, den Klienten einladen anzukommen und erste Orientierung geben. Situativ ausw&auml;hlen &ndash; nie alle abarbeiten.',when:'Phase 1 (Warming-up). 1&ndash;2 Fragen gen&uuml;gen. Schnell, leicht, einladend.',
+    diagram:'',
+    questions:['Was f&uuml;hrt Sie genau heute zu mir?','Was w&uuml;rde passieren, wenn sich nichts ver&auml;nderte?','Auf einer Skala 1&ndash;10: Wie wichtig ist Ihnen das Thema?','Was k&ouml;nnte schlimmstenfalls beim Coaching passieren?','Was m&ouml;chten Sie hier gerne f&uuml;r sich tun?','Was haben Sie bisher schon zur L&ouml;sung unternommen?','Welche Themen d&uuml;rfen nicht angesprochen werden?','Ganz kurz: Wie kommt es zu Ihrem &Auml;nderungswunsch?','Was ist f&uuml;r Sie erreicht, wenn Sie Ihr Thema bearbeitet haben?','Welche Erwartungen haben Sie an mich als Coach?'],
+    steps:[{t:'Atmosph&auml;re pr&uuml;fen',d:'Raum, Setting, Zeit &ndash; kann der Klient wirklich ankommen? Pause, Wasser, Augenkontakt.'},{t:'1&ndash;2 Fragen w&auml;hlen',d:'Situationsgerecht ausw&auml;hlen. Nicht alle! Die erste Frage soll &ouml;ffnen, nicht unter Druck setzen.'},{t:'Aktiv zuh&ouml;ren',d:'Best&auml;tigen &uuml;ber Gestik und Mimik. Paraphrasieren. Keine Bewertung &ndash; auch keine positiven.'},{t:'Thema notieren',d:'Kernaussagen in Worten des Klienten auf Flip &ndash; nicht in eigenen.'},{t:'&Uuml;berleitung',d:'&bdquo;Geben Sie Ihrer momentanen Situation eine &Uuml;berschrift.&ldquo; &rarr; Br&uuml;cke zu Phase 1 Rollenerkl&auml;rung.'}]},
+  trichter:{name:'Trichtermodell (5-Phasen-&Uuml;berblick)',phase:'P1 &middot; Prozessstruktur',color:'p1',
+    desc:'Visualisierung des 5-Phasen-Prozesses als Trichter: oben breit (Thema), unten schmal (Ma&szlig;nahmen). Hilft Klienten den Weg zu verstehen. Verbleibt sichtbar im Raum.',when:'Phase 1 (Prozesserkl&auml;rung). Kurze Skizze auf Flip &ndash; max. 2 Minuten.',
+    diagram:'',
+    questions:['Ich m&ouml;chte Ihnen kurz zeigen, wie wir gemeinsam vorgehen werden.','Was fragen Sie sich zu diesem Ablauf?','Passt das so f&uuml;r Sie?'],
+    steps:[{t:'Trichter skizzieren',d:'P1 oben breit (Thema), P5 unten schmal (Ma&szlig;nahmen). Pfeile nach unten.'},{t:'Kurz erkl&auml;ren',d:'Jede Phase in einem Satz: P1=Kennenlernen, P2=System+Ziel, P3=Ressourcen, P4=Ma&szlig;nahmen, P5=Verankerung.'},{t:'Rollen einzeichnen',d:'Links: &bdquo;Ich als Coach f&uuml;hre den Prozess.&ldquo; Rechts: &bdquo;Sie f&uuml;hren den Inhalt.&ldquo;'},{t:'Fragen kl&auml;ren',d:'Zeit lassen. Kein Druck sofort zu beginnen.'},{t:'Als Referenz stehen lassen',d:'Trichter bleibt sichtbar &rarr; gibt Orientierung w&auml;hrend des gesamten Coachings.'}]},
+  stgallen:{name:'St. Galler Management-Modell',phase:'P2 &middot; Systemaufstellung',color:'p2',
+    desc:'Systemisches Rahmenmodell: Umwelt (Gesellschaft, Natur, Technologie, Wirtschaft), Anspruchsgruppen (Kunden, MA, Lieferanten, Konkurrenten, Staat), Innenorganisation (Strategie, Struktur, Kultur, Prozesse).',when:'Phase 2 (IST-Aufstellung) bei organisationalen oder berufl. Themen. Als Checkliste im Hinterkopf &ndash; nicht als starres Schema.',
+    diagram:'',
+    questions:['Wer oder was hat mit Ihrer momentanen Situation zu tun?','Wenn Sie an Ihr Thema denken &ndash; welche Menschen, Bereiche, Faktoren spielen eine Rolle?','Wie ist die Beziehung zu diesem Element aktuell? 1&ndash;10?','Gibt es jemanden oder etwas, das Sie &uuml;berraschend wenig erw&auml;hnt haben?','Was beeinflusst Ihre Situation von au&szlig;en (Markt, Gesellschaft, Technologie)?'],
+    steps:[{t:'Offene Aufstellung starten',d:'&bdquo;Wer oder was hat mit Ihrem Thema zu tun?&ldquo; Klient beginnt frei. Coach beobachtet.'},{t:'Innenbereich abtasten',d:'Wenn Innenstruktur fehlt: &bdquo;Welche Prozesse, Strukturen, kulturellen Aspekte spielen eine Rolle?&ldquo;'},{t:'Anspruchsgruppen pr&uuml;fen',d:'&bdquo;Wer sind die wichtigsten Stakeholder? Mitarbeiter, Kunden, Vorgesetzte, Kollegen?&ldquo;'},{t:'Umwelt erg&auml;nzen',d:'&bdquo;Was beeinflusst Sie von au&szlig;en? Technologie, Markt, gesellschaftlicher Wandel?&ldquo;'},{t:'Vollst&auml;ndigkeit sichern',d:'&bdquo;Fehlt noch etwas?&ldquo; &rarr; &Uuml;berleitung Zielformulierung.'}]},
+  tzi:{name:'TZI &ndash; Themenzentrierte Interaktion',phase:'P2 &middot; Systemaufstellung',color:'p2',
+    desc:'Modell nach Ruth Cohn. Vier Faktoren im Gleichgewicht: ICH (die Person), WIR (Gruppe/System), ES (Thema/Aufgabe), GLOBE (Umwelt/Kontext). Besonders bei Team- und Beziehungsthemen.',when:'Phase 2 (IST-Aufstellung) als Alternative zu St. Gallen &ndash; besonders bei Konflikten und Teamthemen.',
+    diagram:'',
+    questions:['Was bedeutet dieses Thema f&uuml;r Sie pers&ouml;nlich? (ICH)','Wie erleben Sie die Gruppe / das Team? (WIR)','Was ist das inhaltliche Thema wirklich? (ES)','Welche &auml;u&szlig;eren Umst&auml;nde beeinflussen die Situation? (GLOBE)','Wo ist das Gleichgewicht zwischen ICH, WIR und ES am st&auml;rksten gest&ouml;rt?'],
+    steps:[{t:'Drei Kreise zeichnen',d:'Klient zeichnet drei sich &uuml;berlappende Kreise: ICH, WIR, ES. Darum den Globe-Rahmen.'},{t:'ICH erkunden',d:'&bdquo;Was bringen Sie pers&ouml;nlich mit? Ihre St&auml;rken, Grenzen, Gef&uuml;hle?&ldquo;'},{t:'WIR erkunden',d:'&bdquo;Wie ist das System um Sie herum? Welche Dynamiken, Muster?&ldquo;'},{t:'ES kl&auml;ren',d:'&bdquo;Worum geht es inhaltlich wirklich &ndash; jenseits des pr&auml;sentierten Anlasses?&ldquo;'},{t:'Globe und Verbindungen',d:'&bdquo;Welche &auml;u&szlig;eren Faktoren beeinflussen das alles?&ldquo; &rarr; Verbindungslinien ziehen lassen.'}]},
+  zwiebelmodell:{name:'Zwiebelmodell (IST-Aufstellung)',phase:'P2 &middot; Systemaufstellung',color:'p2',
+    desc:'Konzentrische Kreise: Klient + Thema im Kern, direktes Umfeld (Personen, Teams) im mittleren Ring, erweitertes Umfeld (Gesellschaft, Markt, Technologie) im &auml;u&szlig;eren Ring. Abstand zur Mitte = Einfluss und N&auml;he.',when:'Phase 2 (IST-Aufstellung) wenn N&auml;he/Distanz und Einfluss von Systemelementen visualisiert werden soll.',
+    diagram:'',
+    questions:['Wer oder was geh&ouml;rt in Ihren innersten Kreis?','Wer beeinflusst die Situation, hat aber mehr Abstand?','Was im &auml;u&szlig;eren Ring wirkt auf Ihre Situation ein?','Warum haben Sie dieses Element so nah/weit positioniert?'],
+    steps:[{t:'Drei Kreise zeichnen',d:'Klient zeichnet 3 konzentrische Kreise. Mitte: sich selbst + Thema.'},{t:'Elemente eintragen',d:'&bdquo;Wer oder was geh&ouml;rt in welchen Ring?&ldquo; Klient positioniert selbst.'},{t:'Qualit&auml;t der Verbindungen',d:'F&uuml;r wichtige Elemente: &bdquo;Wie ist die Verbindung aktuell? Unterst&uuml;tzend? Belastend?&ldquo;'},{t:'Muster erkennen',d:'&bdquo;Was f&auml;llt Ihnen auf? Was &uuml;berrascht Sie?&ldquo;'},{t:'Zielableitung',d:'&bdquo;Was m&ouml;chten Sie an diesem Bild ver&auml;ndern?&ldquo; &rarr; direkte Br&uuml;cke zur Zielformulierung.'}]},
+  planetensystem:{name:'Systemische Aufstellung: Planetensystem',phase:'P2 &middot; Systemaufstellung',color:'p2',
+    desc:'Das Thema als Sonne im Zentrum, alle relevanten Systemelemente als Planeten in verschiedenen Orbits. Macht Anziehung, Distanz und Wechselwirkungen intuitiv sichtbar.',when:'Phase 2 (IST-Aufstellung) als anschauliche Alternative zum Zwiebelmodell &ndash; gut bei komplexen Systemen.',
+    diagram:'',
+    questions:['Stellen Sie sich Ihr Thema als Sonne vor. Welche Planeten kreisen darum?','In welchem Orbit befindet sich Ihr direkter Vorgesetzter? Warum dort?','Welche Planeten ziehen einander an, welche sto&szlig;en sich ab?','Was liegt so weit entfernt, dass Sie es kaum wahrnehmen?'],
+    steps:[{t:'Metapher einf&uuml;hren',d:'&bdquo;Stellen Sie sich Ihr Thema als Sonne vor. Alles, was damit zusammenh&auml;ngt, kreist darum.&ldquo;'},{t:'Planeten platzieren',d:'Klient zeichnet oder legt Karten: Wer/was ist nah (innerer Orbit), wer weit entfernt?'},{t:'Orbits erkunden',d:'&bdquo;Was h&auml;lt diese Planeten in ihrem Orbit? Was treibt sie an?&ldquo;'},{t:'Dynamiken sichtbar machen',d:'&bdquo;Welche Planeten beeinflussen sich? Wo gibt es Reibung?&ldquo;'},{t:'Gesamtbild kommentieren',d:'&bdquo;Wie kommentieren Sie dieses Bild? Was &uuml;berrascht Sie?&ldquo;'}]},
+  wertkarten:{name:'Wertkarten (3-stufige Auswahl)',phase:'P2/P3 &middot; Systemvertiefung',color:'p2',
+    desc:'Kartensatz mit 50&ndash;70 Werten. Intuitive Auswahl in 3 Runden: allgemein relevant &rarr; themenspezifisch &rarr; Top 8&ndash;12. Macht unbewusste Wertepriori&shy;t&auml;ten sichtbar ohne Rationalisierung.',when:'Phase 2 oder 3 wenn Wertekonflikte oder -l&uuml;cken als Hypothese im Raum stehen. Nicht als Reflex &ndash; nur mit Hypothese.',
+    diagram:'',
+    questions:['Welche dieser Werte passt allgemein zu Ihnen als Person? (Runde 1)','Welche davon haben einen direkten Bezug zu Ihrem Thema? (Runde 2)','Welche 8&ndash;12 sind f&uuml;r Sie die bedeutsamsten in Bezug auf Ihr Thema? (Runde 3)','Wo in Ihrem System leben Sie diesen Wert gerade? Wo nicht?','Welcher Wert wird durch Ihre aktuelle Situation verletzt oder nicht gelebt?'],
+    steps:[{t:'Runde 1 &ndash; allgemeine Relevanz',d:'&bdquo;Legen Sie alle Werte beiseite, die irgendwie zu Ihnen passen.&ldquo; Schnell, intuitiv.'},{t:'Runde 2 &ndash; themenspezifisch',d:'&bdquo;Welche davon haben konkret mit Ihrem Thema zu tun?&ldquo; Menge halbieren.'},{t:'Runde 3 &ndash; Top 8&ndash;12',d:'&bdquo;Welche sind die bedeutsamsten?&ldquo; Klient ordnet, priorisiert.'},{t:'Im System verorten',d:'Klient verteilt Wertkarten im Systemaufbau: &bdquo;Wo leben Sie diesen Wert?&ldquo;'},{t:'Diskrepanzen benennen',d:'&bdquo;Welcher Wert wird gerade verletzt?&ldquo; &rarr; Verbindung zu Ziel und Ressourcen.'}]},
+  gefuehlskarten:{name:'Gef&uuml;hlskarten',phase:'P2/P3 &middot; Systemvertiefung',color:'p2',
+    desc:'Kartensatz mit pr&auml;zisen Gef&uuml;hlsbegriffen. Macht emotionale Zust&auml;nde im professionellen Kontext artikulierbar. Macht das &bdquo;Unterwasser&ldquo; des Eisbergs sichtbar.',when:'Phase 2 (Systemvertiefung) zur Erfassung emotionaler IST-Zust&auml;nde. Phase 3 zur Hypothesenbildung.',
+    diagram:'',
+    questions:['Welche Gef&uuml;hle beschreiben, wie Sie sich in Bezug auf Ihr Thema aktuell f&uuml;hlen?','Wie stark ist dieses Gef&uuml;hl auf einer Skala 1&ndash;10?','Welche Situation l&ouml;st dieses Gef&uuml;hl am st&auml;rksten aus?','Welches Gef&uuml;hl h&auml;tten Sie gerne stattdessen?','Was m&uuml;sste sich ver&auml;ndern, damit Sie dieses Wunschgef&uuml;hl erleben?'],
+    steps:[{t:'Karten auslegen',d:'Alle Karten offen auf dem Tisch. Klient schaut sie in Ruhe an.'},{t:'Auswahl treffen',d:'&bdquo;Welche Gef&uuml;hle beschreiben Ihre aktuelle Situation?&ldquo; Klient w&auml;hlt ohne Rechtfertigung. Widerspr&uuml;che erlaubt.'},{t:'Intensit&auml;t skalieren',d:'F&uuml;r jede Karte: &bdquo;Wie stark ist das? 1&ndash;10?&ldquo;'},{t:'Kontext erkunden',d:'&bdquo;In welchen Situationen tritt dieses Gef&uuml;hl besonders stark auf?&ldquo;'},{t:'Br&uuml;cke zu Ressourcen',d:'&bdquo;Welches Gef&uuml;hl h&auml;tten Sie gerne?&ldquo; &rarr; Hinweis auf Zielrichtung.'}]},
+  entscheidung:{name:'Entscheidungscoaching (Besonderheiten)',phase:'P2 &middot; Zielkl&auml;rung (Spezialfall)',color:'p2',
+    desc:'Beim Entscheidungscoaching ist das Ziel immer die Entscheidung selbst &ndash; nicht eine der Optionen. ZEM werden f&uuml;r jede Option separat gebildet. Nach Entscheidung: konkrete Ma&szlig;nahmen (Abbinden).',when:'Phase 2 (Zielkl&auml;rung) wenn das Thema &bdquo;Ich muss eine Entscheidung treffen&ldquo; lautet.',
+    diagram:'',
+    questions:['Was genau ist Ihre Entscheidungsfrage? Was sind die Optionen?','Bis wann muss diese Entscheidung gefallen sein?','Was w&auml;re, wenn Sie sich f&uuml;r Option A entscheiden &ndash; wie sieht Ihre Welt dann aus?','Und was w&auml;re, wenn Sie sich f&uuml;r Option B entscheiden?','Welche Option zieht Sie k&ouml;rperlich an?'],
+    steps:[{t:'Ziel formulieren',d:'&bdquo;Bis [Datum] werde ich eine Entscheidung &uuml;ber [Thema] getroffen haben.&ldquo; &ndash; das IST das Ziel.'},{t:'Optionen benennen',d:'Klient benennt alle Optionen. Tetralemma-Positionen erg&auml;nzen (Beides, Keines, Dies nicht und das nicht).'},{t:'ZEM pro Option bilden',d:'F&uuml;r jede Option: &bdquo;Woran merken Sie, dass Sie sich entschieden haben?&ldquo; &ndash; separate ZEM-Liste.'},{t:'K&ouml;rperreaktion pr&uuml;fen',d:'Tetralemma oder somatische Marker: Auf welcher Option liegt die st&auml;rkste Energie?'},{t:'Abbinden nach Entscheidung',d:'Wenn Entscheidung gefallen: &bdquo;Welche n&auml;chsten Schritte ergeben sich?&ldquo; &rarr; Ma&szlig;nahmen P4.'}]},
+  vmzsm:{name:'VMZSM-Pyramide',phase:'P2 &middot; Zielebene kl&auml;ren',color:'p2',
+    desc:'5-stufige Pyramide: Vision &rarr; Mission &rarr; Ziel(e) &rarr; Strategie(n) &rarr; Ma&szlig;nahme(n). Eine der h&auml;ufigsten Verwechslungen im Coaching: Klient formuliert Ma&szlig;nahme als Ziel.',when:'Phase 2 (Zielkl&auml;rung) wenn unklar ist ob das Formulierte ein Ziel oder eine Ma&szlig;nahme ist.',
+    diagram:'<svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:200px">   <polygon points="150,8 50,48 250,48" fill="#edeaf5" stroke="#4a3f6b" stroke-width="1.5"/>   <polygon points="42,52 258,52 285,92 15,92" fill="#e6f0f3" stroke="#2d5a6b" stroke-width="1.5"/>   <polygon points="10,96 290,96 270,130 30,130" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="1.5"/>   <polygon points="25,134 275,134 260,165 40,165" fill="#f5ede3" stroke="#8b5e2a" stroke-width="1.5"/>   <polygon points="35,169 265,169 255,200 45,200" fill="#e6eaee" stroke="#3a4a5a" stroke-width="1.5"/>   <text x="150" y="33" text-anchor="middle" font-size="8.5" fill="#4a3f6b" font-weight="bold">Vision</text>   <text x="150" y="75" text-anchor="middle" font-size="8.5" fill="#2d5a6b" font-weight="bold">Mission</text>   <text x="150" y="116" text-anchor="middle" font-size="8.5" fill="#4a6b3a" font-weight="bold">Ziel(e)</text>   <text x="150" y="152" text-anchor="middle" font-size="8.5" fill="#8b5e2a" font-weight="bold">Strategie(n)</text>   <text x="150" y="186" text-anchor="middle" font-size="8.5" fill="#3a4a5a" font-weight="bold">Massnahme(n)</text> </svg>',
+    questions:['Wo auf dieser Pyramide w&uuml;rden Sie das einordnen, was Sie gerade formuliert haben?','Um was zu erreichen wollen Sie das tun? (aufw&auml;rts bis zum Ziel)','Was genau bedeutet das konkret? (abw&auml;rts wenn zu abstrakt)','Wenn das Ihr Ziel ist &ndash; welche Strategien fallen Ihnen ein? (Probe f&uuml;r die richtige Ebene)','Hat das Gef&uuml;hl, dass das wirklich Ihr Ziel ist &ndash; oder die Ma&szlig;nahme zu einem gr&ouml;&szlig;eren Ziel?'],
+    steps:[{t:'Pyramide skizzieren',d:'5 Ebenen von oben nach unten. Kurze Definition jeder Ebene.'},{t:'Klient einordnen lassen',d:'&bdquo;Wo auf dieser Pyramide w&uuml;rden Sie das einordnen?&ldquo;'},{t:'Ziel-Ebene ansteuern',d:'Aufw&auml;rts: &bdquo;Um was zu erreichen?&ldquo; Abw&auml;rts: &bdquo;Was konkret?&ldquo;'},{t:'Zielformulierung best&auml;tigen',d:'&bdquo;Wenn das Ihr Ziel ist &ndash; welche Strategien fallen Ihnen ein?&ldquo; als Probe.'},{t:'Verankern',d:'Ziel auf Flip. Pyramide als Referenz im Raum stehen lassen.'}]},
+  smarte:{name:'SMARTE Zielkomponenten',phase:'P2/P4 &middot; Ziel- &amp; Ma&szlig;nahmencheck',color:'p2',
+    desc:'Qualit&auml;tskriterien: Spezifisch, Messbar, Akzeptiert/Anspruchsvoll, Realistisch, Terminiert, Eigenverantwortlich. In P2 f&uuml;r das Coaching-Ziel, in P4 f&uuml;r jede einzelne Ma&szlig;nahme.',when:'Phase 2 (Zielformulierung) und Phase 4 (Ma&szlig;nahmenabgleich).',
+    diagram:'',
+    questions:['Ist das konkret genug, dass ein Au&szlig;enstehender versteht, was gemeint ist? (S)','Woran werden Sie und andere erkennen, dass Sie es erreicht haben? (M)','1&ndash;10: Wie motiviert sind Sie, das zu erreichen? (A)','Haben Sie ausreichend Einfluss darauf? (R)','Bis wann genau? (T)','Liegt die Erreichung wirklich in Ihrer eigenen Hand? (E)'],
+    steps:[{t:'Formulierung vorliegen haben',d:'Klient hat Ziel oder Ma&szlig;nahme formuliert &ndash; auf Karte oder Flip.'},{t:'Kriterien einzeln pr&uuml;fen',d:'F&uuml;r jeden Buchstaben eine kurze Frage. Klient antwortet selbst.'},{t:'Schw&auml;chen benennen',d:'&bdquo;Bei welchem Kriterium f&uuml;hlt sich das noch nicht richtig an?&ldquo; Klient reformuliert.'},{t:'Motivationsniveau sichern',d:'&bdquo;1&ndash;10: Wie motiviert?&ldquo; Unter 8: &bdquo;Was br&auml;uchten Sie, um auf 8 zu kommen?&ldquo;'},{t:'Best&auml;tigen',d:'&bdquo;Lesen Sie das nochmal laut vor. Klingt das nach Ihnen?&ldquo;'}]},
+  biografie:{name:'Biografiearbeit / Lebenslinie',phase:'P3 &middot; Innere Ressourcen',color:'p3',
+    desc:'Bezieht sich auf die Vergangenheit des Coachees. Klient schreibt verschiedene Rollen und markante Ereignisse auf einem Zeitstrahl auf (in 5er-Schritten). Hebt versteckte oder vergessene Ressourcen &ndash; Erkenntnisse werden auf das aktuelle Anliegen transferiert.',when:'Phase 3 (Ressourcenidentifikation) bei Neuorientierung, Karriereentscheidungen, Burnout, Sinnsuche, Ruhestandsvorbereitung. Kombinierbar mit Rad des Lebens und Visionsarbeit. Zeitbedarf: 30&ndash;60 Min.',
+    diagram:'<svg viewBox="0 0 340 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:145px">   <line x1="20" y1="75" x2="320" y2="75" stroke="#4a6b3a" stroke-width="2"/>   <polygon points="320,70 332,75 320,80" fill="#4a6b3a"/>   <circle cx="20" cy="75" r="5" fill="#2d5a6b"/>   <circle cx="80" cy="50" r="6" fill="#4a6b3a"/>   <circle cx="130" cy="95" r="6" fill="#8b5e2a"/>   <circle cx="180" cy="40" r="7" fill="#4a6b3a"/>   <circle cx="240" cy="85" r="6" fill="#4a3f6b"/>   <circle cx="290" cy="55" r="7" fill="#4a6b3a"/>   <line x1="20" y1="75" x2="80" y2="50" stroke="#4a6b3a" stroke-width="1.5" stroke-dasharray="4,3"/>   <line x1="80" y1="50" x2="130" y2="95" stroke="#4a6b3a" stroke-width="1.5" stroke-dasharray="4,3"/>   <line x1="130" y1="95" x2="180" y2="40" stroke="#4a6b3a" stroke-width="1.5" stroke-dasharray="4,3"/>   <line x1="180" y1="40" x2="240" y2="85" stroke="#4a6b3a" stroke-width="1.5" stroke-dasharray="4,3"/>   <line x1="240" y1="85" x2="290" y2="55" stroke="#4a6b3a" stroke-width="1.5" stroke-dasharray="4,3"/>   <text x="20" y="92" text-anchor="middle" font-size="7" fill="#555">Geburt</text>   <text x="80" y="38" text-anchor="middle" font-size="7" fill="#555">Erfolg</text>   <text x="130" y="112" text-anchor="middle" font-size="7" fill="#555">Krise</text>   <text x="180" y="27" text-anchor="middle" font-size="7" fill="#555">Wendepunkt</text>   <text x="240" y="102" text-anchor="middle" font-size="7" fill="#555">Herausforderung</text>   <text x="290" y="42" text-anchor="middle" font-size="7" fill="#555">Heute</text>   <text x="336" y="72" text-anchor="start" font-size="7" fill="#888">Zukunft</text> </svg>',
+    questions:['Welchen roten Faden gibt es in Ihrer Biografie?','Welche Wendepunkte gab es / gibt es in Ihrer Biografie?','Wo waren Sie erfolgreich?','Welche Unterst&uuml;tzung gab / gibt es? Welche Vorbilder?','Welche g&uuml;nstigen Einfl&uuml;sse gab es? Welche St&ouml;rungen?','Was ist Ihnen nicht so gut gelungen &ndash; und was haben Sie daraus gelernt?','Was ist Ihnen besonders gut gelungen? Wie haben Sie das gemacht? Wie genau?','Um den Bogen zu Ihrem heutigen Anliegen zu schlagen: gab es Momente, die Ihnen heute helfen k&ouml;nnten?'],
+    steps:[{t:'Einleitung',d:'&bdquo;Die Vergangenheit k&ouml;nnen wir nicht &auml;ndern. Wir k&ouml;nnen aber Ressourcen nutzen, die Ihnen in anderen Situationen schon einmal sehr n&uuml;tzlich waren.&ldquo;'},{t:'Raster vorbereiten',d:'Auf Metaplanwand: Spalte &bdquo;Rolle&ldquo; (Ich, Partner, Mutter/Vater, Beruf...) und Zeile &bdquo;Alter&ldquo; (in 5er-Schritten, ab 20 oder fr&uuml;her wenn pr&auml;gend).'},{t:'Klient tr&auml;gt ein',d:'Klient schreibt pr&auml;gnante Ereignisse, Erfolge, Wendepunkte, Vorbilder selbst ein. Coach beobachtet.'},{t:'Vertiefen',d:'F&uuml;r ausgew&auml;hlte Punkte: &bdquo;Was ist Ihnen besonders gut gelungen? Wie haben Sie das gemacht?&ldquo; Skala 1&ndash;10.'},{t:'Transfer zum Anliegen',d:'&bdquo;Welche dieser Ressourcen aus Ihrer Geschichte k&ouml;nnen Sie jetzt f&uuml;r Ihr Ziel nutzen?&ldquo; &rarr; Br&uuml;cke zu Ma&szlig;nahmen.'}]},
+  kompetenzrad:{name:'Kompetenzrad',phase:'P3 &middot; Innere Ressourcen',color:'p3',
+    desc:'Raddarstellung von Kompetenzdimensionen (fachlich, methodisch, sozial, kommunikativ, personal, Steuerungs- und Handlungskompetenz). Spinnennetz zeigt St&auml;rken und Entwicklungsfelder.',when:'Phase 3 (innere Ressourcen) zur Standortbestimmung &ndash; besonders bei F&uuml;hrungs-, Karriere- und Rollenthemen. Auch f&uuml;r Laufbahnentscheidungen.',
+    diagram:'',
+    questions:['Welche Kompetenzen bringen Sie f&uuml;r Ihr Ziel besonders mit?','Wo w&uuml;rden Sie sich heute einsch&auml;tzen &ndash; und wo m&ouml;chten Sie hin?','Was &uuml;berrascht Sie an diesem Bild?','Welche Kompetenz w&auml;re f&uuml;r Ihr Ziel am wichtigsten?','Welche Ihrer St&auml;rken k&ouml;nnten Sie konkret f&uuml;r Ihr Ziel einsetzen?'],
+    steps:[{t:'Rad aufzeichnen',d:'8 Segmente, Achse 1&ndash;10. Klient w&auml;hlt oder benennt eigene Dimensionen.'},{t:'IST-Einsch&auml;tzung',d:'Klient markiert auf jeder Achse. Punkte verbinden &rarr; Spinnennetz.'},{t:'Muster beschreiben',d:'&bdquo;Was sehen Sie? Was &uuml;berrascht? Wo stark, wo Potenzial?&ldquo;'},{t:'Ressourcen verkn&uuml;pfen',d:'&bdquo;Welche St&auml;rken k&ouml;nnen Sie f&uuml;r Ihr Ziel nutzen?&ldquo;'},{t:'Optional: SOLL-Zustand',d:'Wunschzustand einzeichnen. &bdquo;Welche Dimension ist am wichtigsten f&uuml;r Ihr Ziel?&ldquo;'}]},
+  fuenfsaeulen:{name:'5 S&auml;ulen der Identit&auml;t (Petzold)',phase:'P3 &middot; Innere Ressourcen',color:'p3',
+    desc:'F&uuml;nf S&auml;ulen nach Hilarion Petzold: Leiblichkeit, soziales Netzwerk, Arbeit &amp; Leistung, materielle Sicherheit, Werte. Stabile Identit&auml;t aus dem Zusammenspiel aller S&auml;ulen.',when:'Phase 3 (innere Ressourcen) bei Burnout, Sinnkrise, &Uuml;berforderung, Work-Life-Balance, Identit&auml;tskrisen. Kombinierbar mit Biografiearbeit.',
+    diagram:'',
+    questions:['Wie stabil f&uuml;hlt sich jede S&auml;ule aktuell an? 1&ndash;10?','Wenn eine S&auml;ule schw&auml;chelt &ndash; welche anderen tragen dann mehr?','Welche S&auml;ule gibt Ihnen gerade besonders viel Halt?','Was fehlt in einer S&auml;ule, das Sie gerne wieder h&auml;tten?','Wie w&uuml;rde dieses Bild aussehen, wenn Sie Ihr Ziel erreicht haben?'],
+    steps:[{t:'S&auml;ulen zeichnen',d:'5 gleich hohe S&auml;ulen auf Flip. Klient beschriftet und erg&auml;nzt konkrete Inhalte.'},{t:'IST-Zustand',d:'&bdquo;Wie stabil? 1&ndash;10?&ldquo; Klient f&uuml;llt S&auml;ulen entsprechend.'},{t:'Tragf&auml;higkeit',d:'&bdquo;Wenn eine S&auml;ule schw&auml;chelt &ndash; welche anderen tragen mehr?&ldquo;'},{t:'Ressourcen benennen',d:'&bdquo;Welche S&auml;ule gibt Ihnen aktuell besonders Halt?&ldquo; &rarr; konkret.'},{t:'Verbindung zum Ziel',d:'&bdquo;Wie ver&auml;ndert sich dieses Bild, wenn Sie Ihr Ziel erreicht haben?&ldquo;'}]},
+  raddeslebens:{name:'Rad des Lebens',phase:'P3 &middot; Innere Ressourcen',color:'p3',
+    desc:'8 Lebensbereiche im Kreisformat (Karriere, Finanzen, Gesundheit, Familie/Freunde, Entwicklung, Freizeit, K&ouml;rper, freie Kategorie). Variante: als Uhr f&uuml;r Zeitmanagement-Themen.',when:'Phase 3 (innere Ressourcen) bei Work-Life-Balance, Selbstmanagement, &Uuml;berforderung, Priorit&auml;ten, Neuorientierung. Kombinierbar mit Biografiearbeit.',
+    diagram:'',
+    questions:['Wenn dieses Rad Ihr Lebensreifen w&auml;re &ndash; wie gleichm&auml;&szlig;ig w&uuml;rden Sie damit fahren?','Welcher Bereich zieht Ihre Energie gerade am st&auml;rksten ab?','In welchem Bereich sind Sie am stabilsten?','Was w&uuml;rde sich ver&auml;ndern, wenn Sie diesem Bereich mehr Aufmerksamkeit g&auml;ben?','Welcher Bereich hat den direktesten Einfluss auf Ihr Coaching-Ziel?'],
+    steps:[{t:'Rad aufzeichnen',d:'8 Segmente. Klient beschriftet Bereiche. Achse 1&ndash;10 von Mitte nach au&szlig;en.'},{t:'IST-Zufriedenheit',d:'&bdquo;Wie zufrieden sind Sie aktuell? 1&ndash;10?&ldquo; Punkte markieren, verbinden.'},{t:'Bild betrachten',d:'&bdquo;Wenn das Ihr Reifen w&auml;re &ndash; wie rund ist die Fahrt?&ldquo;'},{t:'Priorit&auml;ten kl&auml;ren',d:'&bdquo;Welcher Bereich soll sich als erstes ver&auml;ndern?&ldquo;'},{t:'Ressourcen verkn&uuml;pfen',d:'&bdquo;In welchem Bereich sind Sie am stabilsten? Was k&ouml;nnen Sie von dort &uuml;bertragen?&ldquo;'}]},
+  eisberg:{name:'Eisbergmodell (Freud)',phase:'P3 &middot; Hypothesen &amp; Ressourcen',color:'p3',
+    desc:'Nur 10&nbsp;% sichtbar: Sachthemen, Verhalten. 90&nbsp;% unter Wasser: Gef&uuml;hle, &Auml;ngste, W&uuml;nsche, Bed&uuml;rfnisse, Werte, Normen, unbewusste Muster. Das eigentliche Coaching-Thema liegt fast immer unter Wasser.',when:'Phase 3 (Hypothesen) wenn das pr&auml;sentierte Thema tiefer liegende Ursachen hat. Als Visualisierung &ndash; nie als Diagnose.',
+    diagram:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:200px">   <rect x="0" y="0" width="300" height="200" fill="#e6f0f3" rx="6"/>   <line x1="0" y1="65" x2="300" y2="65" stroke="#2d5a6b" stroke-width="1.5" stroke-dasharray="6,3"/>   <polygon points="150,8 90,64 210,64" fill="white" stroke="#2d5a6b" stroke-width="2"/>   <polygon points="50,66 250,66 270,140 30,140" fill="#2d5a6b" opacity=".25" stroke="#2d5a6b" stroke-width="1.5"/>   <polygon points="30,142 270,142 290,195 10,195" fill="#2d5a6b" opacity=".15" stroke="#2d5a6b" stroke-width="1"/>   <text x="150" y="44" text-anchor="middle" font-size="9" fill="#2d5a6b" font-weight="bold">Sichtbar (10%)</text>   <text x="150" y="57" text-anchor="middle" font-size="8" fill="#555">Sachthemen, Verhalten</text>   <text x="150" y="100" text-anchor="middle" font-size="9" fill="#fff" font-weight="bold">Gefühle, Ängste (90%)</text>   <text x="150" y="113" text-anchor="middle" font-size="8" fill="#ddd">Werte, Bedürfnisse, Muster</text>   <text x="150" y="170" text-anchor="middle" font-size="8" fill="#aaa">Normen, Geschichte, Unbewusstes</text>   <text x="5" y="62" font-size="8" fill="#2d5a6b">Wasseroberfläche</text> </svg>',
+    questions:['Was ist das offizielle, sichtbare Thema &ndash; und was liegt Ihrer Meinung nach darunter?','Welche Gef&uuml;hle spielen in dieser Situation eine Rolle, die Sie noch nicht ausgesprochen haben?','Was w&auml;re, wenn das eigentliche Thema gar nicht das ist, was Sie mir anf&auml;ngs genannt haben?','Wenn Sie sich das unsichtbare Unterwasser-Bild vorstellen &ndash; was liegt da?','Welche alten &Uuml;berzeugungen oder Muster k&ouml;nnten hier eine Rolle spielen?'],
+    steps:[{t:'Eisberg skizzieren',d:'Sichtbarer Teil oben (klein) = Sachthemen, Verhalten. Unterwasserteil (gro&szlig;) = Gef&uuml;hle, Muster.'},{t:'Sachebene kl&auml;ren',d:'&bdquo;Was ist das formulierte Thema, die Fakten?&ldquo; &rarr; in sichtbaren Teil.'},{t:'Unterwasser erkunden',d:'&bdquo;Was k&ouml;nnte darunter liegen?&ldquo; Klient identifiziert selbst.'},{t:'Verbindung herstellen',d:'&bdquo;Welche Verbindung sehen Sie zwischen oben und unten?&ldquo;'},{t:'Ressource benennen',d:'&bdquo;Was auf der Unterwasser-Ebene ist eine Ressource f&uuml;r Ihr Ziel?&ldquo;'}]},
+  maslow:{name:'Maslow &amp; Herzberg',phase:'P3 &middot; Hypothesen',color:'p3',
+    desc:'Maslow: 5-stufige Bed&uuml;rfnispyramide. Herzberg: Hygienefaktoren (Abwesenheit = Unzufriedenheit) vs. Motivatoren (Anwesenheit = Zufriedenheit). Gibt dem Coach eine differenzierte Hypothesenlinse.',when:'Phase 3 (Hypothesenbildung intern) bei Motivations-, Zufriedenheits- oder F&uuml;hrungsthemen. Optional dem Klienten als Orientierung zeigen.',
+    diagram:'<svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:200px">   <polygon points="170,10 20,190 320,190" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="1.5"/>   <line x1="60" y1="152" x2="280" y2="152" stroke="#4a6b3a" stroke-width="1"/>   <line x1="90" y1="114" x2="250" y2="114" stroke="#4a6b3a" stroke-width="1"/>   <line x1="118" y1="78" x2="222" y2="78" stroke="#4a6b3a" stroke-width="1"/>   <line x1="144" y1="44" x2="196" y2="44" stroke="#4a6b3a" stroke-width="1"/>   <text x="170" y="26" text-anchor="middle" font-size="8" fill="#4a6b3a" font-weight="bold">Selbstverwirklichung</text>   <text x="170" y="60" text-anchor="middle" font-size="8" fill="#4a6b3a">Wertschätzung &amp; Anerkennung</text>   <text x="170" y="96" text-anchor="middle" font-size="8" fill="#4a6b3a">Soziale Bedürfnisse</text>   <text x="170" y="132" text-anchor="middle" font-size="8" fill="#4a6b3a">Sicherheitsbedürfnisse</text>   <text x="170" y="170" text-anchor="middle" font-size="8" fill="#4a6b3a">Physiologische Grundbedürfnisse</text> </svg>',
+    questions:['Welche Bed&uuml;rfnisse werden in Ihrer Situation gerade gut erf&uuml;llt &ndash; und welche gar nicht?','Was sorgt daf&uuml;r, dass Sie nicht unzufrieden sind? Was sorgt daf&uuml;r, dass Sie wirklich motiviert sind?','Was w&uuml;rde passieren, wenn sich an den &auml;u&szlig;eren Rahmenbedingungen nichts &auml;ndert?','Was w&uuml;rden Sie als echte Motivatoren f&uuml;r sich beschreiben?'],
+    steps:[{t:'Intern: Bed&uuml;rfnisebene',d:'Wo auf der Maslow-Pyramide ist der Klient? Sicherheit, Zugeh&ouml;rigkeit, Anerkennung, Selbstverwirklichung?'},{t:'Herzberg-Check',d:'Hygienefaktor (Arbeitsbedingungen, Sicherheit) oder Motivator (Anerkennung, Verantwortung, Wachstum)?'},{t:'Fragestrategie',d:'Auf Basis der Hypothese: Welche Ressourcenquellen sind vielversprechend?'},{t:'Optional zeigen',d:'Als Orientierungsangebot: &bdquo;Wo w&uuml;rden Sie sich hier einordnen?&ldquo; &ndash; nie als Diagnose.'},{t:'Ma&szlig;nahmen verkn&uuml;pfen',d:'Welche Handlungsoptionen adressieren die identifizierte Bed&uuml;rfnisebene?'}]},
+  antreiber:{name:'Innere Antreiber (Transaktionsanalyse)',phase:'P3 &middot; Hypothesen',color:'p3',
+    desc:'5 innere Antreiber nach Berne/Kahler: &bdquo;Sei perfekt&ldquo;, &bdquo;Sei stark&ldquo;, &bdquo;Mach schnell&ldquo;, &bdquo;Mach es allen recht&ldquo;, &bdquo;Streng dich an&ldquo;. Jeder Antreiber hat auch eine Ressourcen-Seite (Erlaubnissatz als Gegenentwurf).',when:'Phase 3 (Hypothesen intern) wenn Klient unter Druck zu verhalten scheint. Als Coach-Hypothese &ndash; nie als Diagnose aussprechen.',
+    diagram:'',
+    questions:['Gibt es innere Stimmen, die Ihr Verhalten in solchen Situationen lenken?','Was sagen Sie sich innerlich, wenn Sie merken, dass etwas nicht perfekt ist?','Wie schwer f&auml;llt es Ihnen, anderen zu widersprechen oder nein zu sagen?','Was w&uuml;rde passieren, wenn Sie einfach mal weniger als 100&nbsp;% geben?','Was d&uuml;rfen Sie sich als Erlaubnis geben?'],
+    steps:[{t:'Antreiber identifizieren',d:'Sei perfekt: Fehlerangst. Sei stark: Gef&uuml;hle = Schw&auml;che. Mach schnell: Ungeduld. Mach es recht: Konfliktvermeidung. Streng dich an: Leistung durch Anstrengung.'},{t:'Fragestrategie',d:'Welche Fragen machen den Antreiber sichtbar ohne ihn zu benennen?'},{t:'Ressource erkennen',d:'Jeder Antreiber hat eine St&auml;rken-Seite! Sei perfekt &rarr; Qualit&auml;tsbewusstsein. Sei stark &rarr; Resilienz.'},{t:'Optional zeigen',d:'&bdquo;Kennen Sie das Konzept innerer Antreiber?&ldquo; &rarr; Klient ordnet sich selbst ein.'},{t:'Erlaubnissatz',d:'&bdquo;Was d&uuml;rfen Sie sich als Erlaubnis geben?&ldquo; Gegenteil des Antreibers als neuer innerer Satz.'}]},
+  ta:{name:'Transaktionsanalyse (TA)',phase:'P3 &middot; Hypothesen',color:'p3',
+    desc:'Drei Ich-Zust&auml;nde nach Berne: Eltern-Ich (EL: normativ/f&uuml;rsorglich), Erwachsenen-Ich (ER: rational/situativ), Kind-Ich (KI: spontan/angepasst). Kreuzende Transaktionen verursachen Konflikte.',when:'Phase 3 (Hypothesen) bei Kommunikations- und Beziehungskonflikten. Wenn Klient sich &bdquo;klein&ldquo; f&uuml;hlt oder autorit&auml;r reagiert.',
+    diagram:'<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:175px">   <rect x="20" y="15" width="85" height="50" fill="#edeaf5" stroke="#4a3f6b" stroke-width="2" rx="6"/>   <rect x="20" y="75" width="85" height="50" fill="#e6f0f3" stroke="#2d5a6b" stroke-width="2" rx="6"/>   <rect x="20" y="135" width="85" height="40" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="2" rx="6"/>   <rect x="195" y="15" width="85" height="50" fill="#edeaf5" stroke="#4a3f6b" stroke-width="2" rx="6"/>   <rect x="195" y="75" width="85" height="50" fill="#e6f0f3" stroke="#2d5a6b" stroke-width="2" rx="6"/>   <rect x="195" y="135" width="85" height="40" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="2" rx="6"/>   <text x="62" y="38" text-anchor="middle" font-size="9" fill="#4a3f6b" font-weight="bold">EL</text>   <text x="62" y="50" text-anchor="middle" font-size="8" fill="#555">Eltern-Ich</text>   <text x="62" y="98" text-anchor="middle" font-size="9" fill="#2d5a6b" font-weight="bold">ER</text>   <text x="62" y="110" text-anchor="middle" font-size="8" fill="#555">Erwachsenen-Ich</text>   <text x="62" y="155" text-anchor="middle" font-size="9" fill="#4a6b3a" font-weight="bold">KI</text>   <text x="62" y="166" text-anchor="middle" font-size="8" fill="#555">Kind-Ich</text>   <text x="238" y="38" text-anchor="middle" font-size="9" fill="#4a3f6b" font-weight="bold">EL</text>   <text x="238" y="98" text-anchor="middle" font-size="9" fill="#2d5a6b" font-weight="bold">ER</text>   <text x="238" y="155" text-anchor="middle" font-size="9" fill="#4a6b3a" font-weight="bold">KI</text>   <text x="62" y="7" text-anchor="middle" font-size="9" fill="#888">Person A</text>   <text x="238" y="7" text-anchor="middle" font-size="9" fill="#888">Person B</text>   <line x1="105" y1="40" x2="195" y2="100" stroke="#8b5e2a" stroke-width="1.5"/>   <polygon points="190,97 200,105 193,108" fill="#8b5e2a"/>   <line x1="195" y1="40" x2="105" y2="155" stroke="#3a4a5a" stroke-width="1" stroke-dasharray="4,3"/>   <polygon points="108,150 102,160 112,158" fill="#3a4a5a"/>   <text x="155" y="68" font-size="7" fill="#8b5e2a">komplementaer</text>   <text x="110" y="108" font-size="7" fill="#3a4a5a">kreuzend</text> </svg>',
+    questions:['Aus welchem inneren Zustand heraus reagieren Sie in dieser Situation typischerweise?','Was w&uuml;rde Ihr Erwachsenen-Ich in dieser Situation tun?','Aus welchem Zustand kommt die andere Person nach Ihrer Wahrnehmung?','Was w&uuml;rde passieren, wenn Sie bewusst aus dem Erwachsenen-Ich antworten?'],
+    steps:[{t:'Drei Zust&auml;nde erkl&auml;ren',d:'EL (normativ), ER (rational), KI (frei/angepasst). Kurzes Beispiel zeigen.'},{t:'Situationsanalyse',d:'&bdquo;Aus welchem Ich-Zustand handeln Sie? Und die andere Person?&ldquo;'},{t:'Kreuzende Transaktionen',d:'Wenn EL auf ER trifft &rarr; Quelle von Missverst&auml;ndnissen sichtbar machen.'},{t:'ER st&auml;rken',d:'&bdquo;Was w&uuml;rde Ihr Erwachsenen-Ich tun?&ldquo; &rarr; Option aus neutraler Ebene.'},{t:'Neue Transaktion',d:'&bdquo;Welche Transaktion m&ouml;chten Sie k&uuml;nftig bewusst w&auml;hlen?&ldquo; &rarr; Ma&szlig;nahme.'}]},
+  inneresteam:{name:'Das Innere Team (Schulz von Thun)',phase:'P3 &middot; Innere Ressourcen',color:'p3',
+    desc:'Innere Pluralit&auml;t: verschiedene &bdquo;Teammitglieder&ldquo; (Stimmen, Anteile) melden sich zu einem Thema. Ziel: alle Stimmen h&ouml;ren &ndash; dann als innerer Teamchef entscheiden.',when:'Phase 3 (innere Ressourcen) bei inneren Konflikten, Ambivalenz, Entscheidungsblockaden. Auch bei Nachfolge- oder Rollenwechselthemen.',
+    diagram:'',
+    questions:['Wer meldet sich in Ihnen, wenn Sie an Ihr Thema denken?','Was will dieser Teil? Was hat er Angst zu verlieren?','Welche Stimme dominiert &ndash; welche kommt kaum zu Wort?','Was w&uuml;rde der Teil sagen, dem bisher niemand zugeh&ouml;rt hat?','Als innerer Teamchef: Was ist Ihre Entscheidung, nachdem alle geh&ouml;rt wurden?'],
+    steps:[{t:'Einstieg',d:'&bdquo;Wer meldet sich in Ihnen, wenn Sie an Ihr Thema denken?&ldquo;'},{t:'Stimmen sammeln',d:'Klient benennt alle Anteile auf Karten &ndash; ohne Bewertung. Name + Kurzbeschreibung.'},{t:'Stimmen befragen',d:'F&uuml;r jeden Anteil: &bdquo;Was will dieser Teil? Was hat er Angst zu verlieren?&ldquo;'},{t:'Dominanzen erkennen',d:'&bdquo;Welche Stimme dominiert? Welche kommt zu kurz?&ldquo;'},{t:'Innere Teamf&uuml;hrung',d:'&bdquo;Als innerer Teamchef: Was ist Ihre Entscheidung?&ldquo; &rarr; &Uuml;bergang zu Ma&szlig;nahmen.'}]},
+  resilienzrad:{name:'Resilienzrad',phase:'P3 &middot; Innere Ressourcen',color:'p3',
+    desc:'8 Faktoren der Resilienz: L&ouml;sungsorientierung, Optimismus, Akzeptanz, Achtsamkeit, Netzwerkorientierung, Selbstverantwortung, Zukunftsorientierung, Kreativit&auml;t. IST-Analyse + Ideen zur St&auml;rkung.',when:'Phase 3 (innere Ressourcen) bei Burnout-Pr&auml;vention, &Uuml;berforderung, VUCA-Themen. In Anlehnung an Darstellung des Resilienzzentrums Schweiz.',
+    diagram:'<svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:220px"><circle cx="150" cy="115" r="95" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="1.5"/><circle cx="150" cy="115" r="62" fill="none" stroke="#4a6b3a" stroke-width=".5" opacity=".4"/><circle cx="150" cy="115" r="31" fill="none" stroke="#4a6b3a" stroke-width=".5" opacity=".4"/><circle cx="150" cy="115" r="20" fill="#fff" stroke="#4a6b3a" stroke-width="1"/><text x="150" y="119" text-anchor="middle" font-size="9" fill="#4a6b3a" font-weight="bold">Resilienz</text><line x1="150.0" y1="95.0" x2="150.0" y2="20.0" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="150.0" y="2.0" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Lösungs-</text><text x="150.0" y="13.0" text-anchor="middle" font-size="7.5" fill="#4a6b3a">orientierung</text><line x1="164.1" y1="100.9" x2="217.2" y2="47.8" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="227.1" y="37.9" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Optimismus</text><line x1="170.0" y1="115.0" x2="245.0" y2="115.0" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="259.0" y="115.0" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Akzeptanz</text><line x1="164.1" y1="129.1" x2="217.2" y2="182.2" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="227.1" y="192.1" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Achtsamkeit</text><line x1="150.0" y1="135.0" x2="150.0" y2="210.0" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="150.0" y="220.0" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Netzwerk-</text><text x="150.0" y="231.0" text-anchor="middle" font-size="7.5" fill="#4a6b3a">orientierung</text><line x1="135.9" y1="129.1" x2="82.8" y2="182.2" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="72.9" y="188.1" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Selbst-</text><text x="72.9" y="199.1" text-anchor="middle" font-size="7.5" fill="#4a6b3a">verantwortung</text><line x1="130.0" y1="115.0" x2="55.0" y2="115.0" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="41.0" y="111.0" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Zukunfts-</text><text x="41.0" y="122.0" text-anchor="middle" font-size="7.5" fill="#4a6b3a">orientierung</text><line x1="135.9" y1="100.9" x2="82.8" y2="47.8" stroke="#4a6b3a" stroke-width="1" opacity=".5"/><text x="72.9" y="37.9" text-anchor="middle" font-size="7.5" fill="#4a6b3a">Kreativität</text></svg>',
+    questions:['Welcher der 8 Bereiche ist bei Ihnen aktuell am st&auml;rksten ausgepr&auml;gt?','Welcher Bereich zahlt besonders auf Ihre Situation ein?','Was konkret zahlt auf diesen Bereich ein &ndash; welche Aktivit&auml;ten, Gewohnheiten?','Wo sehen Sie das gr&ouml;&szlig;te Potenzial zur St&auml;rkung Ihrer Resilienz?','Was k&ouml;nnen Sie schon morgen umsetzen?'],
+    steps:[{t:'Einleitung',d:'&bdquo;Ich m&ouml;chte Ihnen das Resilienzrad anbieten. Darauf sehen Sie Aspekte, die unsere Widerstandskraft f&ouml;rdern.&ldquo;'},{t:'IST-Situation',d:'Klient notiert zu jedem Bereich: Welche Aktivit&auml;ten zahlen aktuell ein? Optional: 1&ndash;10.'},{t:'Muster erkennen',d:'&bdquo;Wo ist Ihre Resilienz stark &ndash; wo eher schwach?&ldquo;'},{t:'Ideen entwickeln',d:'Klient entwickelt Ideen zur St&auml;rkung jedes Bereichs. In anderer Farbe eintragen.'},{t:'Ma&szlig;nahmen ableiten',d:'Priorit&auml;re Bereiche &rarr; direkte Grundlage f&uuml;r Phase 4.'}]},
+  vision:{name:'Visionsarbeit / Visionsbox',phase:'P3/P4 &middot; Zukunftsorientierung',color:'p3',
+    desc:'Klient entwickelt ein konkretes Bild seiner gew&uuml;nschten Zukunft &ndash; visuell, emotional, k&ouml;rperlich sp&uuml;rbar. Visionsbox: Collagen, Bilder, Symbole als greifbares Ankerobjekt f&uuml;r die Ver&auml;nderung.',when:'Phase 3 oder 4 bei Neuorientierung, Sinnsuche, strategischer Pers&ouml;nlichkeitsentwicklung. Kombinierbar mit Biografiearbeit. Zeitbedarf: 30&ndash;60 Min.',
+    diagram:'',
+    questions:['Wenn alle Hindernisse pl&ouml;tzlich verschwunden w&auml;ren &ndash; wie w&uuml;rde Ihre ideale Zukunft in 3&ndash;5 Jahren aussehen?','Was w&uuml;rden Sie tun, wenn Sie w&uuml;ssten, dass Sie nicht scheitern k&ouml;nnen?','Wie f&uuml;hlt sich dieser Zielzustand an? Was erleben Sie dort?','Was zieht Sie an dieser Vision besonders an?','Was ist das erste Bild oder Symbol, das f&uuml;r Ihre Vision steht?'],
+    steps:[{t:'Visionsfrage',d:'&bdquo;Wenn alle Hindernisse verschwunden w&auml;ren &ndash; wie w&uuml;rde Ihre ideale Zukunft aussehen?&ldquo;'},{t:'Vision ausformulieren',d:'Klient beschreibt oder zeichnet. Alle Sinne: &bdquo;Was sehen, h&ouml;ren, f&uuml;hlen Sie dort?&ldquo;'},{t:'Vision skalieren',d:'&bdquo;Wie stark zieht Sie diese Vision an? 1&ndash;10?&ldquo; Unter 7 &rarr; nacharbeiten.'},{t:'Visionsbox',d:'Klient sammelt Bilder, Symbole, Schl&uuml;sselw&ouml;rter, Farben in einer Box oder Collage.'},{t:'Verbindung',d:'&bdquo;Was w&auml;re der erste kleine Schritt?&ldquo; &rarr; Br&uuml;cke zu Phase 4.'}]},
+  kleinerelefant:{name:'Der kleine Elefant (Glaubenss&auml;tze)',phase:'P3/P4 &middot; Innere Ressourcen',color:'p3',
+    desc:'Metapher vom Zirkuselefanten: Als Junges an einen Pflock gekettet &ndash; als Erwachsener l&auml;uft er trotz Kraft nicht weg. Macht unbewusste Glaubenss&auml;tze und Komfortzonen sichtbar. Laufzeit: 30&ndash;60 Min.',when:'Phase 3 oder 4 wenn etwas den Klienten hindert, den n&auml;chsten Schritt zu gehen. Bei Ver&auml;nderungsblockaden, Komfortzonen, tief verwurzelten Mustern.',
+    diagram:'',
+    questions:['Was h&auml;lt Sie davon ab, diesen Schritt zu gehen?','Welche innere Stimme sagt Ihnen: Das geht nicht / Das bin nicht ich?','Wann haben Sie das das erste Mal geglaubt?','Wenn dieser Glaubenssatz nicht wahr w&auml;re &ndash; was w&uuml;rde dann m&ouml;glich?','Was br&auml;uchten Sie, um den Pflock aus dem Boden zu ziehen?'],
+    steps:[{t:'Geschichte erz&auml;hlen',d:'Coach erz&auml;hlt die Geschichte des kleinen Elefanten ruhig und langsam. Pausen lassen.'},{t:'Verbindung herstellen',d:'&bdquo;Welchen Pflock erkennen Sie in Ihrer Geschichte?&ldquo;'},{t:'Glaubenssatz benennen',d:'Klient formuliert: &bdquo;Ich kann nicht&hellip;&ldquo; / &bdquo;Das geht bei mir nicht&hellip;&ldquo;'},{t:'Hinterfragen',d:'&bdquo;Stimmt das wirklich? Welche Erfahrungen widerlegen diesen Satz?&ldquo;'},{t:'Neuen Satz entwickeln',d:'&bdquo;Was d&uuml;rfen Sie stattdessen glauben?&ldquo; &rarr; kombinierbar mit Visionsbox.'}]},
+  stuhltausch:{name:'Stuhltausch / Perspektivwechsel',phase:'P3 &middot; Innere Ressourcen',color:'p3',
+    desc:'Physischer oder imagin&auml;rer Wechsel der Position. Klient nimmt die Perspektive einer anderen Person oder seines zuk&uuml;nftigen Ich ein. Macht neue Sichtweisen k&ouml;rperlich erlebbar.',when:'Phase 3 (Ressourcen) bei Beziehungskonflikten, Perspektivverengung, starker eigener Sichtweise.',
+    diagram:'',
+    questions:['Wenn Sie jetzt f&uuml;r einen Moment die Position Ihrer F&uuml;hrungskraft einnehmen &ndash; wie sieht sie die Situation?','Was w&uuml;rde Ihr zuk&uuml;nftiges Ich &ndash; in 3 Jahren &ndash; Ihrem heutigen Ich raten?','Wenn Sie auf dem Stuhl Ihres Gespr&auml;chspartners s&auml;&szlig;en &ndash; was w&uuml;rden Sie wahrnehmen?','Was ver&auml;ndert sich in Ihrer Wahrnehmung, wenn Sie hier sitzen statt dort?'],
+    steps:[{t:'Kontext schaffen',d:'Zwei Positionen im Raum. &bdquo;Ich lade Sie ein, die Perspektive von X einzunehmen.&ldquo;'},{t:'Positionswechsel',d:'Klient wechselt physisch. Kurze Stille. Dann: &bdquo;Wie ist es, hier zu sitzen?&ldquo;'},{t:'Neue Perspektive',d:'&bdquo;Wie sehen Sie die Situation von hier?&ldquo; &ndash; alles ohne Bewertung.'},{t:'R&uuml;ckkehr &amp; Reflexion',d:'&bdquo;Was haben Sie aus der anderen Perspektive mitgenommen?&ldquo;'},{t:'Ressource integrieren',d:'&bdquo;Was ist wertvoll an diesem Blickwinkel f&uuml;r Ihr Ziel?&ldquo;'}]},
+  swot:{name:'SWOT-Analyse',phase:'P3/P4 &middot; Ressourcen &amp; Optionen',color:'p3',
+    desc:'Vier Felder: St&auml;rken, Schw&auml;chen, Chancen, Risiken. Kombiniert interne Ressourcen und externe Faktoren. In Phase 4 auch als Innovationsinstrument (SWOT als Kreativit&auml;tstool).',when:'Phase 3 (systemische Ressourcen) oder Phase 4 (Handlungsoptionen) &ndash; bei strategischen, karriere- oder projektbezogenen Themen.',
+    diagram:'',
+    questions:['Was l&auml;uft gut? Was sind Ihre klaren St&auml;rken in dieser Situation?','Was ist schwierig? Wo liegen Barrieren?','Welche M&ouml;glichkeiten bietet Ihr Umfeld?','Welche Risiken m&uuml;ssen Sie im Blick behalten?','Wie k&ouml;nnen Ihre St&auml;rken helfen, die Chancen zu nutzen?'],
+    steps:[{t:'Matrix aufzeichnen',d:'4 Felder. Klient beschriftet selbst.'},{t:'St&auml;rken sammeln',d:'&bdquo;Was l&auml;uft gut? Worauf sind Sie stolz?&ldquo;'},{t:'Schw&auml;chen benennen',d:'&bdquo;Was ist schwierig? Was fehlt?&ldquo; Nur Bestandsaufnahme, kein Urteil.'},{t:'Chancen',d:'&bdquo;Welche M&ouml;glichkeiten sehen Sie im Umfeld?&ldquo;'},{t:'Risiken',d:'&bdquo;Welche Gefahren k&ouml;nnten auftreten?&ldquo; &rarr; in Phase 4 als Risikocheck.'}]},
+  johari:{name:'Johari-Fenster',phase:'P3 &middot; Systemische Ressourcen',color:'p3',
+    desc:'4-Felder-Matrix: Arena (bekannt/bekannt), Blinder Fleck, Fassade, Unbewusstes. Modell f&uuml;r Selbst- und Fremdwahrnehmung. Erweiterung der Arena = mehr Vertrauen.',when:'Phase 3 (systemische Ressourcen) bei Feedback-, Selbstbild-, Fremdwahrnehmungs- und Vertrauensthemen.',
+    diagram:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:190px">   <rect x="5" y="25" width="140" height="85" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="1.5" rx="3"/>   <rect x="155" y="25" width="140" height="85" fill="#e6eaee" stroke="#3a4a5a" stroke-width="1.5" rx="3"/>   <rect x="5" y="120" width="140" height="75" fill="#f5ede3" stroke="#8b5e2a" stroke-width="1.5" rx="3"/>   <rect x="155" y="120" width="140" height="75" fill="#edeaf5" stroke="#4a3f6b" stroke-width="1.5" rx="3"/>   <text x="75" y="14" text-anchor="middle" font-size="9" fill="#444" font-weight="bold">Mir bekannt</text>   <text x="225" y="14" text-anchor="middle" font-size="9" fill="#444" font-weight="bold">Mir unbekannt</text>   <text x="75" y="60" text-anchor="middle" font-size="9" fill="#4a6b3a" font-weight="bold">Arena</text>   <text x="75" y="73" text-anchor="middle" font-size="8" fill="#555">Öffentlich bekannt</text>   <text x="225" y="60" text-anchor="middle" font-size="9" fill="#3a4a5a" font-weight="bold">Blinder Fleck</text>   <text x="225" y="73" text-anchor="middle" font-size="8" fill="#555">Andere sehen, ich nicht</text>   <text x="75" y="157" text-anchor="middle" font-size="9" fill="#8b5e2a" font-weight="bold">Fassade</text>   <text x="75" y="170" text-anchor="middle" font-size="8" fill="#555">Ich weiß, zeige es nicht</text>   <text x="225" y="157" text-anchor="middle" font-size="9" fill="#4a3f6b" font-weight="bold">Unbewusstes</text>   <text x="225" y="170" text-anchor="middle" font-size="8" fill="#555">Keinem bekannt</text> </svg>',
+    questions:['Was wissen Sie &uuml;ber sich selbst, das auch andere kennen? (Arena)','Was k&ouml;nnten andere an Ihnen wahrnehmen, das Ihnen selbst nicht bewusst ist? (Blinder Fleck)','Was wissen Sie &uuml;ber sich, das Sie bewusst nicht zeigen? (Fassade)','Was w&uuml;rde sich ver&auml;ndern, wenn Ihre Arena gr&ouml;&szlig;er w&auml;re?','Welche R&uuml;ckmeldungen haben Sie von anderen bekommen, die Sie &uuml;berrascht haben?'],
+    steps:[{t:'Fenster skizzieren',d:'4 Felder mit kurzer Erkl&auml;rung.'},{t:'Arena erkunden',d:'&bdquo;Was wissen Sie &uuml;ber sich, das auch andere kennen?&ldquo;'},{t:'Blinden Fleck',d:'&bdquo;Was k&ouml;nnten andere wahrnehmen?&ldquo; &ndash; Feedback als Ressource.'},{t:'Fassade',d:'&bdquo;Was zeigen Sie nicht? W&auml;re mehr Offenheit hilfreich?&ldquo;'},{t:'Ressource',d:'&bdquo;Was w&uuml;rde sich ver&auml;ndern, wenn Ihre Arena gr&ouml;&szlig;er w&auml;re?&ldquo;'}]},
+  glasl:{name:'Eskalationsstufen nach Glasl',phase:'P3 &middot; Konfliktanalyse',color:'p3',
+    desc:'9 Stufen in 3 Ebenen: Win-Win (1&ndash;3), Win-Lose (4&ndash;6), Lose-Lose (7&ndash;9). Orientierung &uuml;ber Schweregrad und Coaching-Eignung.',when:'Phase 3 (Hypothesen) bei Konfliktsituationen. Coaching bis Stufe 4, dar&uuml;ber ggf. Mediation n&ouml;tig.',
+    diagram:'',
+    questions:['Wo auf dieser Skala w&uuml;rden Sie den Konflikt aktuell einordnen?','Was w&auml;re ein Zeichen, dass der Konflikt eine Stufe tiefer gerutscht ist?','Was w&auml;re notwendig, um eine Stufe zu deeskalieren?','Welche Ressourcen haben Sie, um nicht weiter zu eskalieren?'],
+    steps:[{t:'9 Stufen erkl&auml;ren',d:'1&ndash;3: Verh&auml;rtung, Debatte, Taten. 4&ndash;6: Koalitionen, Gesichtsverlust, Drohungen. 7&ndash;9: Vernichtung.'},{t:'Einstufung',d:'&bdquo;Wo w&uuml;rden Sie einordnen? Wo war es vor 3 Monaten?&ldquo;'},{t:'Coaching-Eignung',d:'Stufen 1&ndash;4: Coaching gut. 5&ndash;6: erg&auml;nzend. 7&ndash;9: Coaching allein nicht ausreichend.'},{t:'Ressourcen',d:'&bdquo;Was w&auml;re n&ouml;tig, um eine Stufe tiefer zu kommen?&ldquo;'},{t:'Ma&szlig;nahmen',d:'&rarr; &Uuml;berleitung P4: konkrete Deeskalationsschritte.'}]},
+  konflikt:{name:'Konflikt-Handhabungsstile',phase:'P3/P4 &middot; Ressourcen',color:'p3',
+    desc:'5 Stile (Thomas-Kilmann): Vermeidung, Anpassung, Machteinsatz, Kompromiss, Zusammenarbeit. Im Spannungsfeld Durchsetzungswille vs. Kooperationsbereitschaft.',when:'Phase 3 oder 4 bei Konfliktsituationen. Reflexion des eigenen Stils und Entwicklung neuer Verhaltensoptionen.',
+    diagram:'',
+    questions:['Welcher Stil beschreibt, wie Sie typischerweise in Konflikten reagieren?','Passt Ihr bevorzugter Stil zu dieser Situation und zu Ihrem Ziel?','Welcher andere Stil k&ouml;nnte in dieser Situation hilfreicher sein?','In welchen Situationen ist Ihr Stil ein Vorteil &ndash; wann eher ein Hindernis?'],
+    steps:[{t:'Matrix zeigen',d:'Achsen: Kooperationsbereitschaft (y) vs. Durchsetzungswille (x). 5 Stile einzeichnen.'},{t:'Eigenen Stil',d:'&bdquo;Wo befinden Sie sich typischerweise?&ldquo;'},{t:'Situationscheck',d:'&bdquo;Passt der Stil zu dieser Situation und zu Ihrem Ziel?&ldquo;'},{t:'Alternativen',d:'&bdquo;Welcher andere Stil k&ouml;nnte hilfreicher sein?&ldquo;'},{t:'Ma&szlig;nahmen',d:'&rarr; konkrete Verhaltensalternative in P4 formulieren.'}]},
+  gfk:{name:'Gewaltfreie Kommunikation (Rosenberg)',phase:'P3 &middot; Systemische Ressourcen',color:'p3',
+    desc:'4 Schritte nach Marshall Rosenberg: Beobachtung (ohne Bewertung) &rarr; Gef&uuml;hl &rarr; Bed&uuml;rfnis &rarr; Bitte. F&ouml;rdert Verbindung statt Konfrontation.',when:'Phase 3 (Ressourcen) bei Kommunikations- und Beziehungskonflikten. Phase 5 (Transfer) zur Vorbereitung schwieriger Gespr&auml;che.',
+    diagram:'',
+    questions:['Was haben Sie konkret beobachtet &ndash; ohne Bewertung? (Beobachtung)','Wie f&uuml;hlen Sie sich dabei? (Gef&uuml;hl)','Welches Bed&uuml;rfnis steckt hinter diesem Gef&uuml;hl? (Bed&uuml;rfnis)','Was bitten Sie die andere Person konkret zu tun? (Bitte)','Was brauchen Sie in dieser Beziehung wirklich?'],
+    steps:[{t:'4 Schritte erkl&auml;ren',d:'B-G-B-B: Beobachtung (Fakten), Gef&uuml;hl (Ich-Botschaft), Bed&uuml;rfnis, Bitte (konkret, positiv).'},{t:'Situation analysieren',d:'&bdquo;Was haben Sie konkret beobachtet?&ldquo; Fakten ohne Schuldzuweisung.'},{t:'Gef&uuml;hle benennen',d:'Unterschied: Gef&uuml;hle vs. Gedanken. &bdquo;Ich f&uuml;hle, dass er&hellip;&ldquo; = Gedanke, kein Gef&uuml;hl.'},{t:'Bed&uuml;rfnis erkennen',d:'&bdquo;Welches Bed&uuml;rfnis steckt dahinter?&ldquo; Anerkennung, Sicherheit, Autonomie?'},{t:'Bitte formulieren',d:'Positiv, spezifisch, im Jetzt. &rarr; Als Ma&szlig;nahme oder Gespr&auml;chsvorbereitung.'}]},
+  vierseitenmodell:{name:'4 Seiten einer Nachricht (Schulz von Thun)',phase:'P3 &middot; Kommunikation',color:'p3',
+    desc:'Jede Nachricht hat 4 Seiten: Sachinhalt, Selbstoffenbarung, Beziehungsaspekt, Appell. Der &bdquo;innere Vierohr-Empf&auml;nger&ldquo; h&ouml;rt oft unbewusst nur ein Ohr.',when:'Phase 3 bei Kommunikationsproblemen, Missverst&auml;ndnissen. Wenn Klient auf eine Aussage &uuml;berreagiert oder sich falsch verstanden f&uuml;hlt.',
+    diagram:'',
+    questions:['Was war der Sachinhalt &ndash; die reine Information?','Was hat die andere Person &uuml;ber sich selbst verraten?','Wie hat die andere Person die Beziehung zu Ihnen definiert?','Was wollte sie mit dieser Aussage von Ihnen? (Appell)','Mit welchem Ohr haben Sie zugeh&ouml;rt &ndash; und was w&auml;re, wenn Sie ein anderes gew&auml;hlt h&auml;tten?'],
+    steps:[{t:'4 Seiten erkl&auml;ren',d:'Schnelle Skizze: Sachinhalt, Selbstoffenbarung, Beziehung, Appell.'},{t:'Konkrete Aussage',d:'Klient nennt eine Aussage. F&uuml;r jede Seite: Was k&ouml;nnte gemeint gewesen sein?'},{t:'Ohr identifizieren',d:'&bdquo;Mit welchem Ohr haben Sie geh&ouml;rt?&ldquo; Oft: Beziehungsohr &rarr; f&uuml;hrt zu Verletzungen.'},{t:'Alternativen',d:'&bdquo;Was w&auml;re, wenn Sie sie mit dem Sachohr geh&ouml;rt h&auml;tten?&ldquo;'},{t:'Strategie',d:'&bdquo;Wie reagieren Sie, wenn Sie alle 4 Seiten im Blick haben?&ldquo; &rarr; Ma&szlig;nahme.'}]},
+  stern:{name:'Sternanalyse',phase:'P4 &middot; Handlungsoptionen &amp; Risiko',color:'p4',
+    desc:'Option im Zentrum. Rote Pfeile nach au&szlig;en: Gegenargumente/Risiken. Gr&uuml;ne Pfeile entgegen: Gegenstrategien. Macht Risiken sichtbar und direkt bearbeitbar.',when:'Phase 4 (Risikoanalyse) f&uuml;r ausgew&auml;hlte Handlungsoptionen. Auch Phase 3 f&uuml;r Ressourcen. Nach Disney-Runde besonders wirkungsvoll.',
+    diagram:'',
+    questions:['Welche m&ouml;glichen Risiken oder Gegenargumente sehen Sie f&uuml;r diese Option?','Wie k&ouml;nnte es angesichts dieser Gegenargumente trotzdem gehen?','Wenn dieses Hindernis eintreten w&uuml;rde &ndash; was w&uuml;rden Sie dann tun?','Wie realistisch ist es, dass dieses Risiko tats&auml;chlich eintritt? 1&ndash;10?','Wenn Sie alle Strahlen sehen: Wie stark ist Ihre Zuversicht?'],
+    steps:[{t:'Option ins Zentrum',d:'Klient schreibt die gew&auml;hlte Option in die Mitte.'},{t:'Rote Pfeile',d:'Sternf&ouml;rmig: alle Risiken und Gegenargumente.'},{t:'Gr&uuml;ne Pfeile',d:'F&uuml;r jedes Gegenargument: &bdquo;Wie kann es dennoch gehen?&ldquo;'},{t:'Bewertung',d:'&bdquo;Welche Gegenargumente k&ouml;nnen entkr&auml;ftet werden &ndash; welche nicht?&ldquo;'},{t:'Stimmigkeit',d:'&bdquo;Wie stark ist Ihre Zuversicht?&ldquo; &rarr; Somatischen Marker pr&uuml;fen.'}]},
+  kopfstand:{name:'Kopfstandmethode',phase:'P4 &middot; Handlungsoptionen',color:'p4',
+    desc:'Frageumkehr: &bdquo;Was m&uuml;ssten Sie tun, damit das Problem garantiert schlimmer wird?&ldquo; Durch Umkehrung entstehen kreative L&ouml;sungsideen. Auch als Risikocheck einsetzbar.',when:'Phase 4 wenn Brainstorming zu wenig Kreativit&auml;t bringt oder Klient in Denkmustern feststeckt.',
+    diagram:'',
+    questions:['Was k&ouml;nnten Sie tun, damit Ihre Situation garantiert schlechter wird?','Was w&uuml;rde das Problem maximal verschlimmern?','Wenn Sie das Gegenteil davon tun &ndash; was ergibt sich?','Welche dieser umgekehrten Ideen sind wirklich brauchbar?'],
+    steps:[{t:'Frage umkehren',d:'&bdquo;Was k&ouml;nnten Sie tun, damit Ihre Situation garantiert schlechter wird?&ldquo;'},{t:'Sammeln',d:'Klient generiert mutig. Alles erlaubt. Keine Bewertung.'},{t:'Umkehren',d:'&bdquo;Wenn das die Wege in die falsche Richtung sind &ndash; was ist jeweils das Gegenteil?&ldquo;'},{t:'Filtern',d:'Welche umgekehrten Ideen sind brauchbar? Klient markiert.'},{t:'Ma&szlig;nahmen',d:'Brauchbare Ideen als Input f&uuml;r 4.2.'}]},
+  disney:{name:'Walt Disney Methode',phase:'P4 &middot; Handlungsoptionen',color:'p4',
+    desc:'3 Perspektiven sequenziell: Tr&auml;umer (alles ist m&ouml;glich), Realist (was ist machbar?), Kritiker (was k&ouml;nnte scheitern?). Verhindert fr&uuml;hzeitige Selbstzensur.',when:'Phase 4 (Handlungsoptionen) wenn Klient zu fr&uuml;h Ideen abbremst.',
+    diagram:'',
+    questions:['Was w&auml;re, wenn alles m&ouml;glich w&auml;re? (Tr&auml;umer)','Was davon ist wirklich machbar? (Realist)','Was k&ouml;nnte schief gehen? (Kritiker &ndash; verbessert, bremst nicht)','Was nehmen Sie aus allen drei Perspektiven mit?'],
+    steps:[{t:'3 Positionen',d:'3 physische Positionen oder Karten. Klare Trennung der Rollen.'},{t:'Tr&auml;umer',d:'&bdquo;Was w&auml;re, wenn alles m&ouml;glich w&auml;re?&ldquo; Keine Bewertung.'},{t:'Realist',d:'&bdquo;Was davon ist wirklich machbar?&ldquo; Tr&auml;umer-Ideen filtern.'},{t:'Kritiker',d:'&bdquo;Was k&ouml;nnte schief gehen?&ldquo; Kritiker verbessert &ndash; er bremst nicht aus.'},{t:'Synthese',d:'&bdquo;Was nehmen Sie mit?&ldquo; &rarr; Verfeinerte Optionen f&uuml;r 4.2.'}]},
+  tetralemma:{name:'Tetralemma (Systemische Aufstellung)',phase:'P3/P4 &middot; Entscheidung',color:'p4',
+    desc:'5 Positionen als Bodenanker: Das Eine (A), Das Andere (B), Beides, Keines, Dies nicht und auch das nicht. Arbeit mit somatischen Markern statt Ratio.',when:'Phase 3 oder 4 bei komplexen Entscheidungsdilemmas. Wenn Klient glaubt, alle Optionen durchdacht zu haben und trotzdem nicht entscheiden kann.',
+    diagram:'<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:210px">   <line x1="160" y1="40" x2="160" y2="180" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>   <line x1="40" y1="110" x2="280" y2="110" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>   <circle cx="160" cy="40" r="28" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="2"/>   <circle cx="160" cy="180" r="28" fill="#e6f0f3" stroke="#2d5a6b" stroke-width="2"/>   <circle cx="40" cy="110" r="28" fill="#edeaf5" stroke="#4a3f6b" stroke-width="2"/>   <circle cx="280" cy="110" r="28" fill="#f5ede3" stroke="#8b5e2a" stroke-width="2"/>   <circle cx="290" cy="30" r="22" fill="#e6eaee" stroke="#3a4a5a" stroke-width="2" stroke-dasharray="4,2"/>   <text x="160" y="38" text-anchor="middle" font-size="8" fill="#4a6b3a" font-weight="bold">Das Eine</text>   <text x="160" y="50" text-anchor="middle" font-size="7" fill="#555">(Option A)</text>   <text x="160" y="178" text-anchor="middle" font-size="8" fill="#2d5a6b" font-weight="bold">Das Andere</text>   <text x="160" y="190" text-anchor="middle" font-size="7" fill="#555">(Option B)</text>   <text x="40" y="108" text-anchor="middle" font-size="8" fill="#4a3f6b" font-weight="bold">Beides</text>   <text x="40" y="120" text-anchor="middle" font-size="7" fill="#555">A + B</text>   <text x="280" y="108" text-anchor="middle" font-size="8" fill="#8b5e2a" font-weight="bold">Keines</text>   <text x="280" y="120" text-anchor="middle" font-size="7" fill="#555">Weder A noch B</text>   <text x="290" y="28" text-anchor="middle" font-size="7" fill="#3a4a5a" font-weight="bold">Dies nicht</text>   <text x="290" y="38" text-anchor="middle" font-size="7" fill="#3a4a5a">auch das nicht</text> </svg>',
+    questions:['Welche zwei Optionen besch&auml;ftigen Sie? Das Eine und das Andere?','Wie f&uuml;hlt es sich an, auf der Position von Option A zu stehen? (k&ouml;rperlich!)','Und wie auf der Position von Option B?','Was passiert, wenn Sie sich vorstellen: Beides ist m&ouml;glich &ndash; A UND B?','Auf welcher Position haben Sie die st&auml;rkste K&ouml;rperreaktion gesp&uuml;rt?'],
+    steps:[{t:'5 Positionen',d:'5 Moderationskarten als Bodenanker: Das Eine, Das Andere, Beides, Keines, Dies nicht &amp; das nicht.'},{t:'Optionen benennen',d:'An Position &bdquo;Das Eine&ldquo;: &bdquo;Was genau ist Option A? Was Option B?&ldquo;'},{t:'Durchlaufen',d:'Klient steht nacheinander auf jeder Karte. Nur K&ouml;rpergef&uuml;hl &ndash; keine rationalen Gedanken.'},{t:'K&ouml;rperreaktionen',d:'&bdquo;Auf welcher Position st&auml;rkste Energie?&ldquo; &ndash; weiterf&uuml;hrende systemische Fragen.'},{t:'Auswertung',d:'Position 5 mit h&ouml;chster Energie &rarr; ggf. Visionscoaching anschlie&szlig;en.'}]},
+  eisenhower:{name:'Eisenhower-Prinzip',phase:'P4 &middot; Ma&szlig;nahmenpriorisierung',color:'p4',
+    desc:'A: wichtig + dringend (sofort), B: wichtig + nicht dringend (terminieren), C: dringend + unwichtig (delegieren), D: weder noch (eliminieren). Quadrant B ist strategisch am wertvollsten.',when:'Phase 4 (Ma&szlig;nahmenplanung) wenn Klient viele Ma&szlig;nahmen hat. Auch bei Selbst- und Zeitmanagement-Themen.',
+    diagram:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:190px">   <rect x="10" y="10" width="130" height="85" fill="#e6f0f3" stroke="#2d5a6b" stroke-width="1.5" rx="3"/>   <rect x="155" y="10" width="135" height="85" fill="#eaf0e6" stroke="#4a6b3a" stroke-width="1.5" rx="3"/>   <rect x="10" y="110" width="130" height="82" fill="#f5ede3" stroke="#8b5e2a" stroke-width="1.5" rx="3"/>   <rect x="155" y="110" width="135" height="82" fill="#ebebeb" stroke="#aaa" stroke-width="1.5" rx="3"/>   <text x="75" y="40" text-anchor="middle" font-size="9" fill="#2d5a6b" font-weight="bold">A: Sofort selbst tun</text>   <text x="75" y="54" text-anchor="middle" font-size="8" fill="#555">Wichtig + Dringend</text>   <text x="222" y="40" text-anchor="middle" font-size="9" fill="#4a6b3a" font-weight="bold">B: Terminieren</text>   <text x="222" y="54" text-anchor="middle" font-size="8" fill="#555">Wichtig + nicht dringend</text>   <text x="75" y="140" text-anchor="middle" font-size="9" fill="#8b5e2a" font-weight="bold">C: Delegieren</text>   <text x="75" y="154" text-anchor="middle" font-size="8" fill="#555">Dringend + unwichtig</text>   <text x="222" y="140" text-anchor="middle" font-size="9" fill="#888" font-weight="bold">D: Eliminieren</text>   <text x="222" y="154" text-anchor="middle" font-size="8" fill="#888">Weder noch</text> </svg>',
+    questions:['Welche Ma&szlig;nahme ist wirklich wichtig UND dringend?','Was ist wichtig, aber noch nicht dringend &ndash; und wird deshalb aufgeschoben?','Was k&ouml;nnen Sie delegieren?','Was k&ouml;nnten Sie ganz streichen?'],
+    steps:[{t:'Matrix aufzeichnen',d:'4 Felder: y=Wichtigkeit, x=Dringlichkeit. Klient beschriftet.'},{t:'Einordnen',d:'Jede Ma&szlig;nahme auf Zettel &rarr; Klient platziert. Coach beobachtet.'},{t:'Muster',d:'&bdquo;Was &uuml;berrascht Sie? Zu viel im C-Feld?&ldquo;'},{t:'Priorit&auml;t B',d:'&bdquo;Quadrant B ist strategisch am wertvollsten &ndash; und wird am meisten aufgeschoben.&ldquo;'},{t:'N&auml;chster Schritt',d:'&bdquo;Was ist die eine Ma&szlig;nahme, die Sie als erstes angehen?&ldquo; &rarr; Datum.'}]},
+  reframing:{name:'Reframing (Umdeutung)',phase:'P4 &middot; Handlungsoptionen',color:'p4',
+    desc:'Ver&auml;nderung des Deutungsrahmens: Dieselbe Situation, andere Bedeutung oder anderer Kontext. &Ouml;ffnet neue Handlungsm&ouml;glichkeiten ohne die Realit&auml;t zu ver&auml;ndern.',when:'Phase 4 wenn Klient feststeckt weil er eine Situation ausschlie&szlig;lich negativ bewertet. Auch spontane Intervention in allen Phasen.',
+    diagram:'',
+    questions:['Was ist das Positive an diesem vermeintlich negativen Merkmal?','In welchem anderen Kontext w&auml;re genau dieses Verhalten eine St&auml;rke?','Wenn Sie das nicht als Problem, sondern als Ressource sehen &ndash; was wird dann m&ouml;glich?','Was w&uuml;rde jemand, der Sie mag, &uuml;ber diese Eigenschaft sagen?'],
+    steps:[{t:'Negative Rahmung',d:'Klient beschreibt Situation ausschlie&szlig;lich negativ.'},{t:'Kontext-Reframing',d:'&bdquo;In welchem anderen Kontext w&auml;re das eine St&auml;rke?&ldquo;'},{t:'Bedeutungs-Reframing',d:'&bdquo;Welche andere Bedeutung k&ouml;nnte diese Situation haben?&ldquo;'},{t:'Resonanz',d:'&bdquo;Wie f&uuml;hlt sich dieser andere Rahmen an?&ldquo; Klient entscheidet.'},{t:'Ressource',d:'&bdquo;Was wird jetzt m&ouml;glich?&ldquo; &rarr; Handlungsoptionen.'}]},
+  somatisch:{name:'Somatische Marker',phase:'P4/P5 &middot; Stimmigkeitscheck',color:'p5',
+    desc:'K&ouml;rpersignale als Entscheidungs- und Stimmigkeitshilfe (nach Damasio). Positiv (Weitung, Energie, Leichtigkeit) = Resonanz. Negativ (Enge, Druck, Schwere) = innerer Einwand.',when:'Phase 4 (Ma&szlig;nahmencheck) und Phase 5 (Controlling). Wenn kognitive Analyse allein nicht ausreicht oder Klient z&ouml;gert.',
+    diagram:'',
+    questions:['Wenn Sie das so sehen: Was sp&uuml;ren Sie in Ihrem K&ouml;rper?','Wo im K&ouml;rper sp&uuml;ren Sie etwas &ndash; wenn Sie an diese Ma&szlig;nahme denken?','Wie w&uuml;rde sich Stimmigkeit anf&uuml;hlen &ndash; und ist das hier der Fall?','Der K&ouml;rper meldet sich. Was sagt er Ihnen?'],
+    steps:[{t:'Fokus schaffen',d:'Klient schaut auf Ma&szlig;nahme. Kurze Pause. Stille aushalten.'},{t:'Abfragen',d:'&bdquo;Wenn Sie das so sehen: Was sp&uuml;ren Sie in Ihrem K&ouml;rper?&ldquo;'},{t:'Marker interpretieren',d:'Positiv (Leichtigkeit) &rarr; stimmig. Negativ (Enge) &rarr; etwas stimmt nicht.'},{t:'Negativer Marker',d:'&bdquo;Was genau f&uuml;hlt sich nicht stimmig an?&ldquo; Erst benennen, dann ggf. zur&uuml;ck zu P4.'},{t:'Abschluss',d:'Positiven Marker als Referenzgef&uuml;hl bewusst verankern.'}]},
+  dialog:{name:'Konstruktiver Dialog (5-Schritt)',phase:'P5 &middot; Transfer &amp; Verankerung',color:'p5',
+    desc:'5 Schritte f&uuml;r schwierige Gespr&auml;che: Situationsbeschreibung (Fakten, ohne Wertung) &rarr; Auswirkung &rarr; Eigene Empfindung &rarr; &Ouml;ffnende Frage &rarr; Sachliches Thema.',when:'Phase 5 (Transfer) wenn eine der Ma&szlig;nahmen ein schwieriges Gespr&auml;ch beinhaltet. Auch in Phase 4 zur Ma&szlig;nahmenformulierung.',
+    diagram:'',
+    questions:['Was genau haben Sie beobachtet &ndash; faktisch, ohne Bewertung?','Was sind die konkreten Auswirkungen f&uuml;r Sie?','Wie f&uuml;hlen Sie sich dabei? (Ich-Botschaft)','Wie sieht die andere Person das? (echtes Interesse)','Was k&ouml;nnen wir gemeinsam tun?'],
+    steps:[{t:'Situationsbeschreibung',d:'&bdquo;Ich habe wahrgenommen, dass&hellip;&ldquo; &ndash; Fakten, kein &bdquo;Du immer&hellip;&ldquo;'},{t:'Auswirkung',d:'&bdquo;Das hat f&uuml;r mich / das Projekt folgende Konsequenz:&hellip;&ldquo;'},{t:'Gef&uuml;hl',d:'&bdquo;Dabei f&uuml;hle ich&hellip;&ldquo; &ndash; Ich-Botschaft, kein verkleideter Vorwurf.'},{t:'&Ouml;ffnende Frage',d:'&bdquo;Wie siehst du das?&ldquo; &ndash; echtes Interesse, aktiv zuh&ouml;ren.'},{t:'L&ouml;sung',d:'&bdquo;Was k&ouml;nnen wir gemeinsam tun?&ldquo; &rarr; zur&uuml;ck zum sachlichen Thema.'}]},
 };
 
-// ─── RENDERING ───────────────────────────────────────────────
-const PC = {p1:'--p1',p2:'--p2',p3:'--p3',p4:'--p4',p5:'--p5'};
 
 function renderMethodIndex(){
-  const grid = document.getElementById('mxgrid');
-  grid.innerHTML = Object.entries(METHODS).map(([id,m])=>{
-    const c = m.color;
-    const bg = `var(--${c}l)`;
-    const col = `var(--${c})`;
-    return `<div class="mx-card" onclick="openMethod('${id}')">
-      <span class="mx-badge" style="background:${bg};color:${col}">${m.phase}</span>
-      <h3>${m.name}</h3>
-      <p>${m.desc.substring(0,80)}…</p>
-    </div>`;
+  const grid=document.getElementById('mxgrid');
+  grid.innerHTML=CATS.map(cat=>{
+    const cards=cat.ids.map(id=>{
+      const m=METHODS[id];if(!m)return'';
+      const c=`var(--${m.color})`,cl=`var(--${m.color}l)`;
+      return `<div class="mxc" onclick="openMethod('${id}')">
+        <span class="mxbadge" style="background:${cl};color:${c}">${m.phase}</span>
+        <h3>${m.name}</h3>
+        <p>${m.desc.substring(0,72)}&hellip;</p>
+      </div>`;
+    }).join('');
+    return `<div class="mx-cat">${cat.label}</div><div class="mx-grid">${cards}</div>`;
   }).join('');
 }
 
 function openMethod(id){
-  const m = METHODS[id];
-  if(!m) return;
-  const c = m.color;
-  const col = `var(--${c})`;
-  const bg = `var(--${c}l)`;
-  document.getElementById('dbadge').textContent = m.phase;
-  document.getElementById('dbadge').style.color = col;
-  document.getElementById('dtitle').textContent = m.name;
-  const stepsHtml = m.steps.map((s,i)=>`
+  const m=METHODS[id];if(!m)return;
+  const c=`var(--${m.color})`,cl=`var(--${m.color}l)`;
+  document.getElementById('dbadge').textContent=m.phase;
+  document.getElementById('dbadge').style.color=c;
+  document.getElementById('dtitle').textContent=m.name;
+  const stepsHtml=m.steps.map((s,i)=>`
     <div class="ds">
-      <div class="dsn" style="background:${bg};color:${col}">${i+1}</div>
-      <div class="dst"><strong>${s.t}</strong>${s.d}</div>
+      <div class="dsn" style="background:${cl};color:${c}">${i+1}</div>
+      <div class="dst"><strong>${s.t}</strong> ${s.d}</div>
     </div>`).join('');
-  document.getElementById('dbody').innerHTML = `
-    <div class="d-section">
-      <h3>Was ist das?</h3>
-      <p>${m.desc}</p>
-    </div>
-    <div class="d-section">
-      <h3>Wann einsetzen?</h3>
-      <p>${m.when}</p>
-    </div>
-    <div class="d-section">
-      <h3>Rezept</h3>
-      <div class="d-steps">${stepsHtml}</div>
-    </div>`;
+  const qHtml=m.questions&&m.questions.length?
+    `<div class="dsec"><h3>Beispielfragen</h3><div class="eq">${
+      m.questions.map(q=>`<p>${q}</p>`).join('')
+    }</div></div>`:'';
+  const diagHtml=m.diagram?
+    `<div class="dsec"><h3>Visualisierung</h3><div class="diagram">${m.diagram}</div></div>`:'';
+  document.getElementById('dbody').innerHTML=`
+    <div class="dsec"><h3>Was ist das?</h3><p>${m.desc}</p></div>
+    <div class="dsec"><h3>Wann einsetzen?</h3><p>${m.when}</p></div>
+    ${diagHtml}
+    ${qHtml}
+    <div class="dsec"><h3>Rezept</h3><div class="dsteps">${stepsHtml}</div></div>`;
   document.getElementById('overlay').classList.add('open');
 }
-
 function closeDrawer(){document.getElementById('overlay').classList.remove('open')}
-function closeOverlay(e){if(e.target===document.getElementById('overlay'))closeDrawer()}
+function closeOv(e){if(e.target===document.getElementById('overlay'))closeDrawer()}
 
-// ─── PHASE SWITCHING ────────────────────────────────────────
-const tabs = document.querySelectorAll('.tab');
-const panels = document.querySelectorAll('.panel');
-const actCls = ['act-p1','act-p2','act-p3','act-p4','act-p5','act-mx'];
-
+const TABS=document.querySelectorAll('.tab');
+const PANELS=document.querySelectorAll('.panel');
+const ACLS=['a1','a2','a3','a4','a5','a6'];
 function showPhase(n){
-  panels.forEach((p,i)=>p.classList.toggle('vis',i===n-1));
-  tabs.forEach((t,i)=>{
-    t.classList.remove(...actCls);
-    if(i===n-1) t.classList.add(actCls[n-1]);
-  });
-  if(n===6) renderMethodIndex();
+  PANELS.forEach((p,i)=>p.classList.toggle('vis',i===n-1));
+  TABS.forEach((t,i)=>{t.classList.remove(...ACLS);if(i===n-1)t.classList.add(ACLS[n-1]);});
+  if(n===6)renderMethodIndex();
 }
-
-// ─── CHECKBOXES ──────────────────────────────────────────────
 document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
   const k='cb_'+cb.id;
-  if(sessionStorage.getItem(k)==='1') cb.checked=true;
+  if(sessionStorage.getItem(k)==='1')cb.checked=true;
   cb.addEventListener('change',()=>sessionStorage.setItem(k,cb.checked?'1':'0'));
 });
 </script>
